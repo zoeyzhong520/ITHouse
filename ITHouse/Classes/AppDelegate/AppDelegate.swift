@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ///设置根视图
     fileprivate func setRootVC() {
         window = UIWindow(frame: SCREEN_RECT)
-        window?.rootViewController = UserDefaultsTool.token() == "" ? BaseNavigationViewController(rootViewController: LoginViewController()) : MainTabBarViewController()
+        window?.rootViewController = MainTabBarViewController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
@@ -50,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fontSizeScale()
         
         setRootVC()
+        
+        SVProgressHUD.setMinimumDismissTimeInterval(1.0)
         
         return true
     }

@@ -19,4 +19,9 @@ extension String {
     static var tokenKey: String {
         return "tokenKey"
     }
+    
+    ///根据文本获取宽度
+    func textWidth(font: UIFont) -> CGFloat {
+        return (self as NSString).size(withAttributes: [NSAttributedString.Key.font : font]).width + 2
+    }
 }

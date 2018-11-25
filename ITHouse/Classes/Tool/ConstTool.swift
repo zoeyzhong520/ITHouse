@@ -15,11 +15,11 @@ let SCREEN_WIDTH = SCREEN_RECT.size.width
 ///屏幕高度
 let SCREEN_HEIGHT = SCREEN_RECT.size.height
 ///导航栏高度
-let NAVIGATIONBAR_HEIGHt = CGFloat(44.0)
+let NAVIGATIONBAR_HEIGHT = CGFloat(44.0)
 ///状态栏高度
 let STATUSBAR_HEIGHT = UIApplication.shared.statusBarFrame.size.height
 ///不包含导航栏的内容尺寸
-let CONTENT_HEIGHT = SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHt
+let CONTENT_HEIGHT = SCREEN_HEIGHT - STATUSBAR_HEIGHT - NAVIGATIONBAR_HEIGHT
 
 //MARK: - 判断设备
 ///是否iPad设备
@@ -49,7 +49,7 @@ let iPhoneXR = IS_IPHONE && SCREEN_MAX_LENGTH == 896.0
 ///是否iPhoneXsMax
 let iPhoneXsMax = IS_IPHONE && SCREEN_MAX_LENGTH == 896.0
 ///Tab栏高度
-let TAB_HEIGHT = iPhoneXs || iPhoneXR || iPhoneXsMax ? 83.0 : 49.0
+let TAB_HEIGHT = iPhoneXs || iPhoneXR || iPhoneXsMax ? CGFloat(83.0) : CGFloat(49.0)
 
 
 //MARK: - 适配尺寸
@@ -81,6 +81,9 @@ let RGB: (CGFloat, CGFloat, CGFloat) -> UIColor = { r,g,b in
 let HexColor: (UInt32) -> UIColor = { value in
     return RGB((CGFloat((value & 0xFF0000) >> 16)),(CGFloat((value & 0xFF00) >> 8)),(CGFloat(value & 0xFF)))
 }
+///随机颜色
+let RandomColor = RGB(CGFloat(arc4random()%256),CGFloat(arc4random()%256),CGFloat(arc4random()%256))
+
 
 
 

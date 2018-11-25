@@ -10,21 +10,43 @@ import UIKit
 
 class NewsViewController: BaseViewController {
 
+    ///TopScrollingMenuVC对象
+    fileprivate lazy var topScrollingMenuVC: TopScrollingMenuViewController = {
+        let menuVC = TopScrollingMenuViewController()
+        for i in 0..<20 {
+            let vc = UIViewController()
+            vc.view.backgroundColor = .white
+            menuVC.dataSource.add(vc)
+            menuVC.titles.append("\(i*100)")
+        }
+        return menuVC
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        createUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    ///UI
+    fileprivate func createUI() {
+        addChild(topScrollingMenuVC)
+        view.addSubview(topScrollingMenuVC.view)
+        
+        let addItem = UIBarButtonItem(image: UIImage.addImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(addClick))
+        let searchItem = UIBarButtonItem(image: UIImage.searchImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchClick))
+        let calendarItem = UIBarButtonItem(image: UIImage.calendarImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(calendarClick))
+        navigationItem.rightBarButtonItems = [addItem,searchItem,calendarItem]
     }
-    */
-
+    
+    @objc fileprivate func addClick() {
+        
+    }
+    
+    @objc fileprivate func searchClick() {
+        
+    }
+    
+    @objc fileprivate func calendarClick() {
+        
+    }
 }

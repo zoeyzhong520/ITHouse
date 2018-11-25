@@ -80,7 +80,7 @@ class LoginViewController: BaseViewController {
         logoImageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: ITHouseScale(44), height: ITHouseScale(44)))
-            make.top.equalTo(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHt + ITHouseScale(44))
+            make.top.equalTo(STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + ITHouseScale(44))
         }
         
         accountTF.snp.makeConstraints { (make) in
@@ -126,12 +126,11 @@ class LoginViewController: BaseViewController {
     
     @objc fileprivate func login() {
         UserDefaultsTool.setToken(token: accountTF.text! + passwordTF.text!)
-        (UIApplication.shared.delegate as! AppDelegate).window?.rootViewController = MainTabBarViewController()
     }
     
     @objc fileprivate func textEditing() {
         if let account = accountTF.text, let password = passwordTF.text {
-            loginBtn.backgroundColor = account.count > 0 && password.count > 0 ? UIColor.magenta : UIColor.lightGray
+            loginBtn.backgroundColor = account.count > 0 && password.count > 0 ? UIColor.mainColor : UIColor.grayTextColor
             loginBtn.isUserInteractionEnabled = account.count > 0 && password.count > 0 ? true : false
         } else {
             loginBtn.backgroundColor = UIColor.grayTextColor

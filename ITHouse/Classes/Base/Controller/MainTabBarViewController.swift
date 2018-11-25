@@ -21,7 +21,7 @@ class MainTabBarViewController: UITabBarController {
             let vc = t_class.init()
             
             if index != tabArray.count - 1 {
-                let leftBarButtonItem = UIBarButtonItem(title: obj["title"]!, style: .plain, target: nil, action: nil)
+                let leftBarButtonItem = UIBarButtonItem(title: index == 0 ? "ITHouse" : obj["title"]!, style: .plain, target: nil, action: nil)
                 leftBarButtonItem.tintColor = UIColor.mainColor
                 vc.navigationItem.leftBarButtonItem = leftBarButtonItem
             }

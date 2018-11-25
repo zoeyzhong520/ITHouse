@@ -34,4 +34,19 @@ extension UIImage {
     static var secureEntryImg: UIImage? {
         return UIImage(named: "secureEntryImg")
     }
+    
+    ///添加图标
+    static var addImg: UIImage? {
+        return UIImage(named: "addImg")
+    }
+    
+    ///日历图标
+    static var calendarImg: UIImage? {
+        return UIImage(named: "calendarImg")
+    }
+    
+    ///搜索图标
+    static var searchImg: UIImage? {
+        return UIImage(named: "searchImg")
+    }
 }

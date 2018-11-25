@@ -1,20 +1,24 @@
 PODS:
   - MJExtension (3.0.15.1)
   - SnapKit (4.0.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - MJExtension
   - SnapKit (~> 4.0.0)
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - MJExtension
     - SnapKit
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: b52b8bdc305e8a5b612df96c9dbb7bd2a55eb212
+PODFILE CHECKSUM: 446a6f5f457c3d0b349553ff171d560d69a015c9
 
 COCOAPODS: 1.5.3

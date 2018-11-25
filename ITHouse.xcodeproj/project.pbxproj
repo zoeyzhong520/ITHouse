@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		BCA1DAEE5A87F79493ED5458 /* Pods_ITHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4260308DE286E17A4587826 /* Pods_ITHouse.framework */; };
+		D8327EDC21AAE02200794C6A /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */; };
+		D8327EDE21AAED5600794C6A /* TopScrollingMenuSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */; };
+		D8327EE021AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */; };
+		D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EE121AAF28600794C6A /* UILabel+Extension.swift */; };
 		D85C15F521A8F59E0033BFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85C15F321A8F59E0033BFCA /* Main.storyboard */; };
 		D85C15F721A8F5A00033BFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C15F621A8F5A00033BFCA /* Assets.xcassets */; };
 		D85C15FA21A8F5A00033BFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85C15F821A8F5A00033BFCA /* LaunchScreen.storyboard */; };
@@ -59,6 +63,10 @@
 		658DEA62CA79597B037C0F69 /* Pods-ITHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.release.xcconfig"; sourceTree = "<group>"; };
 		6DE7B24D2D14693B4308E6FE /* Pods-ITHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		C4260308DE286E17A4587826 /* Pods_ITHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
+		D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentView.swift; sourceTree = "<group>"; };
+		D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentCell.swift; sourceTree = "<group>"; };
+		D8327EE121AAF28600794C6A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		D85C15EC21A8F59E0033BFCA /* ITHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85C15F421A8F59E0033BFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D85C15F621A8F5A00033BFCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +144,16 @@
 				658DEA62CA79597B037C0F69 /* Pods-ITHouse.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D8327EDA21AADDFD00794C6A /* TopScrollingMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */,
+				D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */,
+				D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */,
+			);
+			path = TopScrollingMenu;
 			sourceTree = "<group>";
 		};
 		D85C15E321A8F59E0033BFCA = {
@@ -236,6 +254,7 @@
 				D8729C2F21A9A3D90013AC0A /* UIViewController+Extension.swift */,
 				D8729C3521AA46E50013AC0A /* UIImageView+Extension.swift */,
 				D8729C3721AA4AF50013AC0A /* UIButton+Extension.swift */,
+				D8327EE121AAF28600794C6A /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,6 +343,7 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				D8327EDA21AADDFD00794C6A /* TopScrollingMenu */,
 				D85C163C21A8FBFE0033BFCA /* ConstTool.swift */,
 				D8729C1A21A91ED00013AC0A /* DebugPrintTool.swift */,
 				D8729C3921AA50750013AC0A /* UserDefaultsTool.swift */,
@@ -517,6 +537,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -524,6 +545,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,8 +562,10 @@
 			files = (
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
+				D8327EE021AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
 				D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */,
+				D8327EDC21AAE02200794C6A /* TopScrollingMenuViewController.swift in Sources */,
 				D8729C2E21A999F50013AC0A /* String+Extension.swift in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
 				D8729C1F21A977990013AC0A /* UIImage+Extension.swift in Sources */,
@@ -552,6 +576,8 @@
 				D8729C3021A9A3D90013AC0A /* UIViewController+Extension.swift in Sources */,
 				D8729C2A21A98A340013AC0A /* UITableView+Extension.swift in Sources */,
 				D8729C1B21A91ED00013AC0A /* DebugPrintTool.swift in Sources */,
+				D8327EDE21AAED5600794C6A /* TopScrollingMenuSegmentView.swift in Sources */,
+				D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */,
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,

@@ -5,4 +5,5 @@ use_frameworks!
 target 'ITHouse' do
    pod 'SnapKit', '~> 4.0.0'
    pod 'MJExtension'
+   pod 'SVProgressHUD'
 end
