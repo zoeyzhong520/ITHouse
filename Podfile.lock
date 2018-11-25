@@ -1,0 +1,20 @@
+PODS:
+  - MJExtension (3.0.15.1)
+  - SnapKit (4.0.1)
+
+DEPENDENCIES:
+  - MJExtension
+  - SnapKit (~> 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MJExtension
+    - SnapKit
+
+SPEC CHECKSUMS:
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+
+PODFILE CHECKSUM: b52b8bdc305e8a5b612df96c9dbb7bd2a55eb212
+
+COCOAPODS: 1.5.3
