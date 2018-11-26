@@ -141,13 +141,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		36F57A3E21ABBDD800A6CC9C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		36F57A4021ABC1BE00A6CC9C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				D85C161F21A8FADD0033BFCA /* Controller */,
-				36F57A3E21ABBDD800A6CC9C /* View */,
 			);
 			path = "News资讯";
 			sourceTree = "<group>";

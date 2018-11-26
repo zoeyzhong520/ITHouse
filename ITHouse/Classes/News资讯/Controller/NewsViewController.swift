@@ -15,7 +15,7 @@ class NewsViewController: BaseViewController {
         let menuVC = TopScrollingMenuViewController()
         for i in 0..<20 {
             let vc = UIViewController()
-            vc.view.backgroundColor = i%2 == 0 ? .yellow : .green
+//            vc.view.backgroundColor = i%2 == 0 ? .yellow : .green
             menuVC.dataSource.add(vc)
             menuVC.titles.append("\(i*100+100)")
         }

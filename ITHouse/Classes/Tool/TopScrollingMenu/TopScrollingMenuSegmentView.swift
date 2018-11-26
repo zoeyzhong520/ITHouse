@@ -119,6 +119,9 @@ class TopScrollingMenuSegmentView: UIView {
             self.coverImageView.transform = !button.isSelected ? CGAffineTransform.identity.rotated(by: -CGFloat(Double.pi)) : CGAffineTransform.identity
         }) { (finished) in
             let columnView = TopScrollingMenuColumnView()
+            for i in 0..<20 {
+                columnView.dataSource.append("\(i*100+1000)")
+            }
             columnView.show()
         }
     }
