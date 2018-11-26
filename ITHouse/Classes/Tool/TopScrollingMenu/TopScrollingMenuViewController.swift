@@ -10,7 +10,7 @@ import UIKit
 
 class TopScrollingMenuViewController: UIViewController {
 
-    ///数据源
+    ///数据源（UIViewController数组）
     var dataSource = NSMutableArray()
     ///标题数组
     var titles = [String]()
@@ -33,6 +33,7 @@ class TopScrollingMenuViewController: UIViewController {
         for text in self.titles {
             view.itemWidths.append(text.textWidth(font: UIFont.navTitleFont))
         }
+        view.delegate = self
         DLog("itemWidths: \(view.itemWidths)")
         return view
     }()
@@ -88,7 +89,23 @@ extension TopScrollingMenuViewController:UIPageViewControllerDelegate,UIPageView
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         DLog("completed: \(completed)")
         if completed {
+            //设置segmentView的item与pageViewController联动
+            segmentView.selectedIndex = currentIndex
             DLog("currentIndex: \(currentIndex)")
         }
+    }
+}
+
+extension TopScrollingMenuViewController:TopScrollingMenuSegmentViewDelegate {
+    
+    ///选中segmentView中某个item
+    func segmentView(segmentView: TopScrollingMenuSegmentView, selectedIndex: Int) {
+        let vc = dataSource.object(at: selectedIndex) as! UIViewController
+        if selectedIndex > currentIndex {
+            pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+        } else {
+            pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+        }
+        currentIndex = selectedIndex
     }
 }

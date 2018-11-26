@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
+		36F57A4A21ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */; };
 		BCA1DAEE5A87F79493ED5458 /* Pods_ITHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4260308DE286E17A4587826 /* Pods_ITHouse.framework */; };
 		D8327EDC21AAE02200794C6A /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */; };
 		D8327EDE21AAED5600794C6A /* TopScrollingMenuSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
+		36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
 		658DEA62CA79597B037C0F69 /* Pods-ITHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.release.xcconfig"; sourceTree = "<group>"; };
 		6DE7B24D2D14693B4308E6FE /* Pods-ITHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		C4260308DE286E17A4587826 /* Pods_ITHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +141,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		36F57A3E21ABBDD800A6CC9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36F57A4021ABC1BE00A6CC9C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				36F57A4321ABC55700A6CC9C /* downArrowImg.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		4B6B3863DBED9E05EE26D71A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,9 +168,11 @@
 		D8327EDA21AADDFD00794C6A /* TopScrollingMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36F57A4021ABC1BE00A6CC9C /* Images */,
 				D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */,
 				D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */,
 				D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */,
+				36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */,
 			);
 			path = TopScrollingMenu;
 			sourceTree = "<group>";
@@ -218,7 +239,6 @@
 				D85C162321A8FADD0033BFCA /* Circle圈子 */,
 				D85C162521A8FADD0033BFCA /* Profile我 */,
 				D85C162021A8FADD0033BFCA /* Extension */,
-				D85C162721A8FADD0033BFCA /* Lib */,
 				D85C162821A8FADD0033BFCA /* AppDelegate */,
 				D85C162A21A8FADD0033BFCA /* Base */,
 				D85C162C21A8FADD0033BFCA /* Tool */,
@@ -230,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				D85C161F21A8FADD0033BFCA /* Controller */,
+				36F57A3E21ABBDD800A6CC9C /* View */,
 			);
 			path = "News资讯";
 			sourceTree = "<group>";
@@ -305,13 +326,6 @@
 				D85C163621A8FB5C0033BFCA /* ProfileViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		D85C162721A8FADD0033BFCA /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Lib;
 			sourceTree = "<group>";
 		};
 		D85C162821A8FADD0033BFCA /* AppDelegate */ = {
@@ -485,6 +499,7 @@
 				D85C15FA21A8F5A00033BFCA /* LaunchScreen.storyboard in Resources */,
 				D85C15F721A8F5A00033BFCA /* Assets.xcassets in Resources */,
 				D85C15F521A8F59E0033BFCA /* Main.storyboard in Resources */,
+				36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +577,7 @@
 			files = (
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
+				36F57A4A21ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
 				D8327EE021AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
 				D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */,

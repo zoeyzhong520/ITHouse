@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ///根据屏幕尺寸获取缩放比例
     fileprivate func fontSizeScale() {
+        DLog("iPhone7P: \(iPhone7P)")
         if iPhone7P || iPhoneXR || iPhoneXsMax {
             fontSize = 1.1
         } else if iPhone7 || iPhoneXs {

@@ -21,7 +21,12 @@ class TopScrollingMenuSegmentCell: UICollectionViewCell {
     var isItemSelected: Bool? {
         didSet {
             textLabel.textColor = isItemSelected == true ? UIColor.mainColor : UIColor.blackTextColor
-            bottomLine.isHidden = isItemSelected == true ? false : true
+            self.bottomLine.isHidden = self.isItemSelected == true ? false : true
+            UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
+                self.bottomLine.alpha = self.isItemSelected == true ? 1.0 : 0.0
+            }) { (finished) in
+                
+            }
         }
     }
     

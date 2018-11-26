@@ -8,8 +8,8 @@
 
 import UIKit
 
-func DLog<T>(_ item: T) {
+func DLog<T>(_ item: T, file: String = #file, line: Int = #line) {
     #if DEBUG
-    print("File: \((#file as NSString).lastPathComponent) Line: \(#line) Item: \(item)")
+    print("FileName: \((file as NSString).lastPathComponent) Line: \(line) Item: \(item)")
     #endif
 }
