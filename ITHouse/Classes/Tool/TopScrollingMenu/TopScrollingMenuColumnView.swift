@@ -8,8 +8,15 @@
 
 import UIKit
 
+@objc protocol TopScrollingMenuColumnViewDelegate: NSObjectProtocol {
+    @objc optional
+    func didSelectedItem(topScrollingMenuColumnView: TopScrollingMenuColumnView, selectedIndex: Int)
+}
+
 class TopScrollingMenuColumnView: UIView {
 
+    ///代理
+    weak var delegate: TopScrollingMenuColumnViewDelegate?
     ///数据源（String数组）
     var dataSource = [String]()
     ///副数据源（String数组）
@@ -24,6 +31,8 @@ class TopScrollingMenuColumnView: UIView {
     fileprivate var dragingIndexPath: IndexPath?
     ///目标cell的IndexPath
     fileprivate var targetIndexPath: IndexPath?
+    ///页面显示的闭包
+    var showBlock: (() -> Void)?
     
     ///最右端的箭头view
     fileprivate lazy var coverView: UIButton = {
@@ -32,6 +41,7 @@ class TopScrollingMenuColumnView: UIView {
         view.addTarget(self, action: #selector(coverViewClick(_:)), for: .touchUpInside)
         view.backgroundColor = .white
         let imageView = UIImageView(image: UIImage(named: "downArrowImg"))
+        imageView.transform = CGAffineTransform.identity.rotated(by: CGFloat(Double.pi))
         view.addSubview(imageView)
         coverImageView = imageView
         imageView.snp.makeConstraints({ (make) in
@@ -45,7 +55,7 @@ class TopScrollingMenuColumnView: UIView {
     
     ///编辑按钮
     fileprivate lazy var editBtn: UIButton = {
-        let btn = UIButton(title: "编辑", titleColor: UIColor.mainColor, font: UIFont.navTitleFont, target: self, action: #selector(editClick))
+        let btn = UIButton(title: "编辑", titleColor: UIColor.mainColor, font: UIFont.navTitleFont, target: self, action: #selector(editClick(_:)))
         btn.layer.masksToBounds = true
         btn.layer.borderColor = UIColor.mainColor.cgColor
         btn.layer.borderWidth = 1
@@ -61,7 +71,7 @@ class TopScrollingMenuColumnView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: marigin, bottom: marigin, right: marigin)
         layout.minimumLineSpacing = marigin
         layout.minimumInteritemSpacing = marigin
-        layout.headerReferenceSize = CGSize(width: self.bounds.size.width, height: ITHouseScale(30))
+        layout.headerReferenceSize = CGSize(width: self.bounds.size.width, height: ITHouseScale(50))
         
         let collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
@@ -69,11 +79,6 @@ class TopScrollingMenuColumnView: UIView {
         collectionView.dataSource = self
         collectionView.registerClassOf(UICollectionViewCell.self)
         collectionView.registerHeaderClassOf(UICollectionReusableView.self)
-        
-        ///添加长按手势
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
-        longPress.minimumPressDuration = 0.3
-        collectionView.addGestureRecognizer(longPress)
         
         dragingCell = UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: ITHouseScale(75), height: ITHouseScale(75/2)))
         dragingCell.isHidden = true
@@ -110,7 +115,8 @@ class TopScrollingMenuColumnView: UIView {
         contentView?.addSubview(coverView)
         
         coverView.snp.makeConstraints { (make) in
-            make.right.top.equalToSuperview()
+            make.top.equalTo((ITHouseScale(50-30))/2)
+            make.right.equalToSuperview()
             make.size.equalTo(CGSize(width: ITHouseScale(30), height: ITHouseScale(30)))
         }
         
@@ -120,17 +126,45 @@ class TopScrollingMenuColumnView: UIView {
             make.size.equalTo(CGSize(width: ITHouseScale(60), height: ITHouseScale(25)))
         }
     }
+}
+
+extension TopScrollingMenuColumnView {
     
-    @objc fileprivate func editClick() {
-        
+    @objc fileprivate func editClick(_ button: UIButton) {
+        button.isSelected = !button.isSelected
+        button.setTitle(button.isSelected ? "完成" : "编辑", for: .normal)
+        if button.isSelected {
+            addLongPress()
+        } else {
+            removeLongPress()
+        }
+    }
+    
+    ///添加长按手势
+    fileprivate func addLongPress() {
+        ///添加长按手势
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
+        longPress.minimumPressDuration = 0.3
+        collectionView.addGestureRecognizer(longPress)
+    }
+    
+    ///去除长按手势
+    fileprivate func removeLongPress() {
+        guard let gestures = collectionView.gestureRecognizers else {
+            fatalError("collectionView获取gestureRecognizers失败")
+        }
+        for gesture in gestures {
+            if gesture.isKind(of: UILongPressGestureRecognizer.classForCoder()) {
+                collectionView.removeGestureRecognizer(gesture)
+            }
+        }
     }
     
     @objc fileprivate func coverViewClick(_ button: UIButton) {
         button.isSelected = !button.isSelected
         //旋转箭头图标
-        self.coverImageView.transform = !button.isSelected ? CGAffineTransform.identity : CGAffineTransform.identity.rotated(by: -CGFloat(Double.pi))
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
-            self.coverImageView.transform = !button.isSelected ? CGAffineTransform.identity.rotated(by: -CGFloat(Double.pi)) : CGAffineTransform.identity
+            self.coverImageView.transform = CGAffineTransform.identity
         }) { (finished) in
             self.hide()
         }
@@ -154,17 +188,25 @@ extension TopScrollingMenuColumnView {
     
     //MARK: - Show && Hide
     func show() {
-        UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseInOut, animations: {
+        self.alpha = 0.0
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
             (UIApplication.shared.delegate as! AppDelegate).window?.addSubview(self)
             self.contentView?.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+            self.alpha = 1.0
         }) { (finished) in
             self.configContentView()
+            if self.showBlock != nil {
+                self.showBlock!()
+            }
         }
     }
     
     @objc fileprivate func hide() {
-        UIView.animate(withDuration: 1, delay: 0.1, options: .curveEaseInOut, animations: {
+        self.alpha = 1.0
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
             self.contentView?.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 0)
+            self.collectionView.removeFromSuperview()
+            self.alpha = 0.0
         }) { (finished) in
             self.removeFromSuperview()
         }
@@ -281,7 +323,10 @@ extension TopScrollingMenuColumnView:UICollectionViewDataSource,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        hide()
+        if delegate != nil {
+            delegate?.didSelectedItem!(topScrollingMenuColumnView: self, selectedIndex: indexPath.row)
+        }
+        hide()
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

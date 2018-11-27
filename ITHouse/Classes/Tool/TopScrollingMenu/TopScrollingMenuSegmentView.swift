@@ -103,7 +103,7 @@ class TopScrollingMenuSegmentView: UIView {
         }
         
         //设置点击item滚动
-        if selectedIndex < dataSource.count - 1 {
+        if selectedIndex < dataSource.count {
             collectionView.scrollToItem(at: IndexPath(item: selectedIndex, section: 0), at: .centeredHorizontally, animated: true)
         }
         
@@ -114,13 +114,14 @@ class TopScrollingMenuSegmentView: UIView {
     @objc fileprivate func coverViewClick(_ button: UIButton) {
         button.isSelected = !button.isSelected
         //旋转箭头图标
-        self.coverImageView.transform = !button.isSelected ? CGAffineTransform.identity : CGAffineTransform.identity.rotated(by: -CGFloat(Double.pi))
         UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut, animations: {
-            self.coverImageView.transform = !button.isSelected ? CGAffineTransform.identity.rotated(by: -CGFloat(Double.pi)) : CGAffineTransform.identity
+            self.coverImageView.transform = CGAffineTransform.identity.rotated(by: CGFloat(Double.pi))
         }) { (finished) in
             let columnView = TopScrollingMenuColumnView()
-            for i in 0..<20 {
-                columnView.dataSource.append("\(i*100+1000)")
+            columnView.dataSource = self.dataSource
+            columnView.delegate = self
+            columnView.showBlock = { [weak self] in
+                self?.coverImageView.transform = CGAffineTransform.identity//旋转箭头
             }
             columnView.show()
         }
@@ -152,5 +153,15 @@ extension TopScrollingMenuSegmentView:UICollectionViewDataSource,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: itemWidths[indexPath.row], height: bounds.size.height)
+    }
+}
+
+extension TopScrollingMenuSegmentView:TopScrollingMenuColumnViewDelegate {
+    
+    func didSelectedItem(topScrollingMenuColumnView: TopScrollingMenuColumnView, selectedIndex: Int) {
+        reloadItems(selectedIndex: selectedIndex)
+        if delegate != nil {
+            delegate?.segmentView!(segmentView: self, selectedIndex: selectedIndex)
+        }
     }
 }
