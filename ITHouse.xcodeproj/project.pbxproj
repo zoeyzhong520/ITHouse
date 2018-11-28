@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
-		36F57A4A21ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */; };
+		36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */; };
+		36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */; };
+		36F57A6221AE431500A6CC9C /* TopScrollingMenuSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5B21AE431500A6CC9C /* TopScrollingMenuSegmentView.swift */; };
+		36F57A6321AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5C21AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift */; };
+		36F57A6421AE431500A6CC9C /* TopScrollingMenuColumnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5E21AE431500A6CC9C /* TopScrollingMenuColumnCell.swift */; };
+		36F57A6521AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5F21AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift */; };
+		36F57A6821AE435800A6CC9C /* TopScrollingMenuTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A6721AE435800A6CC9C /* TopScrollingMenuTool.swift */; };
+		36F61A8921AE71D300990CF2 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A8821AE71D300990CF2 /* DBManager.m */; };
+		36F61A9021AE8C7B00990CF2 /* columns.json in Resources */ = {isa = PBXBuildFile; fileRef = 36F61A8F21AE8C7A00990CF2 /* columns.json */; };
+		36F61A9221AE8E0500990CF2 /* ITHouseHttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */; };
+		36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9421AE8F8F00990CF2 /* NewsColumnsModel.swift */; };
+		36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9721AE8FB800990CF2 /* BaseModel.swift */; };
 		BCA1DAEE5A87F79493ED5458 /* Pods_ITHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4260308DE286E17A4587826 /* Pods_ITHouse.framework */; };
-		D8327EDC21AAE02200794C6A /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */; };
-		D8327EDE21AAED5600794C6A /* TopScrollingMenuSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */; };
-		D8327EE021AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */; };
 		D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8327EE121AAF28600794C6A /* UILabel+Extension.swift */; };
 		D85C15F521A8F59E0033BFCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D85C15F321A8F59E0033BFCA /* Main.storyboard */; };
 		D85C15F721A8F5A00033BFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D85C15F621A8F5A00033BFCA /* Assets.xcassets */; };
@@ -63,13 +71,23 @@
 
 /* Begin PBXFileReference section */
 		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
-		36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
+		36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
+		36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
+		36F57A5B21AE431500A6CC9C /* TopScrollingMenuSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentView.swift; sourceTree = "<group>"; };
+		36F57A5C21AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnHeader.swift; sourceTree = "<group>"; };
+		36F57A5E21AE431500A6CC9C /* TopScrollingMenuColumnCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnCell.swift; sourceTree = "<group>"; };
+		36F57A5F21AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentCell.swift; sourceTree = "<group>"; };
+		36F57A6721AE435800A6CC9C /* TopScrollingMenuTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuTool.swift; sourceTree = "<group>"; };
+		36F61A8521AE6F8C00990CF2 /* ITHouseBridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITHouseBridgeHeader.h; sourceTree = "<group>"; };
+		36F61A8721AE71D300990CF2 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		36F61A8821AE71D300990CF2 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		36F61A8F21AE8C7A00990CF2 /* columns.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = columns.json; sourceTree = "<group>"; };
+		36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITHouseHttpTool.swift; sourceTree = "<group>"; };
+		36F61A9421AE8F8F00990CF2 /* NewsColumnsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsColumnsModel.swift; sourceTree = "<group>"; };
+		36F61A9721AE8FB800990CF2 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		658DEA62CA79597B037C0F69 /* Pods-ITHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.release.xcconfig"; sourceTree = "<group>"; };
 		6DE7B24D2D14693B4308E6FE /* Pods-ITHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		C4260308DE286E17A4587826 /* Pods_ITHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ITHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
-		D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentView.swift; sourceTree = "<group>"; };
-		D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuSegmentCell.swift; sourceTree = "<group>"; };
 		D8327EE121AAF28600794C6A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		D85C15EC21A8F59E0033BFCA /* ITHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85C15F421A8F59E0033BFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +167,74 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		36F57A5721AE431500A6CC9C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36F57A5921AE431500A6CC9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */,
+				36F57A5B21AE431500A6CC9C /* TopScrollingMenuSegmentView.swift */,
+				36F57A5C21AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		36F57A5D21AE431500A6CC9C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				36F57A5E21AE431500A6CC9C /* TopScrollingMenuColumnCell.swift */,
+				36F57A5F21AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		36F57A6621AE434500A6CC9C /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				36F57A6721AE435800A6CC9C /* TopScrollingMenuTool.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		36F61A8621AE71C300990CF2 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				36F61A8721AE71D300990CF2 /* DBManager.h */,
+				36F61A8821AE71D300990CF2 /* DBManager.m */,
+			);
+			path = DBManager;
+			sourceTree = "<group>";
+		};
+		36F61A8E21AE8C7A00990CF2 /* JSONS */ = {
+			isa = PBXGroup;
+			children = (
+				36F61A8F21AE8C7A00990CF2 /* columns.json */,
+			);
+			path = JSONS;
+			sourceTree = "<group>";
+		};
+		36F61A9321AE8F7F00990CF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36F61A9421AE8F8F00990CF2 /* NewsColumnsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36F61A9621AE8FAD00990CF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36F61A9721AE8FB800990CF2 /* BaseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4B6B3863DBED9E05EE26D71A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,11 +247,11 @@
 		D8327EDA21AADDFD00794C6A /* TopScrollingMenu */ = {
 			isa = PBXGroup;
 			children = (
+				36F57A6621AE434500A6CC9C /* Tools */,
+				36F57A5D21AE431500A6CC9C /* Cells */,
+				36F57A5721AE431500A6CC9C /* Controller */,
+				36F57A5921AE431500A6CC9C /* Views */,
 				36F57A4021ABC1BE00A6CC9C /* Images */,
-				D8327EDB21AAE02200794C6A /* TopScrollingMenuViewController.swift */,
-				D8327EDD21AAED5600794C6A /* TopScrollingMenuSegmentView.swift */,
-				D8327EDF21AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift */,
-				36F57A4921ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift */,
 			);
 			path = TopScrollingMenu;
 			sourceTree = "<group>";
@@ -200,6 +286,7 @@
 				D85C15F621A8F5A00033BFCA /* Assets.xcassets */,
 				D85C15F821A8F5A00033BFCA /* LaunchScreen.storyboard */,
 				D85C15FB21A8F5A00033BFCA /* Info.plist */,
+				36F61A8521AE6F8C00990CF2 /* ITHouseBridgeHeader.h */,
 			);
 			path = ITHouse;
 			sourceTree = "<group>";
@@ -225,6 +312,7 @@
 		D85C161D21A8FADD0033BFCA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				36F61A8E21AE8C7A00990CF2 /* JSONS */,
 				D8729C3121A9AC110013AC0A /* Login登陆 */,
 				D8729C2421A986840013AC0A /* Protocol */,
 				D85C161E21A8FADD0033BFCA /* News资讯 */,
@@ -243,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				D85C161F21A8FADD0033BFCA /* Controller */,
+				36F61A9321AE8F7F00990CF2 /* Model */,
 			);
 			path = "News资讯";
 			sourceTree = "<group>";
@@ -331,6 +420,7 @@
 		D85C162A21A8FADD0033BFCA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				36F61A9621AE8FAD00990CF2 /* Model */,
 				D85C162B21A8FADD0033BFCA /* Controller */,
 			);
 			path = Base;
@@ -349,10 +439,12 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				36F61A8621AE71C300990CF2 /* DBManager */,
 				D8327EDA21AADDFD00794C6A /* TopScrollingMenu */,
 				D85C163C21A8FBFE0033BFCA /* ConstTool.swift */,
 				D8729C1A21A91ED00013AC0A /* DebugPrintTool.swift */,
 				D8729C3921AA50750013AC0A /* UserDefaultsTool.swift */,
+				36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -452,6 +544,7 @@
 				TargetAttributes = {
 					D85C15EB21A8F59E0033BFCA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1000;
 					};
 					D85C15FF21A8F5A00033BFCA = {
 						CreatedOnToolsVersion = 10.1;
@@ -491,6 +584,7 @@
 				D85C15FA21A8F5A00033BFCA /* LaunchScreen.storyboard in Resources */,
 				D85C15F721A8F5A00033BFCA /* Assets.xcassets in Resources */,
 				D85C15F521A8F59E0033BFCA /* Main.storyboard in Resources */,
+				36F61A9021AE8C7B00990CF2 /* columns.json in Resources */,
 				36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,7 +636,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ITHouse/Pods-ITHouse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -551,13 +646,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ITHouse/Pods-ITHouse-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ITHouse/Pods-ITHouse-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -567,15 +663,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F57A6821AE435800A6CC9C /* TopScrollingMenuTool.swift in Sources */,
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
-				36F57A4A21ABD90D00A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
-				D8327EE021AAF1D300794C6A /* TopScrollingMenuSegmentCell.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
 				D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */,
-				D8327EDC21AAE02200794C6A /* TopScrollingMenuViewController.swift in Sources */,
+				36F57A6521AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift in Sources */,
 				D8729C2E21A999F50013AC0A /* String+Extension.swift in Sources */,
+				36F61A8921AE71D300990CF2 /* DBManager.m in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
+				36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */,
+				36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
 				D8729C1F21A977990013AC0A /* UIImage+Extension.swift in Sources */,
 				D85C163121A8FB3A0033BFCA /* NewsViewController.swift in Sources */,
 				D85C162D21A8FADD0033BFCA /* AppDelegate.swift in Sources */,
@@ -584,15 +682,20 @@
 				D8729C3021A9A3D90013AC0A /* UIViewController+Extension.swift in Sources */,
 				D8729C2A21A98A340013AC0A /* UITableView+Extension.swift in Sources */,
 				D8729C1B21A91ED00013AC0A /* DebugPrintTool.swift in Sources */,
-				D8327EDE21AAED5600794C6A /* TopScrollingMenuSegmentView.swift in Sources */,
 				D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */,
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
+				36F57A6221AE431500A6CC9C /* TopScrollingMenuSegmentView.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,
+				36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */,
+				36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */,
+				36F57A6321AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift in Sources */,
 				D8729C2621A986980013AC0A /* Reusable.swift in Sources */,
 				D85C162F21A8FB230033BFCA /* BaseViewController.swift in Sources */,
+				36F57A6421AE431500A6CC9C /* TopScrollingMenuColumnCell.swift in Sources */,
 				D8729C2121A978A80013AC0A /* UIFont+Extension.swift in Sources */,
 				D85C163921A8FB720033BFCA /* BaseNavigationViewController.swift in Sources */,
+				36F61A9221AE8E0500990CF2 /* ITHouseHttpTool.swift in Sources */,
 				D8729C3A21AA50750013AC0A /* UserDefaultsTool.swift in Sources */,
 				D85C163321A8FB470033BFCA /* SpicyViewController.swift in Sources */,
 			);
@@ -770,6 +873,7 @@
 			baseConfigurationReference = 6DE7B24D2D14693B4308E6FE /* Pods-ITHouse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8W234NQNE5;
@@ -783,6 +887,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HY.ZhongZiRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ITHouse/ITHouseBridgeHeader.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -793,6 +899,7 @@
 			baseConfigurationReference = 658DEA62CA79597B037C0F69 /* Pods-ITHouse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8W234NQNE5;
@@ -805,6 +912,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.HY.ZhongZiRead;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ITHouse/ITHouseBridgeHeader.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

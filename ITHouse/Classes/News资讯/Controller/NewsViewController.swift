@@ -15,7 +15,6 @@ class NewsViewController: BaseViewController {
         let menuVC = TopScrollingMenuViewController()
         for i in 0..<20 {
             let vc = UIViewController()
-//            vc.view.backgroundColor = i%2 == 0 ? .yellow : .green
             menuVC.dataSource.add(vc)
             menuVC.titles.append("\(i*100+100)")
         }
@@ -25,6 +24,7 @@ class NewsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
+        getData()
     }
     
     ///UI
@@ -36,6 +36,12 @@ class NewsViewController: BaseViewController {
         let searchItem = UIBarButtonItem(image: UIImage.searchImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(searchClick))
         let calendarItem = UIBarButtonItem(image: UIImage.calendarImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(calendarClick))
         navigationItem.rightBarButtonItems = [addItem,searchItem,calendarItem]
+    }
+    
+    ///获取数据
+    fileprivate func getData() {
+        let obj = DBManager.shared().item(withCacheKey: String.newsColumnsFileName)
+        DLog(obj)
     }
     
     @objc fileprivate func addClick() {

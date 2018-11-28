@@ -16,12 +16,23 @@ import UIKit
 
 class TopScrollingMenuSegmentView: UIView {
 
+    ///代理
+    weak var delegate: TopScrollingMenuSegmentViewDelegate?
+    
     ///数据源（String数组）
     var dataSource = [String]()
     ///存储item宽度数组
     var itemWidths = [CGFloat]()
-    ///代理
-    weak var delegate: TopScrollingMenuSegmentViewDelegate?
+    ///存储选中indexPath的字典
+    fileprivate var indexPathsDict = NSMutableDictionary()
+    ///选中的索引
+    var selectedIndex: Int? {
+        didSet {
+            if selectedIndex != nil && selectedIndex! < dataSource.count {
+                reloadItems(selectedIndex: selectedIndex!)
+            }
+        }
+    }
     
     ///选项卡最右端的肩头view
     fileprivate lazy var coverView: UIButton = {
@@ -38,21 +49,9 @@ class TopScrollingMenuSegmentView: UIView {
         })
         return view
     }()
-    
     ///箭头ImageView
     fileprivate var coverImageView: UIImageView!
     
-    ///选中的索引
-    var selectedIndex: Int? {
-        didSet {
-            if selectedIndex != nil && selectedIndex! < dataSource.count {
-                reloadItems(selectedIndex: selectedIndex!)
-            }
-        }
-    }
-    
-    ///存储选中indexPath的字典
-    fileprivate var indexPathsDict = NSMutableDictionary()
     ///CollectionView
     fileprivate lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

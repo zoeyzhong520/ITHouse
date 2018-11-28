@@ -24,4 +24,9 @@ extension String {
     func textWidth(font: UIFont) -> CGFloat {
         return (self as NSString).size(withAttributes: [NSAttributedString.Key.font : font]).width + 2
     }
+    
+    ///资讯-栏目JSON文件名
+    static var newsColumnsFileName: String {
+        return "columns"
+    }
 }

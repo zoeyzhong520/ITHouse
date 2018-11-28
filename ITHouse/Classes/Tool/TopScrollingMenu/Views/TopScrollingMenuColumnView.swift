@@ -15,14 +15,27 @@ import UIKit
 
 class TopScrollingMenuColumnView: UIView {
 
+    ///页面显示的闭包
+    var showBlock: (() -> Void)?
+    
     ///代理
     weak var delegate: TopScrollingMenuColumnViewDelegate?
+    
     ///数据源（String数组）
     var dataSource = [String]()
     ///副数据源（String数组）
     var viceDataSource = [String]()
+    ///能否编辑的数据源（Bool数组）
+    fileprivate lazy var isCanEditDataSource: Array<Bool> = {
+        var array = [Bool]()
+        for _ in 0..<dataSource.count {
+            array.append(false)
+        }
+        return array
+    }()
     ///分组标题数组
     fileprivate var sectionTitles = ["我的栏目（点击进入栏目）","更多栏目（点击添加栏目）"]
+    
     ///contentView
     fileprivate var contentView: UIView?
     ///拖拽的Cel
@@ -31,8 +44,6 @@ class TopScrollingMenuColumnView: UIView {
     fileprivate var dragingIndexPath: IndexPath?
     ///目标cell的IndexPath
     fileprivate var targetIndexPath: IndexPath?
-    ///页面显示的闭包
-    var showBlock: (() -> Void)?
     
     ///最右端的箭头view
     fileprivate lazy var coverView: UIButton = {
@@ -77,8 +88,8 @@ class TopScrollingMenuColumnView: UIView {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.registerClassOf(UICollectionViewCell.self)
-        collectionView.registerHeaderClassOf(UICollectionReusableView.self)
+        collectionView.registerClassOf(TopScrollingMenuColumnCell.self)
+        collectionView.registerHeaderClassOf(TopScrollingMenuColumnHeader.self)
         
         dragingCell = UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: ITHouseScale(75), height: ITHouseScale(75/2)))
         dragingCell.isHidden = true
@@ -132,7 +143,16 @@ extension TopScrollingMenuColumnView {
     
     @objc fileprivate func editClick(_ button: UIButton) {
         button.isSelected = !button.isSelected
+        
+        //编辑状态控制
         button.setTitle(button.isSelected ? "完成" : "编辑", for: .normal)
+        sectionTitles = button.isSelected ? ["我的栏目（拖拽可以排序）","更多栏目（点击添加栏目）"] : ["我的栏目（点击进入栏目）","更多栏目（点击添加栏目）"]
+        isCanEditDataSource.removeAll()
+        for _ in 0..<dataSource.count {
+            isCanEditDataSource.append(button.isSelected)
+        }
+        collectionView.reloadSections(IndexSet(integer: 0))
+        
         if button.isSelected {
             addLongPress()
         } else {
@@ -186,7 +206,6 @@ extension TopScrollingMenuColumnView {
 
 extension TopScrollingMenuColumnView {
     
-    //MARK: - Show && Hide
     func show() {
         self.alpha = 0.0
         UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
@@ -215,44 +234,10 @@ extension TopScrollingMenuColumnView {
 
 extension TopScrollingMenuColumnView {
     
-    ///获取被拖动IndexPath的方法
-    fileprivate func getDragingIndexPath(point: CGPoint) -> IndexPath? {
-        var dragingIndexPath: IndexPath?
-        for indexPath in collectionView.indexPathsForVisibleItems {
-            guard let cell = collectionView.cellForItem(at: indexPath) else {
-                fatalError("collectionView获取cell失败")
-            }
-            if cell.frame.contains(point) {
-                dragingIndexPath = indexPath
-                break
-            }
-        }
-        return dragingIndexPath
-    }
-    
-    ///获取目标IndexPath的方法
-    fileprivate func getTargetIndexPath(point: CGPoint) -> IndexPath? {
-        var targetIndexPath: IndexPath?
-        for indexPath in collectionView.indexPathsForVisibleItems {
-            guard let cell = collectionView.cellForItem(at: indexPath) else {
-                fatalError("collectionView获取cell失败")
-            }
-            //避免和当前拖拽的cell重复
-            if indexPath == dragingIndexPath {
-                continue
-            }
-            //判断是否包含这个点
-            if cell.frame.contains(point) {
-                targetIndexPath = indexPath
-            }
-        }
-        return targetIndexPath
-    }
-    
     ///开始拖拽
     fileprivate func dragBeigin(gesture: UILongPressGestureRecognizer) {
         let point = gesture.location(in: collectionView)
-        dragingIndexPath = getDragingIndexPath(point: point)
+        dragingIndexPath = TopScrollingMenuTool.getDragingIndexPath(point: point, forCollectionView: collectionView)
         if dragingIndexPath == nil {
             return
         }
@@ -272,7 +257,7 @@ extension TopScrollingMenuColumnView {
         DLog("拖拽中")
         let point = gesture.location(in: collectionView)
         dragingCell.center = point
-        targetIndexPath = getTargetIndexPath(point: point)
+        targetIndexPath = TopScrollingMenuTool.getTargetIndexPath(point: point, forCollectionView: collectionView, ofDragingIndexPath: dragingIndexPath)
         DLog(targetIndexPath)
         if dragingIndexPath != nil && targetIndexPath != nil {
             collectionView.moveItem(at: dragingIndexPath!, to: targetIndexPath!)
@@ -309,34 +294,43 @@ extension TopScrollingMenuColumnView:UICollectionViewDataSource,UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell:UICollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        let label = UILabel(title: indexPath.section == 0 ? dataSource[indexPath.row] : viceDataSource[indexPath.row], titleFont: UIFont.titleFont, titleColor: UIColor.blackTextColor, alignment: .center)
-        cell.contentView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        let cell:TopScrollingMenuColumnCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        cell.titleText = indexPath.section == 0 ? dataSource[indexPath.row] : viceDataSource[indexPath.row]
+        cell.isCanDelete = indexPath.section == 0 ? isCanEditDataSource[indexPath.row] : false
+        cell.deleteBlock = { [weak self] in
+            self?.cellDeleteClick(indexPath: indexPath)
         }
-        cell.contentView.layer.masksToBounds = true
-        cell.contentView.layer.cornerRadius = ITHouseScale(15)
-        cell.contentView.layer.borderWidth = 1
-        cell.contentView.layer.borderColor = UIColor.grayTextColor.cgColor
         return cell
     }
     
+    ///cell点击删除按钮
+    fileprivate func cellDeleteClick(indexPath: IndexPath) {
+        let obj = dataSource[indexPath.row]
+        viceDataSource.append(obj)
+        dataSource.remove(at: indexPath.row)
+        isCanEditDataSource.remove(at: indexPath.row)
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if delegate != nil {
+        if delegate != nil && indexPath.section == 0 {
             delegate?.didSelectedItem!(topScrollingMenuColumnView: self, selectedIndex: indexPath.row)
+            hide()
         }
-        hide()
+        
+        if indexPath.section == 1 {//处理两个栏目间的数据交换
+            let obj = viceDataSource[indexPath.row]
+            dataSource.append(obj)
+            viceDataSource.remove(at: indexPath.row)
+            isCanEditDataSource.append(true)
+            collectionView.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            let header = collectionView.dequeuereusableSupplymentaryView(ofKind: UICollectionView.elementKindSectionHeader, forIndexPath: indexPath)
-            let label = UILabel(title: sectionTitles[indexPath.section], titleFont: UIFont.navTitleFont, titleColor: UIColor.black, alignment: .left)
-            header.addSubview(label)
-            label.snp.makeConstraints { (make) in
-                make.edges.equalTo(UIEdgeInsets(top: 0, left: ITHouseScale(15), bottom: 0, right: 0))
-            }
+            let header:TopScrollingMenuColumnHeader = collectionView.dequeuereusableSupplymentaryView(ofKind: UICollectionView.elementKindSectionHeader, forIndexPath: indexPath)
+            header.titleText = sectionTitles[indexPath.section]
             return header
         }
         return UICollectionReusableView()

@@ -12,7 +12,7 @@ class TopScrollingMenuViewController: UIViewController {
 
     ///数据源（UIViewController数组）
     var dataSource = NSMutableArray()
-    ///标题数组
+    ///标题数组（String数组）
     var titles = [String]()
     ///当前选中的索引
     private(set) var currentIndex = 0

@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import SVProgressHUD
+import MJExtension
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     ///根据屏幕尺寸获取缩放比例
     fileprivate func fontSizeScale() {
-        DLog("iPhone7P: \(iPhone7P)")
         if iPhone7P || iPhoneXR || iPhoneXsMax {
             fontSize = 1.1
         } else if iPhone7 || iPhoneXs {
@@ -54,6 +54,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setRootVC()
         
         SVProgressHUD.setMinimumDismissTimeInterval(1.0)
+        
+        DBManager.shared().createTable()
+        
+        ITHouseHttpTool.newsColumnsData(successBlock: nil)
+        
+        Thread.sleep(forTimeInterval: 3.0)
         
         return true
     }
