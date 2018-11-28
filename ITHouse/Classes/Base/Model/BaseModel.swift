@@ -14,9 +14,5 @@ class BaseModel: NSObject {
         
     }
     
-    override static func mj_replacedKeyFromPropertyName() -> [AnyHashable : Any]! {
-        return [
-            "ID": "id"
-        ]
-    }
+    
 }

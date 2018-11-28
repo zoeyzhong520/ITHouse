@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DBManager.shared().createTable()
         
-        ITHouseHttpTool.newsColumnsData(successBlock: nil)
+        ITHouseHttpTool.newsColumnsData()
         
         Thread.sleep(forTimeInterval: 3.0)
         

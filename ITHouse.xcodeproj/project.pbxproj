@@ -420,8 +420,8 @@
 		D85C162A21A8FADD0033BFCA /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				36F61A9621AE8FAD00990CF2 /* Model */,
 				D85C162B21A8FADD0033BFCA /* Controller */,
+				36F61A9621AE8FAD00990CF2 /* Model */,
 			);
 			path = Base;
 			sourceTree = "<group>";

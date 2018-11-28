@@ -10,15 +10,9 @@ import UIKit
 
 class NewsColumnsModel: BaseModel {
 
-    var columns: Array<NewsColumn>?
-    var moreColumns: Array<NewsColumn>?
+    var columns: NSArray?
+    var moreColumns: NSArray?
     
-    override static func mj_objectClassInArray() -> [AnyHashable : Any]! {
-        return [
-            "columns": "NewsColumn",
-            "moreColumns": "NewsColumn"
-        ]
-    }
 }
 
 class NewsColumn: BaseModel {

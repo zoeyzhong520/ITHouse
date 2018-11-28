@@ -20,15 +20,9 @@ class ITHouseHttpTool: NSObject {
     }
     
     ///资讯-栏目数据
-    static func newsColumnsData(successBlock: ((NewsColumnsModel?) -> Void)?) {
+    static func newsColumnsData() {
         let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsColumnsFileName)
-        let model = NewsColumnsModel.mj_object(withKeyValues: dict)
-        
         //写入数据库
         DBManager.shared().insertItem(dict, cacheKey: String.newsColumnsFileName)
-        
-        if successBlock != nil {
-            successBlock!(model)
-        }
     }
 }
