@@ -49,7 +49,7 @@ class NewsViewController: BaseViewController {
                 menu.titles.append(column.name!)
                 
                 let vc = BaseViewController()
-                vc.view.backgroundColor = index % 2 == 0 ? UIColor.green : UIColor.yellow
+                vc.view.backgroundColor = RGB(CGFloat(index*100),CGFloat(arc4random()%256),CGFloat(arc4random()%256))
                 menu.dataSource.add(vc)
             }
         }
@@ -81,41 +81,12 @@ extension NewsViewController:TopScrollingMenuViewControllerDelegate {
     //dataSource: 修改后的我的栏目（String数组）
     func updateColumnsSqlite(topScrollingMenuViewController: TopScrollingMenuViewController, updateResult: Bool, dataSource: [String]) {
         if updateResult {
-            DLog(menu.titles)
-            DLog(dataSource)
-            
-            ITHouseHttpTool.newsColumnsData { (model) in
-                if menu.titles.count >= dataSource.count {
-                    for (index, obj) in menu.titles.enumerated() {
-                        if index < dataSource.count && obj != dataSource[index] {
-                            DLog("\(index) \(obj)")
-                            menu.titles.remove(at: index)
-                            menu.dataSource.removeObject(at: index)
-                            menu.titles.insert(dataSource[index], at: index)
-                            menu.dataSource.insert(BaseViewController(), at: index)
-                        }
-                    }
-                } else {
-                    for (index, obj) in dataSource.enumerated() {
-                        if index < menu.titles.count && obj != menu.titles[index] {
-                            DLog("\(index) \(obj)")
-                            menu.titles.remove(at: index)
-                            menu.dataSource.removeObject(at: index)
-                            menu.titles.insert(obj, at: index)
-                            menu.dataSource.insert(BaseViewController(), at: index)
-                        }
-                    }
-                }
-                
-                menu.viceTitles.removeAll()
-                for (_, moreColum) in (model.moreColumns?.enumerated())! {
-                    if moreColum.name != nil {
-                        menu.viceTitles.append(moreColum.name!)
-                    }
-                }
+            menu.removeFromParent()
+            menu.view.removeFromSuperview()
+            getData()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
+                self.menu.reloadData()
             }
         }
-        
-        menu.reloadData()
     }
 }

@@ -68,14 +68,11 @@ class TopScrollingMenuViewController: UIViewController {
         pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
     }
     
-    ///刷新数据
     func reloadData() {
-        segmentView.selectedIndex = titles.count - 1
-        let vc = self.dataSource[titles.count - 1] as! UIViewController
-        pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
-        segmentView.dataSource = titles
-        segmentView.viceDataSource = viceTitles
-        segmentView.collectionView.reloadData()
+        currentIndex = dataSource.count - 1//一定要设置currentIndex的值
+        segmentView.selectedIndex = currentIndex
+        let vc = self.dataSource.lastObject as! UIViewController
+        pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
     }
 }
 
@@ -121,7 +118,7 @@ extension TopScrollingMenuViewController:TopScrollingMenuSegmentViewDelegate {
     
     ///选中segmentView中某个item
     func segmentView(segmentView: TopScrollingMenuSegmentView, selectedIndex: Int) {
-        if selectedIndex > (pageViewController.viewControllers?.count)! - 1 {
+        if selectedIndex > dataSource.count - 1 {
             return
         }
         
@@ -137,10 +134,6 @@ extension TopScrollingMenuViewController:TopScrollingMenuSegmentViewDelegate {
     func updateColumnsSqlite(segmentView: TopScrollingMenuSegmentView, updateResult: Bool, dataSource: [String]) {
         if delegate != nil {
             delegate?.updateColumnsSqlite!(topScrollingMenuViewController: self, updateResult: updateResult, dataSource: dataSource)
-        }
-        
-        if updateResult {//滚动到最右端
-            reloadData()
         }
     }
 }
