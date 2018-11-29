@@ -12,6 +12,9 @@ import UIKit
     @objc optional
     ///选择某一个item
     func segmentView(segmentView: TopScrollingMenuSegmentView, selectedIndex: Int)
+    
+    @objc optional
+    func updateColumnsSqlite(segmentView: TopScrollingMenuSegmentView, updateResult: Bool, dataSource: [String])
 }
 
 class TopScrollingMenuSegmentView: UIView {
@@ -21,6 +24,8 @@ class TopScrollingMenuSegmentView: UIView {
     
     ///数据源（String数组）
     var dataSource = [String]()
+    ///副数据源（String数组）
+    var viceDataSource = [String]()
     ///存储item宽度数组
     var itemWidths = [CGFloat]()
     ///存储选中indexPath的字典
@@ -53,7 +58,7 @@ class TopScrollingMenuSegmentView: UIView {
     fileprivate var coverImageView: UIImageView!
     
     ///CollectionView
-    fileprivate lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width - self.bounds.size.height, height: self.bounds.size.height), collectionViewLayout: layout)
@@ -118,6 +123,7 @@ class TopScrollingMenuSegmentView: UIView {
         }) { (finished) in
             let columnView = TopScrollingMenuColumnView()
             columnView.dataSource = self.dataSource
+            columnView.viceDataSource = self.viceDataSource
             columnView.delegate = self
             columnView.showBlock = { [weak self] in
                 self?.coverImageView.transform = CGAffineTransform.identity//旋转箭头
@@ -161,6 +167,12 @@ extension TopScrollingMenuSegmentView:TopScrollingMenuColumnViewDelegate {
         reloadItems(selectedIndex: selectedIndex)
         if delegate != nil {
             delegate?.segmentView!(segmentView: self, selectedIndex: selectedIndex)
+        }
+    }
+    
+    func updateColumnsSqlite(topScrollingMenuColumnView: TopScrollingMenuColumnView, updateResult: Bool, dataSource: [String]) {
+        if delegate != nil {
+            delegate?.updateColumnsSqlite!(segmentView: self, updateResult: updateResult, dataSource: dataSource)
         }
     }
 }

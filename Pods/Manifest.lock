@@ -5,12 +5,14 @@ PODS:
   - MJExtension (3.0.15.1)
   - SnapKit (4.0.1)
   - SVProgressHUD (2.2.5)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - FMDB
   - MJExtension
   - SnapKit (~> 4.0.0)
   - SVProgressHUD
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - MJExtension
     - SnapKit
     - SVProgressHUD
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 1d521eb6b52c05e06d2729e3a54bf5266a5944ac
+PODFILE CHECKSUM: 6cbcab5c5198e7a7ca1dc2b5f5f74e1cc3ed8ddc
 
 COCOAPODS: 1.6.0.beta.2

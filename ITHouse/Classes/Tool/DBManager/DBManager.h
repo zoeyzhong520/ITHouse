@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///通过cacheKey获取数据
 - (id)itemWithCacheKey:(NSString *)cacheKey;
 
+///通过cacheKey、item更新数据
+- (void)updateItem:(id)item cacheKey:(NSString *)cacheKey resultBlock:(void(^)(bool isSuccess))resultBlock;
+
 ///清空数据库
 - (void)clearAll;
 

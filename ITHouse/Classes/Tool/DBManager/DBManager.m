@@ -68,6 +68,18 @@ static FMDatabase *_db;
     return nil;
 }
 
+- (void)updateItem:(id)item cacheKey:(NSString *)cacheKey resultBlock:(void(^)(bool isSuccess))resultBlock {
+    
+    if (![_db open]) {
+        return;
+    }
+    
+    NSData *cacheData = [NSKeyedArchiver archivedDataWithRootObject:item];
+    BOOL isSuccess = [_db executeUpdateWithFormat:@"UPDATE T_CACHE SET cache_data = %@ WHERE cache_key = %@",cacheData,cacheKey];
+    NSLog(@"%@",isSuccess ? @"update success" : @"update failure");
+    resultBlock(isSuccess);
+}
+
 - (void)clearAll {
     [_db executeUpdate:@"DELETE FROM T_CACHE"];
 }

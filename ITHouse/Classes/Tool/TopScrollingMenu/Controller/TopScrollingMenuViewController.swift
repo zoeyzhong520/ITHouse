@@ -8,12 +8,22 @@
 
 import UIKit
 
-class TopScrollingMenuViewController: UIViewController {
+@objc protocol TopScrollingMenuViewControllerDelegate: NSObjectProtocol {
+    @objc optional
+    func updateColumnsSqlite(topScrollingMenuViewController: TopScrollingMenuViewController, updateResult: Bool, dataSource: [String])
+}
 
+class TopScrollingMenuViewController: UIViewController {
+    
+    ///代理
+    weak var delegate: TopScrollingMenuViewControllerDelegate?
+    
     ///数据源（UIViewController数组）
     var dataSource = NSMutableArray()
     ///标题数组（String数组）
     var titles = [String]()
+    ///副标题数组（String数组）
+    var viceTitles = [String]()
     ///当前选中的索引
     private(set) var currentIndex = 0
     
@@ -29,6 +39,7 @@ class TopScrollingMenuViewController: UIViewController {
     fileprivate lazy var segmentView: TopScrollingMenuSegmentView = {
         let view = TopScrollingMenuSegmentView(frame: CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: ITHouseScale(30)))
         view.dataSource = self.titles
+        view.viceDataSource = self.viceTitles
         //计算每个item的宽度
         for text in self.titles {
             view.itemWidths.append(text.textWidth(font: UIFont.navTitleFont))
@@ -55,6 +66,16 @@ class TopScrollingMenuViewController: UIViewController {
         assert(dataSource.count > 0, "Must have one childViewController at least")
         let vc = dataSource[currentIndex] as! UIViewController
         pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+    }
+    
+    ///刷新数据
+    func reloadData() {
+        segmentView.selectedIndex = titles.count - 1
+        let vc = self.dataSource[titles.count - 1] as! UIViewController
+        pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
+        segmentView.dataSource = titles
+        segmentView.viceDataSource = viceTitles
+        segmentView.collectionView.reloadData()
     }
 }
 
@@ -100,6 +121,10 @@ extension TopScrollingMenuViewController:TopScrollingMenuSegmentViewDelegate {
     
     ///选中segmentView中某个item
     func segmentView(segmentView: TopScrollingMenuSegmentView, selectedIndex: Int) {
+        if selectedIndex > (pageViewController.viewControllers?.count)! - 1 {
+            return
+        }
+        
         let vc = dataSource.object(at: selectedIndex) as! UIViewController
         if selectedIndex > currentIndex {
             pageViewController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
@@ -107,5 +132,15 @@ extension TopScrollingMenuViewController:TopScrollingMenuSegmentViewDelegate {
             pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)
         }
         currentIndex = selectedIndex
+    }
+    
+    func updateColumnsSqlite(segmentView: TopScrollingMenuSegmentView, updateResult: Bool, dataSource: [String]) {
+        if delegate != nil {
+            delegate?.updateColumnsSqlite!(topScrollingMenuViewController: self, updateResult: updateResult, dataSource: dataSource)
+        }
+        
+        if updateResult {//滚动到最右端
+            reloadData()
+        }
     }
 }

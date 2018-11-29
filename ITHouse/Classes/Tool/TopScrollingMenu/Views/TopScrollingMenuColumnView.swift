@@ -11,6 +11,9 @@ import UIKit
 @objc protocol TopScrollingMenuColumnViewDelegate: NSObjectProtocol {
     @objc optional
     func didSelectedItem(topScrollingMenuColumnView: TopScrollingMenuColumnView, selectedIndex: Int)
+    
+    @objc optional
+    func updateColumnsSqlite(topScrollingMenuColumnView: TopScrollingMenuColumnView, updateResult: Bool, dataSource: [String])
 }
 
 class TopScrollingMenuColumnView: UIView {
@@ -226,8 +229,19 @@ extension TopScrollingMenuColumnView {
             self.contentView?.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 0)
             self.collectionView.removeFromSuperview()
             self.alpha = 0.0
+            self.updateColumnsSqlite()
         }) { (finished) in
             self.removeFromSuperview()
+        }
+    }
+    
+    ///更新本地数据
+    fileprivate func updateColumnsSqlite() {
+        //更新本地columns数据
+        TopScrollingMenuTool.updateColumnsSqlite(dataSource: dataSource, viceDataSource: viceDataSource) { [weak self] (result) in
+            if self?.delegate != nil {//代理
+                self?.delegate?.updateColumnsSqlite!(topScrollingMenuColumnView: self!, updateResult: result, dataSource: self!.dataSource)
+            }
         }
     }
 }
@@ -261,6 +275,15 @@ extension TopScrollingMenuColumnView {
         DLog(targetIndexPath)
         if dragingIndexPath != nil && targetIndexPath != nil {
             collectionView.moveItem(at: dragingIndexPath!, to: targetIndexPath!)
+            
+            //交换数据源中数据的对应位置
+            let dragingTitle = dataSource[dragingIndexPath!.row]
+            let targetTitle = dataSource[targetIndexPath!.row]
+            dataSource.remove(at: dragingIndexPath!.row)
+            dataSource.remove(at: targetIndexPath!.row)
+            dataSource.insert(dragingTitle, at: targetIndexPath!.row)
+            dataSource.insert(targetTitle, at: dragingIndexPath!.row)
+            
             dragingIndexPath = targetIndexPath
         }
     }
@@ -322,7 +345,7 @@ extension TopScrollingMenuColumnView:UICollectionViewDataSource,UICollectionView
             let obj = viceDataSource[indexPath.row]
             dataSource.append(obj)
             viceDataSource.remove(at: indexPath.row)
-            isCanEditDataSource.append(true)
+            isCanEditDataSource.append(false)
             collectionView.reloadData()
         }
     }

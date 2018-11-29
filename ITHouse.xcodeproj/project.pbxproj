@@ -282,11 +282,11 @@
 			isa = PBXGroup;
 			children = (
 				D85C161D21A8FADD0033BFCA /* Classes */,
-				D85C15F321A8F59E0033BFCA /* Main.storyboard */,
 				D85C15F621A8F5A00033BFCA /* Assets.xcassets */,
-				D85C15F821A8F5A00033BFCA /* LaunchScreen.storyboard */,
 				D85C15FB21A8F5A00033BFCA /* Info.plist */,
 				36F61A8521AE6F8C00990CF2 /* ITHouseBridgeHeader.h */,
+				D85C15F321A8F59E0033BFCA /* Main.storyboard */,
+				D85C15F821A8F5A00033BFCA /* LaunchScreen.storyboard */,
 			);
 			path = ITHouse;
 			sourceTree = "<group>";
@@ -641,6 +641,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -650,6 +651,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
