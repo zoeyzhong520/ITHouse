@@ -68,7 +68,7 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
         
         if let images = model?.images {
             let imgMargin = ITHouseScale(15)
-            let imgWidth = SCREEN_WIDTH - imgMargin*CGFloat(images.count)
+            let imgWidth = (SCREEN_WIDTH - imgMargin*CGFloat(images.count+1))/CGFloat(images.count)
             let imgHeight = ITHouseScale(60)
             
             for i in 0..<images.count {
@@ -101,8 +101,7 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
         
         imagesView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom)
-            make.left.equalTo(ITHouseScale(15))
-            make.right.equalTo(-ITHouseScale(15))
+            make.left.right.equalToSuperview()
             make.height.equalTo(ITHouseScale(60))
         }
     }

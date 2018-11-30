@@ -13,8 +13,8 @@ class NewsDetailRankingTypeView: UIView {
     ///数据模型
     var model: NewsDetailNewsRankingModel? {
         didSet {
-            createTableHeaderView()
             tableView.reloadData()
+            createTableHeaderView()
         }
     }
     
@@ -35,14 +35,14 @@ class NewsDetailRankingTypeView: UIView {
         tbView.rowHeight = ITHouseScale(100)
         tbView.sectionHeaderHeight = ITHouseScale(50)
         tbView.separatorStyle = .none
-        tbView.registerClassOf(NewsDetailRankingTypeSpicyCell.self)
+        tbView.registerClassOf(NewsDetailRankingTypeCell.self)
         tbView.registerClassOf(NewsDetailRankingTypeCell.self)
         return tbView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        addViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,7 +62,7 @@ class NewsDetailRankingTypeView: UIView {
         }
         
         let scrollView = UIScrollView(frame: tableHeaderView.bounds)
-        scrollView.isPagingEnabled = true
+        scrollView.contentOffset = CGPoint(x: 0, y: 0)
         scrollView.contentSize = CGSize(width: SCREEN_WIDTH, height: 0)
         tableHeaderView.addSubview(scrollView)
         
@@ -76,8 +76,8 @@ class NewsDetailRankingTypeView: UIView {
         }
         
         let btnMargin = ITHouseScale(15)
-        let btnWidth = (bounds.size.width - btnMargin*CGFloat(btnNames.count+1)) / CGFloat(btnNames.count)
-        let btnHeight = bounds.size.height
+        let btnWidth = (scrollView.frame.size.width - btnMargin*CGFloat(btnNames.count+1)) / CGFloat(btnNames.count)
+        let btnHeight = ITHouseScale(30)
         for i in 0..<btnNames.count {
             let btn = UIButton(title: btnNames[i], titleColor: UIColor.blackTextColor, font: UIFont.titleFont, target: self, action: #selector(headerBtnClick(_:)))
             btn.frame = CGRect(x: CGFloat(i)*(btnWidth+btnMargin)+btnMargin, y: 0, width: btnWidth, height: btnHeight)
@@ -110,8 +110,8 @@ class NewsDetailRankingTypeView: UIView {
         
         //点击按钮后切换到对应的section
         if let newsRanking = model?.newsRanking {
-            if button.tag < newsRanking.count - 1 {
-                tableView.scrollToRow(at: IndexPath(row: 0, section: button.tag), at: .bottom, animated: true)
+            if button.tag < newsRanking.count {
+                tableView.scrollToRow(at: IndexPath(row: 0, section: button.tag), at: .top, animated: true)
             }
         }
     }
@@ -129,7 +129,7 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if model?.newsRanking?[indexPath.section].type == "1" {
-            let cell:NewsDetailRankingTypeSpicyCell = tableView.dequeueReusableCell()
+            let cell:NewsDetailRankingTypeCell = tableView.dequeueReusableCell()
             cell.indexPath = indexPath
             cell.model = self.model?.newsRanking?[indexPath.row].list?[indexPath.row]
             return cell
@@ -147,5 +147,17 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+extension NewsDetailRankingTypeView {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight = ITHouseScale(50)
+        if scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
+        }
     }
 }

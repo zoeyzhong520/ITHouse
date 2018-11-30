@@ -49,15 +49,10 @@ class NewsViewController: BaseViewController {
                 menu.titles.append(column.name!)
                 //创建控制器数组
                 let vc = NewsDetailViewController()
-                vc.view.backgroundColor = RGB(CGFloat(index*100),CGFloat(arc4random()%256),CGFloat(arc4random()%256))
-                if index == 0 {//设置viewType,展示不同类型的view
+                if index == 0 {
                     vc.viewType = NewsDetailViewController.NewsDetailViewType.WithBannerType
-                } else if index == 1 {
-                    vc.viewType = NewsDetailViewController.NewsDetailViewType.RankingType
-                } else if index == 2 {
-                    vc.viewType = NewsDetailViewController.NewsDetailViewType.PhotoTextType
                 } else {
-                    vc.viewType = NewsDetailViewController.NewsDetailViewType.HotReviewType
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.RankingType
                 }
                 menu.dataSource.add(vc)
             }

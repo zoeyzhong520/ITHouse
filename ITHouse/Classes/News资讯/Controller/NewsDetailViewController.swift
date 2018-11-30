@@ -43,7 +43,15 @@ class NewsDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        withBannerTypeView.bannerView.createTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        withBannerTypeView.bannerView.releaseTimer()
     }
     
     ///获取数据

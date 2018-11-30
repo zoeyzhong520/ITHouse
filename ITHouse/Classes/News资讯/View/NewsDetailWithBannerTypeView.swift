@@ -19,7 +19,7 @@ class NewsDetailWithBannerTypeView: UIView {
     
     ///banner view
     lazy var bannerView: BorderShownCardsView = {
-        let view = BorderShownCardsView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: ITHouseScale(100)))
+        let view = BorderShownCardsView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: ITHouseScale(160)))
         return view
     }()
 
@@ -29,7 +29,7 @@ class NewsDetailWithBannerTypeView: UIView {
         tbView.delegate = self
         tbView.dataSource = self
         tbView.rowHeight = ITHouseScale(100)
-        tbView.sectionHeaderHeight = ITHouseScale(100)
+        tbView.sectionHeaderHeight = ITHouseScale(160)
         tbView.separatorStyle = .none
         tbView.registerClassOf(NewsDetailWithBannerTypeCell.self)
         return tbView

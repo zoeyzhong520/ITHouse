@@ -16,13 +16,16 @@ class NewsDetailWithBannerTypeCell: UITableViewCell {
             imgView.kf.setImage(with: URL(string: model?.img ?? ""), placeholder: UIImage.placeholderImg)
             titleLabel.text = model?.title
             timeLabel.text = model?.createTime
-            commentLabel.text = model?.commentNum
+            commentLabel.text = (model?.commentNum ?? "") + "评"
         }
     }
     
     ///图片
     fileprivate lazy var imgView: UIImageView = {
-        return UIImageView()
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = ITHouseScale(4)
+        imageView.layer.masksToBounds = true
+        return imageView
     }()
     ///排名
     fileprivate lazy var rankingLabel: UILabel = {
@@ -76,7 +79,7 @@ class NewsDetailWithBannerTypeCell: UITableViewCell {
         imgView.snp.makeConstraints { (make) in
             make.left.equalTo(ITHouseScale(15))
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: ITHouseScale(100), height: ITHouseScale(60)))
+            make.size.equalTo(CGSize(width: ITHouseScale(110), height: ITHouseScale(80)))
         }
         
         rankingLabel.snp.makeConstraints { (make) in
