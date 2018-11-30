@@ -29,4 +29,24 @@ extension String {
     static var newsColumnsFileName: String {
         return "columns"
     }
+    
+    ///资讯banner的JSON文件名
+    static var newsBannerFileName: String {
+        return "newsBanner"
+    }
+    
+    ///资讯-news的JSON文件名
+    static var newsNewsFileName: String {
+        return "news"
+    }
+    
+    ///资讯-newsPhotoText的JSON文件名
+    static var newsPhotoTextFileName: String {
+        return "newsPhotoText"
+    }
+    
+    ///资讯-newsRanking的JSON文件名
+    static var newsRankingFileName: String {
+        return "newsRanking"
+    }
 }

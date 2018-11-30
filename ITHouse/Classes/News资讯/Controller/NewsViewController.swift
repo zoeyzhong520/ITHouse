@@ -40,16 +40,25 @@ class NewsViewController: BaseViewController {
     
     ///创建顶部滚动菜单
     fileprivate func setTopScrollingMenu(model: NewsColumnsModel) {
-        
         menu = TopScrollingMenuViewController()
         menu.delegate = self
         
         for (index, column) in (model.columns?.enumerated())! {
             if column.name != nil {
+                //创建标题数组
                 menu.titles.append(column.name!)
-                
-                let vc = BaseViewController()
+                //创建控制器数组
+                let vc = NewsDetailViewController()
                 vc.view.backgroundColor = RGB(CGFloat(index*100),CGFloat(arc4random()%256),CGFloat(arc4random()%256))
+                if index == 0 {//设置viewType,展示不同类型的view
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.WithBannerType
+                } else if index == 1 {
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.RankingType
+                } else if index == 2 {
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.PhotoTextType
+                } else {
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.HotReviewType
+                }
                 menu.dataSource.add(vc)
             }
         }
@@ -59,7 +68,7 @@ class NewsViewController: BaseViewController {
                 menu.viceTitles.append(moreColum.name!)
             }
         }
-        addChild(menu)
+        navigationController?.addChild(menu)//加入导航控制器
         view.addSubview(menu.view)
     }
     
@@ -78,7 +87,6 @@ class NewsViewController: BaseViewController {
 
 extension NewsViewController:TopScrollingMenuViewControllerDelegate {
     
-    //dataSource: 修改后的我的栏目（String数组）
     func updateColumnsSqlite(topScrollingMenuViewController: TopScrollingMenuViewController, updateResult: Bool, dataSource: [String]) {
         if updateResult {
             menu.removeFromParent()

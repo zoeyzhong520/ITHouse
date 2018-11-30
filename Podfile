@@ -8,4 +8,6 @@ target 'ITHouse' do
    pod 'MJExtension'
    pod 'SVProgressHUD'
    pod 'FMDB'
+   pod 'Kingfisher'
+   pod 'SwiftyJSON'
 end

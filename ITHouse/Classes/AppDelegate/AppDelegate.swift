@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import SVProgressHUD
 import MJExtension
+import Kingfisher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -56,8 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setMinimumDismissTimeInterval(1.0)
         
         DBManager.shared().createTable()
-        
-        ITHouseHttpTool.newsColumnsData()
         
         Thread.sleep(forTimeInterval: 3.0)
         

@@ -66,7 +66,7 @@ class TopScrollingMenuSegmentCell: UICollectionViewCell {
         
         bottomLine.snp.makeConstraints { (make) in
             make.centerX.bottom.equalToSuperview()
-            make.size.equalTo(CGSize(width: self.bounds.size.width/3, height: ITHouseScale(3)))
+            make.size.equalTo(CGSize(width: ITHouseScale(10), height: ITHouseScale(3)))
         }
     }
 }

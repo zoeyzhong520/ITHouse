@@ -42,6 +42,7 @@ class TopScrollingMenuSegmentView: UIView {
     ///选项卡最右端的肩头view
     fileprivate lazy var coverView: UIButton = {
         let view = UIButton()
+        view.alpha = 0.5
         view.isSelected = true
         view.addTarget(self, action: #selector(coverViewClick(_:)), for: .touchUpInside)
         view.backgroundColor = .white

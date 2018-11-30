@@ -211,7 +211,7 @@ extension TopScrollingMenuColumnView {
     
     func show() {
         self.alpha = 0.0
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveEaseInOut, animations: {
             (UIApplication.shared.delegate as! AppDelegate).window?.addSubview(self)
             self.contentView?.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
             self.alpha = 1.0
@@ -225,11 +225,11 @@ extension TopScrollingMenuColumnView {
     
     @objc fileprivate func hide() {
         self.alpha = 1.0
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.25, delay: 0.1, options: .curveEaseInOut, animations: {
             self.contentView?.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: 0)
             self.collectionView.removeFromSuperview()
-            self.alpha = 0.0
             self.updateColumnsSqlite()
+            self.alpha = 0.0
         }) { (finished) in
             self.removeFromSuperview()
         }

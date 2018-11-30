@@ -49,4 +49,14 @@ extension UIImage {
     static var searchImg: UIImage? {
         return UIImage(named: "searchImg")
     }
+    
+    ///占位图片
+    static var placeholderImg: UIImage? {
+        return UIImage(named: "placeholderImg")
+    }
+    
+    ///排行图标
+    static var rankingImg: UIImage? {
+        return UIImage(named: "rankingImg")
+    }
 }

@@ -19,6 +19,11 @@ class ITHouseHttpTool: NSObject {
     
     ///根据文件名获取JSON数据
     static func jsonWithFileName(fileName: String) -> [String: Any] {
+        
+        if fileName == "" {
+            fatalError("JSON文件名不能为空")
+        }
+        
         let path = Bundle.main.path(forResource: fileName, ofType: "json")
         let data = NSData(contentsOfFile: path!)! as Data
         let dict = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -26,24 +31,90 @@ class ITHouseHttpTool: NSObject {
         return dict as! [String: Any]
     }
     
-    ///资讯-栏目数据
-    static func newsColumnsData() {
+    ///资讯-栏目
+    static func newsColumnsData(successBlock: (NewsColumnsModel) -> Void) {
         
         let obj = DBManager.shared().item(withCacheKey: String.newsColumnsFileName) as? [String: Any]
         if obj != nil {
+            let model = NewsColumnsModel.parseDict(dict: obj!)
+            successBlock(model)
             return
         }
         
         let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsColumnsFileName)
         //写入数据库
         DBManager.shared().insertItem(dict, cacheKey: String.newsColumnsFileName)
-    }
-    
-    static func newsColumnsData(successBlock: ((NewsColumnsModel) -> Void)) {
-        let dict = DBManager.shared().item(withCacheKey: String.newsColumnsFileName) as! [String: Any]
+        
         let model = NewsColumnsModel.parseDict(dict: dict)
         successBlock(model)
     }
     
+    ///资讯-banner
+    static func newsBannerData(successBlock: (NewsBannerModel) -> Void) {
+        
+        let obj = DBManager.shared().item(withCacheKey: String.newsBannerFileName) as? [String: Any]
+        if obj != nil {
+            let model = NewsBannerModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsBannerFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsBannerFileName)
+        
+        let model = NewsBannerModel.parseDict(dict: dict)
+        successBlock(model)
+    }
+    
+    ///资讯-news
+    static func newsNewsData(successBlock: (NewsDetailNewsModel) -> Void) {
+        
+        let obj = DBManager.shared().item(withCacheKey: String.newsNewsFileName) as? [String: Any]
+        if obj != nil {//直接把数据库的数据进行回调
+            let model = NewsDetailNewsModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsNewsFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsNewsFileName)
+        
+        let model = NewsDetailNewsModel.parseDict(dict: dict)
+        successBlock(model)
+    }
+    
+    ///资讯-newsRanking
+    static func newsRankingData(successBlock: (NewsDetailNewsRankingModel) -> Void) {
+        
+        let obj = DBManager.shared().item(withCacheKey: String.newsRankingFileName) as? [String: Any]
+        if obj != nil {//直接把数据库的数据进行回调
+            let model = NewsDetailNewsRankingModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsRankingFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsRankingFileName)
+        
+        let model = NewsDetailNewsRankingModel.parseDict(dict: dict)
+        successBlock(model)
+    }
+    
+    ///资讯-newsPhotoText
+    static func newsPhotoTextData(successBlock: (NewsDetailNewsPhotoTextModel) -> Void) {
+        
+        let obj = DBManager.shared().item(withCacheKey: String.newsPhotoTextFileName) as? [String: Any]
+        if obj != nil {//直接把数据库的数据进行回调
+            let model = NewsDetailNewsPhotoTextModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsPhotoTextFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsPhotoTextFileName)
+        
+        let model = NewsDetailNewsPhotoTextModel.parseDict(dict: dict)
+        successBlock(model)
+    }
     
 }
