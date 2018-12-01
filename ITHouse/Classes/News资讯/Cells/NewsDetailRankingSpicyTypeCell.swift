@@ -19,9 +19,9 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
     var model: NewsDetailNewsRankingList? {
         didSet {
             imgView.kf.setImage(with: URL(string: model?.img ?? ""), placeholder: UIImage.placeholderImg)
-            rankingLabel.text = "\(indexPath.row)"
+            rankingLabel.text = "\(indexPath.row + 1)"
             titleLabel.text = model?.title
-            discountLabel.text = (model?.price ?? "") + "\(model?.sales ?? "")"
+            discountLabel.text = (model?.price ?? "") + "  " + (model?.discount ?? "")
             salesLabel.text = model?.sales
             salePriceLabel.text = model?.salePrice
             couponLabel.text = model?.coupon
@@ -47,7 +47,7 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
     
     ///标题
     fileprivate lazy var titleLabel: UILabel = {
-        let label = UILabel(title: "", titleFont: UIFont.titleFont, titleColor: UIColor.blackTextColor, alignment: .left)
+        let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.blackTextColor, alignment: .left)
         return label
     }()
     
@@ -71,7 +71,10 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
     
     ///优惠券
     fileprivate lazy var couponLabel: UILabel = {
-        let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.white, alignment: .center)
+        let label = UILabel(title: "", titleFont: UIFont.titleFont, titleColor: UIColor.white, alignment: .center)
+        label.backgroundColor = UIColor.orange
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = ITHouseScale(4)
         return label
     }()
     
@@ -122,7 +125,7 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
         
         discountLabel.snp.makeConstraints { (make) in
             make.leftMargin.equalTo(titleLabel)
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(ITHouseScale(5))
             make.size.equalTo(CGSize(width: SCREEN_WIDTH/3, height: ITHouseScale(11)))
         }
         
@@ -134,13 +137,13 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
         couponLabel.snp.makeConstraints { (make) in
             make.centerY.equalTo(salePriceLabel)
             make.rightMargin.equalTo(titleLabel)
-            make.size.equalTo(CGSize(width: ITHouseScale(60), height: ITHouseScale(20)))
+            make.size.equalTo(CGSize(width: ITHouseScale(80), height: ITHouseScale(30)))
         }
         
         salesLabel.snp.makeConstraints { (make) in
             make.rightMargin.equalTo(titleLabel)
             make.size.equalTo(discountLabel)
-            make.bottom.equalTo(couponLabel.snp.top)
+            make.bottom.equalTo(couponLabel.snp.top).offset(-ITHouseScale(5))
         }
     }
     

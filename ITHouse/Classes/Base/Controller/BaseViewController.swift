@@ -22,6 +22,8 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .white
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.navTitleFont]
+        
+        automaticallyAdjustsScrollViewInsets = false
     }
 
     

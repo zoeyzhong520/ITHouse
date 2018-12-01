@@ -37,7 +37,7 @@ class NewsDetailWithBannerTypeCell: UITableViewCell {
     }()
     ///标题
     fileprivate lazy var titleLabel: UILabel = {
-        let label = UILabel(title: "", titleFont: UIFont.titleFont, titleColor: UIColor.blackTextColor, alignment: .left)
+        let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.blackTextColor, alignment: .left)
         return label
     }()
     ///时间

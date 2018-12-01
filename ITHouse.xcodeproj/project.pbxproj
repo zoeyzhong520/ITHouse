@@ -71,6 +71,7 @@
 		D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8729C3721AA4AF50013AC0A /* UIButton+Extension.swift */; };
 		D8729C3A21AA50750013AC0A /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8729C3921AA50750013AC0A /* UserDefaultsTool.swift */; };
 		D8D1E5E621B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D1E5E521B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift */; };
+		D8D29C4F21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D29C4E21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		D8729C3721AA4AF50013AC0A /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D8729C3921AA50750013AC0A /* UserDefaultsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTool.swift; sourceTree = "<group>"; };
 		D8D1E5E521B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailRankingSpicyTypeCell.swift; sourceTree = "<group>"; };
+		D8D29C4E21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailRankingTypeHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 				36F61ABB21B1023000990CF2 /* NewsDetailRankingTypeView.swift */,
 				36F61ABD21B1024300990CF2 /* NewsDetailPhotoTextTypeView.swift */,
 				36F61ABF21B1025100990CF2 /* NewsDetailHotReviewTypeView.swift */,
+				D8D29C4E21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				36F61ACA21B105F200990CF2 /* NewsDetailNewsModel.swift in Sources */,
 				36F61AB121B0D93C00990CF2 /* BorderShownCardsCell.swift in Sources */,
 				36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */,
+				D8D29C4F21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift in Sources */,
 				36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
 				D8729C1F21A977990013AC0A /* UIImage+Extension.swift in Sources */,
 				36F61AAD21B0D26300990CF2 /* BorderShownCardsView.swift in Sources */,

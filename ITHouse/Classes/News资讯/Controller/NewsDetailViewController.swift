@@ -89,7 +89,7 @@ class NewsDetailViewController: BaseViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT)
+        view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + ITHouseScale(30), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT)
     }
 }
 

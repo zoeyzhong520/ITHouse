@@ -29,14 +29,16 @@ class NewsDetailRankingTypeView: UIView {
     
     ///tableView
     fileprivate lazy var tableView: UITableView = {
-        let tbView = UITableView(frame: bounds, style: .plain)
+        let tbView = UITableView(frame: CGRect(x: 0, y: tableHeaderView.frame.maxY, width: bounds.size.width, height: bounds.size.height - tableHeaderView.frame.height), style: .plain)
+        tbView.backgroundColor = UIColor.green
         tbView.delegate = self
         tbView.dataSource = self
         tbView.rowHeight = ITHouseScale(100)
         tbView.sectionHeaderHeight = ITHouseScale(50)
         tbView.separatorStyle = .none
         tbView.registerClassOf(NewsDetailRankingTypeCell.self)
-        tbView.registerClassOf(NewsDetailRankingTypeCell.self)
+        tbView.registerClassOf(NewsDetailRankingSpicyTypeCell.self)
+        tbView.registerHeaderFooterClassOf(NewsDetailRankingTypeHeaderView.self)
         return tbView
     }()
     
@@ -51,8 +53,8 @@ class NewsDetailRankingTypeView: UIView {
     
     ///UI
     fileprivate func addViews() {
+        addSubview(tableHeaderView)
         addSubview(tableView)
-        tableView.tableHeaderView = self.tableHeaderView
     }
     
     ///设置tableHeaderView
@@ -63,7 +65,6 @@ class NewsDetailRankingTypeView: UIView {
         
         let scrollView = UIScrollView(frame: tableHeaderView.bounds)
         scrollView.contentOffset = CGPoint(x: 0, y: 0)
-        scrollView.contentSize = CGSize(width: SCREEN_WIDTH, height: 0)
         tableHeaderView.addSubview(scrollView)
         
         var btnNames = [String]()
@@ -80,7 +81,7 @@ class NewsDetailRankingTypeView: UIView {
         let btnHeight = ITHouseScale(30)
         for i in 0..<btnNames.count {
             let btn = UIButton(title: btnNames[i], titleColor: UIColor.blackTextColor, font: UIFont.titleFont, target: self, action: #selector(headerBtnClick(_:)))
-            btn.frame = CGRect(x: CGFloat(i)*(btnWidth+btnMargin)+btnMargin, y: 0, width: btnWidth, height: btnHeight)
+            btn.frame = CGRect(x: CGFloat(i)*(btnWidth+btnMargin)+btnMargin, y: (scrollView.bounds.size.height - btnHeight)/2, width: btnWidth, height: btnHeight)
             btn.tag = i
             btn.layer.masksToBounds = true
             btn.layer.cornerRadius = btnHeight/2
@@ -129,9 +130,9 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if model?.newsRanking?[indexPath.section].type == "1" {
-            let cell:NewsDetailRankingTypeCell = tableView.dequeueReusableCell()
+            let cell:NewsDetailRankingSpicyTypeCell = tableView.dequeueReusableCell()
             cell.indexPath = indexPath
-            cell.model = self.model?.newsRanking?[indexPath.row].list?[indexPath.row]
+            cell.model = self.model?.newsRanking?[indexPath.section].list?[indexPath.row]
             return cell
         } else {
             let cell:NewsDetailRankingTypeCell = tableView.dequeueReusableCell()
@@ -141,8 +142,10 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return model?.newsRanking?[section].title
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = NewsDetailRankingTypeHeaderView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: ITHouseScale(50)))
+        header.titleText = model?.newsRanking?[section].title
+        return header
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

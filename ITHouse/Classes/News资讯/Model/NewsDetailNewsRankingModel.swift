@@ -37,7 +37,7 @@ class NewsDetailNewsRanking: BaseModel {
     class func parse(json: JSON) -> NewsDetailNewsRanking {
         let model = NewsDetailNewsRanking()
         model.title = json["title"].string
-        model.type = json[""].string
+        model.type = json["type"].string
         
         var array = [NewsDetailNewsRankingList]()
         for (_, subjson) in json["list"] {
