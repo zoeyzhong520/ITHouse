@@ -26,4 +26,20 @@ extension UILabel {
             textAlignment = t_alignment
         }
     }
+    
+    ///设置行间距
+    func addLineSpacing(lineSpacing: CGFloat) {
+        if self.text == nil {
+            return
+        }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineBreakMode = self.lineBreakMode
+        paragraphStyle.alignment = self.textAlignment
+        
+        let attributedString = NSMutableAttributedString(string: self.text!)
+        attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, self.text!.count))
+        self.attributedText = attributedString
+    }
 }

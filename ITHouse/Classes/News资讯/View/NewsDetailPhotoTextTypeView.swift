@@ -22,7 +22,6 @@ class NewsDetailPhotoTextTypeView: UIView {
         let tbView = UITableView(frame: bounds, style: .plain)
         tbView.delegate = self
         tbView.dataSource = self
-        tbView.rowHeight = ITHouseScale(100)
         tbView.separatorStyle = .none
         tbView.registerClassOf(NewsDetailPhotoTextTypeCell.self)
         return tbView
@@ -47,6 +46,10 @@ extension NewsDetailPhotoTextTypeView:UITableViewDelegate,UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model?.newsPhotoText?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return model?.newsPhotoText?[indexPath.row].rowHeight ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

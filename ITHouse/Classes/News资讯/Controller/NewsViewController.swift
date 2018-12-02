@@ -43,7 +43,11 @@ class NewsViewController: BaseViewController {
         menu = TopScrollingMenuViewController()
         menu.delegate = self
         
-        for (index, column) in (model.columns?.enumerated())! {
+        guard let columns = model.columns, let moreColumns = model.moreColumns else {
+            fatalError("columns或者moreColumns为nil")
+        }
+        
+        for (index, column) in columns.enumerated() {
             if column.name != nil {
                 //创建标题数组
                 menu.titles.append(column.name!)
@@ -51,14 +55,18 @@ class NewsViewController: BaseViewController {
                 let vc = NewsDetailViewController()
                 if index == 0 {
                     vc.viewType = NewsDetailViewController.NewsDetailViewType.WithBannerType
-                } else {
+                } else if index == 1 {
                     vc.viewType = NewsDetailViewController.NewsDetailViewType.RankingType
+                } else if index == 2 {
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.PhotoTextType
+                } else {
+                    vc.viewType = NewsDetailViewController.NewsDetailViewType.HotReviewType
                 }
                 menu.dataSource.add(vc)
             }
         }
         
-        for (_, moreColum) in (model.moreColumns?.enumerated())! {
+        for (_, moreColum) in moreColumns.enumerated() {
             if moreColum.name != nil {
                 menu.viceTitles.append(moreColum.name!)
             }

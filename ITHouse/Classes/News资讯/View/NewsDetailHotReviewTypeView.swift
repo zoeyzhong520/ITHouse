@@ -10,6 +10,21 @@ import UIKit
 
 class NewsDetailHotReviewTypeView: UIView {
 
+    ///数据模型
+    var model: NewsDetailHotReviewModel? {
+        didSet {
+            
+        }
+    }
+    
+    ///tableView
+    fileprivate lazy var tableView: UITableView = {
+        let tbView = UITableView(frame: bounds, style: .plain)
+        tbView.delegate = self
+        tbView.dataSource = self
+        return
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

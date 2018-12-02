@@ -106,6 +106,7 @@ class ITHouseHttpTool: NSObject {
         let obj = DBManager.shared().item(withCacheKey: String.newsPhotoTextFileName) as? [String: Any]
         if obj != nil {//直接把数据库的数据进行回调
             let model = NewsDetailNewsPhotoTextModel.parseDict(dict: obj!)
+            model.newsPhotoTextRowHeight()
             successBlock(model)
             return
         }
@@ -114,7 +115,23 @@ class ITHouseHttpTool: NSObject {
         DBManager.shared().insertItem(dict, cacheKey: String.newsPhotoTextFileName)
         
         let model = NewsDetailNewsPhotoTextModel.parseDict(dict: dict)
+        model.newsPhotoTextRowHeight()
         successBlock(model)
     }
     
+    ///资讯-newsHotReview
+    static func newsHotReviewData(successBlock: (NewsDetailHotReviewModel) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.newsHotReviewFileName) as? [String: Any]
+        if obj != nil {
+            let model = NewsDetailHotReviewModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsHotReviewFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsHotReviewFileName)
+        
+        let model = NewsDetailHotReviewModel.parseDict(dict: dict)
+        successBlock(model)
+    }
 }

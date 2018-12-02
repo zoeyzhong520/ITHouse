@@ -10,6 +10,9 @@ import UIKit
 
 class NewsDetailViewController: BaseViewController {
     
+    ///设置frame
+    fileprivate let t_frame = CGRect(x: 0, y: ITHouseScale(30), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT - ITHouseScale(30))
+    
     ///view的type
     var viewType: NewsDetailViewType? {
         didSet {
@@ -19,25 +22,25 @@ class NewsDetailViewController: BaseViewController {
     
     ///WithBannerTypeView
     fileprivate lazy var withBannerTypeView: NewsDetailWithBannerTypeView = {
-        let view = NewsDetailWithBannerTypeView(frame: self.view.bounds)
+        let view = NewsDetailWithBannerTypeView(frame: t_frame)
         return view
     }()
     
     ///rankingTypeView
     fileprivate lazy var rankingTypeView: NewsDetailRankingTypeView = {
-        let view = NewsDetailRankingTypeView(frame: self.view.bounds)
+        let view = NewsDetailRankingTypeView(frame: t_frame)
         return view
     }()
     
     ///photoTextTypeView
     fileprivate lazy var photoTextTypeView: NewsDetailPhotoTextTypeView = {
-        let view = NewsDetailPhotoTextTypeView(frame: self.view.bounds)
+        let view = NewsDetailPhotoTextTypeView(frame: t_frame)
         return view
     }()
     
     ///hotReviewTypeView
     fileprivate lazy var hotReviewTypeView: NewsDetailHotReviewTypeView = {
-        let view = NewsDetailHotReviewTypeView(frame: self.view.bounds)
+        let view = NewsDetailHotReviewTypeView(frame: t_frame)
         return view
     }()
     
@@ -85,11 +88,6 @@ class NewsDetailViewController: BaseViewController {
         case .none:
             DLog("viewType is nil")
         }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT + ITHouseScale(30), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT)
     }
 }
 

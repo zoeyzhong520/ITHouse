@@ -21,6 +21,7 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
             imgView.kf.setImage(with: URL(string: model?.img ?? ""), placeholder: UIImage.placeholderImg)
             rankingLabel.text = "\(indexPath.row + 1)"
             titleLabel.text = model?.title
+            titleLabel.addLineSpacing(lineSpacing: 5)
             discountLabel.text = (model?.price ?? "") + "  " + (model?.discount ?? "")
             salesLabel.text = model?.sales
             salePriceLabel.text = model?.salePrice
@@ -48,6 +49,7 @@ class NewsDetailRankingSpicyTypeCell: UITableViewCell {
     ///标题
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.blackTextColor, alignment: .left)
+        label.numberOfLines = 0
         return label
     }()
     

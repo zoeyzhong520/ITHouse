@@ -29,7 +29,6 @@ class NewsDetailWithBannerTypeView: UIView {
         tbView.delegate = self
         tbView.dataSource = self
         tbView.rowHeight = ITHouseScale(100)
-        tbView.sectionHeaderHeight = ITHouseScale(160)
         tbView.separatorStyle = .none
         tbView.registerClassOf(NewsDetailWithBannerTypeCell.self)
         return tbView

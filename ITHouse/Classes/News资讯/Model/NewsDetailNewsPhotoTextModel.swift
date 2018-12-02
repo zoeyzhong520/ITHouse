@@ -26,6 +26,18 @@ class NewsDetailNewsPhotoTextModel: BaseModel {
         
         return model
     }
+    
+    ///计算行高
+    func newsPhotoTextRowHeight() {
+        guard let newsPhotoText = newsPhotoText else {
+            fatalError("newsPhotoText为nil")
+        }
+        
+        for item in newsPhotoText {
+            let rowHeiht = (item.title?.textHeight(withFont: UIFont.navTitleFont, andWidth: SCREEN_WIDTH - ITHouseScale(30), andLineSpacing: 5) ?? 0) + ITHouseScale(130)
+            item.rowHeight = rowHeiht
+        }
+    }
 }
 
 class NewsDetailNewsPhotoText: BaseModel {
@@ -34,6 +46,7 @@ class NewsDetailNewsPhotoText: BaseModel {
     var title:String?
     var createTime: String?
     var commentNum: String?
+    var rowHeight: CGFloat?//行高
     
     class func parse(json: JSON) -> NewsDetailNewsPhotoText {
         let model = NewsDetailNewsPhotoText()

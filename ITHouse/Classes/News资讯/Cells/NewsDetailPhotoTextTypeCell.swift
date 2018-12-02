@@ -14,8 +14,9 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
     var model: NewsDetailNewsPhotoText? {
         didSet {
             titleLabel.text = model?.title
+            titleLabel.addLineSpacing(lineSpacing: 5)
             timeLabel.text = model?.createTime
-            commentLabel.text = model?.commentNum
+            commentLabel.text = (model?.commentNum ?? "") + "评"
             createImagesView()
         }
     }
@@ -23,6 +24,7 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
     ///标题
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.blackTextColor, alignment: .left)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -69,12 +71,14 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
         if let images = model?.images {
             let imgMargin = ITHouseScale(15)
             let imgWidth = (SCREEN_WIDTH - imgMargin*CGFloat(images.count+1))/CGFloat(images.count)
-            let imgHeight = ITHouseScale(60)
+            let imgHeight = ITHouseScale(80)
             
             for i in 0..<images.count {
                 let imgView = UIImageView()
                 imgView.kf.setImage(with: URL(string: images[i]), placeholder: UIImage.placeholderImg)
                 imgView.frame = CGRect(x: CGFloat(i)*(imgWidth+imgMargin)+imgMargin, y: 0, width: imgWidth, height: imgHeight)
+                imgView.layer.masksToBounds = true
+                imgView.layer.cornerRadius = ITHouseScale(4)
                 imagesView.addSubview(imgView)
             }
         }
@@ -85,12 +89,12 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalTo(ITHouseScale(15))
             make.right.equalTo(-ITHouseScale(15))
-            make.top.equalToSuperview()
+            make.top.equalTo(ITHouseScale(10))
         }
         
         timeLabel.snp.makeConstraints { (make) in
             make.leftMargin.equalTo(titleLabel)
-            make.bottom.equalToSuperview()
+            make.bottom.equalTo(-ITHouseScale(10))
             make.size.equalTo(CGSize(width: SCREEN_WIDTH/3, height: ITHouseScale(11)))
         }
         
@@ -100,9 +104,9 @@ class NewsDetailPhotoTextTypeCell: UITableViewCell {
         }
         
         imagesView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom)
+            make.top.equalTo(titleLabel.snp.bottom).offset(ITHouseScale(10))
             make.left.right.equalToSuperview()
-            make.height.equalTo(ITHouseScale(60))
+            make.height.equalTo(ITHouseScale(80))
         }
     }
     

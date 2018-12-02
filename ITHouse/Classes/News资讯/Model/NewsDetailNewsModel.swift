@@ -32,6 +32,7 @@ class NewsDetailNew: BaseModel {
     var img: String?
     var title: String?
     var createTime: String?
+    
     var commentNum: String?
     
     class func parse(json: JSON) -> NewsDetailNew {

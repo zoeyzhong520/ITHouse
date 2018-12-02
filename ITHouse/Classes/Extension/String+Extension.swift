@@ -49,4 +49,27 @@ extension String {
     static var newsRankingFileName: String {
         return "newsRanking"
     }
+    
+    ///资讯-newsHotReview的JSON文件名
+    static var newsHotReviewFileName: String {
+        return "newsHotReview"
+    }
+    
+    ///获取文本高度
+    func textHeight(withFont font: UIFont, andWidth width: CGFloat) -> CGFloat {
+        let rect = (self as NSString).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        return rect.size.height
+    }
+    
+    ///获取富文本高度
+    func textHeight(withFont font: UIFont, andWidth width: CGFloat, andLineSpacing lineSpacing: CGFloat) -> CGFloat {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.font: font], range: NSMakeRange(0, self.count))
+        
+        let rect = attributedString.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, context: nil)
+        return rect.size.height
+    }
 }

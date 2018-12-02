@@ -21,6 +21,7 @@ class NewsDetailRankingTypeCell: UITableViewCell {
             imgView.kf.setImage(with: URL(string: model?.img ?? ""), placeholder: UIImage.placeholderImg)
             rankingLabel.text = "\(indexPath.row + 1)"
             titleLabel.text = model?.title
+            titleLabel.addLineSpacing(lineSpacing: 5)
             timeLabel.text = model?.createTime
             commentLabel.text = (model?.commentNum ?? "") + "评"
         }
@@ -44,6 +45,7 @@ class NewsDetailRankingTypeCell: UITableViewCell {
     ///标题
     fileprivate lazy var titleLabel: UILabel = {
         let label = UILabel(title: "", titleFont: UIFont.navTitleFont, titleColor: UIColor.blackTextColor, alignment: .left)
+        label.numberOfLines = 0
         return label
     }()
     ///时间

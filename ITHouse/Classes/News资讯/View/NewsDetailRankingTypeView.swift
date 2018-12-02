@@ -26,11 +26,12 @@ class NewsDetailRankingTypeView: UIView {
     
     ///选中的headerBtn
     fileprivate var selectedHeaderBtn: UIButton!
+    ///headerButtons（UIButton的数组）
+    fileprivate var headerButtons = [UIButton]()
     
     ///tableView
     fileprivate lazy var tableView: UITableView = {
         let tbView = UITableView(frame: CGRect(x: 0, y: tableHeaderView.frame.maxY, width: bounds.size.width, height: bounds.size.height - tableHeaderView.frame.height), style: .plain)
-        tbView.backgroundColor = UIColor.green
         tbView.delegate = self
         tbView.dataSource = self
         tbView.rowHeight = ITHouseScale(100)
@@ -87,6 +88,8 @@ class NewsDetailRankingTypeView: UIView {
             btn.layer.cornerRadius = btnHeight/2
             btn.backgroundColor = UIColor.grayTextColor
             scrollView.addSubview(btn)
+            
+            headerButtons.append(btn)
             
             if i == 0 {
                 selectedHeaderBtn = btn
@@ -150,17 +153,5 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-}
-
-extension NewsDetailRankingTypeView {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let sectionHeaderHeight = ITHouseScale(50)
-        if scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
-        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsets(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
-        }
     }
 }
