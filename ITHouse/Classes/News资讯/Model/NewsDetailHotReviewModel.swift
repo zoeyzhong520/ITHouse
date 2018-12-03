@@ -18,7 +18,7 @@ class NewsDetailHotReviewModel: BaseModel {
         let model = NewsDetailHotReviewModel()
         
         var array = [NewsDetailHotReview]()
-        for (_, subjson) in json[""] {
+        for (_, subjson) in json["newsHotReview"] {
             let model = NewsDetailHotReview.parse(json: subjson)
             array.append(model)
         }
