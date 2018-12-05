@@ -124,6 +124,7 @@ class ITHouseHttpTool: NSObject {
         let obj = DBManager.shared().item(withCacheKey: String.newsHotReviewFileName) as? [String: Any]
         if obj != nil {
             let model = NewsDetailHotReviewModel.parseDict(dict: obj!)
+            model.newsHotReviewRowHeight()
             successBlock(model)
             return
         }
@@ -132,6 +133,7 @@ class ITHouseHttpTool: NSObject {
         DBManager.shared().insertItem(dict, cacheKey: String.newsHotReviewFileName)
         
         let model = NewsDetailHotReviewModel.parseDict(dict: dict)
+        model.newsHotReviewRowHeight()
         successBlock(model)
     }
 }

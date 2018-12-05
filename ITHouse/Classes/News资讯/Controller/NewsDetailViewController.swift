@@ -85,6 +85,9 @@ class NewsDetailViewController: BaseViewController {
         case .HotReviewType?:
             DLog(viewType!.rawValue)
             view.addSubview(hotReviewTypeView)
+            ITHouseHttpTool.newsHotReviewData { [weak self] (model) in
+                self?.hotReviewTypeView.model = model
+            }
         case .none:
             DLog("viewType is nil")
         }

@@ -26,6 +26,26 @@ class NewsDetailHotReviewModel: BaseModel {
         
         return model
     }
+    
+    ///计算行高
+    func newsHotReviewRowHeight() {
+        guard let newsHotReview = newsHotReview else {
+            fatalError("newsHotReview为nil")
+        }
+        
+        for item in newsHotReview {
+            let commentTextHeight = item.comment?.textHeight(withFont: UIFont.navTitleFont, andWidth: SCREEN_WIDTH - ITHouseScale(65), andLineSpacing: 5)
+            let newsTitleHeight = item.newsTitle?.textHeight(withFont: UIFont.titleFont, andWidth: SCREEN_WIDTH - ITHouseScale(65), andLineSpacing: 5)
+            
+            let rowHeight = (commentTextHeight ?? 0) + (newsTitleHeight ?? 0)
+            item.rowHeight = rowHeight + ITHouseScale(110)
+            
+            item.nickNameLabelWidth = item.nickName?.textWidth(font: UIFont.titleFont)
+            item.deviceLabelWidth = item.device?.textWidth(font: UIFont.titleFont)
+            item.opposeLabelWidth = "反对((\(item.oppose ?? ""))".textWidth(font: UIFont.textFont)
+            item.standByLabelWidth = "支持((\(item.standBy ?? ""))".textWidth(font: UIFont.textFont)
+        }
+    }
 }
 
 class NewsDetailHotReview: BaseModel {
@@ -43,6 +63,12 @@ class NewsDetailHotReview: BaseModel {
     var standBy: String?
     
     var oppose: String?
+    var rowHeight: CGFloat?
+    var nickNameLabelWidth: CGFloat?
+    
+    var deviceLabelWidth: CGFloat?
+    var opposeLabelWidth: CGFloat?
+    var standByLabelWidth: CGFloat?
     
     class func parse(json: JSON) -> NewsDetailHotReview {
         let model = NewsDetailHotReview()

@@ -45,11 +45,18 @@ class NewsDetailHotReviewTypeView: UIView {
 extension NewsDetailHotReviewTypeView:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return model?.newsHotReview?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return model?.newsHotReview?[indexPath.row].rowHeight ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell:NewsDetailHotReviewTypeCell = tableView.dequeueReusableCell()
+        cell.indexPath = indexPath
+        cell.model = self.model?.newsHotReview?[indexPath.row]
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
