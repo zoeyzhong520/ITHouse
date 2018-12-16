@@ -95,6 +95,7 @@ class NewsDetailHotReviewTypeCell: UITableViewCell {
     fileprivate lazy var newsTitleLabel: UILabel = {
         let label = UILabel(title: "", titleFont: UIFont.titleFont, titleColor: UIColor.blue, alignment: .left)
         label.numberOfLines = 0
+        label.backgroundColor = RGB(240,240,240)
         return label
     }()
     ///时间
@@ -110,7 +111,6 @@ class NewsDetailHotReviewTypeCell: UITableViewCell {
     ///反对
     fileprivate lazy var opposeLabel: UILabel = {
         let label = UILabel(title: "", titleFont: UIFont.textFont, titleColor: UIColor.red, alignment: .left)
-        label.backgroundColor = UIColor.gray
         return label
     }()
     ///分享按钮
