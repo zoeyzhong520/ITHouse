@@ -21,10 +21,9 @@ extension BaseNavigationViewController:UIGestureRecognizerDelegate {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
-        let cnt = navigationController?.viewControllers.count ?? 0
-        if cnt > 0 {
+        if children.count > 0 {
             let backItem = UIBarButtonItem(image: UIImage.backImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backAction))
-            navigationItem.leftBarButtonItem = backItem
+            viewController.navigationItem.leftBarButtonItem = backItem
         }
         super.pushViewController(viewController, animated: animated)
     }

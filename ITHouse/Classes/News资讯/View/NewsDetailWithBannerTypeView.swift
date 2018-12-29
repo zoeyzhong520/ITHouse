@@ -8,8 +8,15 @@
 
 import UIKit
 
+@objc protocol NewsDetailWithBannerTypeViewDelegate: NSObjectProtocol {
+    @objc optional
+    func didSelectCell(withModel model: NewsDetailNew?)
+}
+
 class NewsDetailWithBannerTypeView: UIView {
 
+    weak var delegate: NewsDetailWithBannerTypeViewDelegate?
+    
     ///数据模型
     var model: NewsDetailNewsModel? {
         didSet {
@@ -63,6 +70,9 @@ extension NewsDetailWithBannerTypeView:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if delegate != nil {
+            let model = self.model?.news?[indexPath.row]
+            delegate?.didSelectCell!(withModel: model)
+        }
     }
 }

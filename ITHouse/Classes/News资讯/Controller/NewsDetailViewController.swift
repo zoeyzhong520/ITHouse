@@ -11,18 +11,15 @@ import UIKit
 class NewsDetailViewController: BaseViewController {
     
     ///设置frame
-    fileprivate let t_frame = CGRect(x: 0, y: ITHouseScale(30), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT - ITHouseScale(30))
+    fileprivate let t_frame = CGRect(x: 0, y: ITHouseScale(40), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT - ITHouseScale(40))
     
     ///view的type
-    var viewType: NewsDetailViewType? {
-        didSet {
-            getData()
-        }
-    }
+    var viewType: NewsDetailViewType?
     
     ///WithBannerTypeView
     fileprivate lazy var withBannerTypeView: NewsDetailWithBannerTypeView = {
         let view = NewsDetailWithBannerTypeView(frame: t_frame)
+        view.delegate = self
         return view
     }()
     
@@ -46,7 +43,7 @@ class NewsDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,5 +98,12 @@ extension NewsDetailViewController {
         case RankingType
         case PhotoTextType
         case HotReviewType
+    }
+}
+
+extension NewsDetailViewController: NewsDetailWithBannerTypeViewDelegate {
+    
+    func didSelectCell(withModel model: NewsDetailNew?) {
+        
     }
 }

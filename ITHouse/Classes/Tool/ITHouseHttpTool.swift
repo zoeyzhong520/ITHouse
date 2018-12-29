@@ -31,6 +31,8 @@ class ITHouseHttpTool: NSObject {
         return dict as! [String: Any]
     }
     
+    //MARK: - 资讯API
+    
     ///资讯-栏目
     static func newsColumnsData(successBlock: (NewsColumnsModel) -> Void) {
         

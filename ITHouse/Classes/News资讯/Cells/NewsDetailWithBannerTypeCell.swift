@@ -34,6 +34,7 @@ class NewsDetailWithBannerTypeCell: UITableViewCell {
         label.backgroundColor = RGBA(0,0,0,0.4)
         label.layer.masksToBounds = true
         label.layer.cornerRadius = ITHouseScale(6)
+        label.isHidden = true
         return label
     }()
     ///标题

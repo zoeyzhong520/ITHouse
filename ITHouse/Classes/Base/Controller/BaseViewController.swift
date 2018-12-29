@@ -18,11 +18,8 @@ class BaseViewController: UIViewController {
     }
     
     func baseUI() {
-        
         view.backgroundColor = .white
-        
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.navTitleFont]
-        
         automaticallyAdjustsScrollViewInsets = false
     }
 

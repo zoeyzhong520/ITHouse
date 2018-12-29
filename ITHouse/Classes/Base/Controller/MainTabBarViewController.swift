@@ -32,12 +32,8 @@ class MainTabBarViewController: UITabBarController {
             tabBar.tintColor = UIColor.mainColor
             addChild(navVC)
         }
+        
+        selectedIndex = 0;
     }
 }
 
-extension MainTabBarViewController {
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        DLog("itemTag: \(item.tag)")
-    }
-}

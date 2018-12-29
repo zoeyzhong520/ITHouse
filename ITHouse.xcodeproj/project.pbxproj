@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36CC020821D74A5F00B7CFAC /* NewsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */; };
+		36CC021821D74BCD00B7CFAC /* DAYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020D21D74BCD00B7CFAC /* DAYNavigationBar.m */; };
+		36CC021921D74BCD00B7CFAC /* DAYComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020E21D74BCD00B7CFAC /* DAYComponentView.m */; };
+		36CC021A21D74BCD00B7CFAC /* DAYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021321D74BCD00B7CFAC /* DAYUtils.m */; };
+		36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021421D74BCD00B7CFAC /* DAYIndicatorView.m */; };
+		36CC021C21D74BCD00B7CFAC /* DAYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021621D74BCD00B7CFAC /* DAYCalendarView.m */; };
+		36CC021F21D7521B00B7CFAC /* TimeTransferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021E21D7521B00B7CFAC /* TimeTransferTool.swift */; };
+		36CC022521D755AC00B7CFAC /* CommonScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022421D755AC00B7CFAC /* CommonScrollBar.swift */; };
+		36CC022721D75C3B00B7CFAC /* NewsCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */; };
+		36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */; };
+		36CC023221D7718200B7CFAC /* SearchToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023121D7718200B7CFAC /* SearchToolModel.swift */; };
+		36CC023421D7719200B7CFAC /* SearchToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023321D7719200B7CFAC /* SearchToolView.swift */; };
 		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
 		36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */; };
 		36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */; };
@@ -93,6 +105,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCalendarViewController.swift; sourceTree = "<group>"; };
+		36CC020A21D74BCD00B7CFAC /* Daysquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daysquare.h; sourceTree = "<group>"; };
+		36CC020B21D74BCD00B7CFAC /* DAYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYCalendarView.h; sourceTree = "<group>"; };
+		36CC020D21D74BCD00B7CFAC /* DAYNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYNavigationBar.m; sourceTree = "<group>"; };
+		36CC020E21D74BCD00B7CFAC /* DAYComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYComponentView.m; sourceTree = "<group>"; };
+		36CC020F21D74BCD00B7CFAC /* DAYIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYIndicatorView.h; sourceTree = "<group>"; };
+		36CC021021D74BCD00B7CFAC /* DAYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYUtils.h; sourceTree = "<group>"; };
+		36CC021121D74BCD00B7CFAC /* DAYComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYComponentView.h; sourceTree = "<group>"; };
+		36CC021221D74BCD00B7CFAC /* DAYNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYNavigationBar.h; sourceTree = "<group>"; };
+		36CC021321D74BCD00B7CFAC /* DAYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYUtils.m; sourceTree = "<group>"; };
+		36CC021421D74BCD00B7CFAC /* DAYIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYIndicatorView.m; sourceTree = "<group>"; };
+		36CC021521D74BCD00B7CFAC /* Lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
+		36CC021621D74BCD00B7CFAC /* DAYCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYCalendarView.m; sourceTree = "<group>"; };
+		36CC021E21D7521B00B7CFAC /* TimeTransferTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTransferTool.swift; sourceTree = "<group>"; };
+		36CC022021D7533C00B7CFAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		36CC022121D7534300B7CFAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		36CC022221D7534A00B7CFAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		36CC022321D7534B00B7CFAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		36CC022421D755AC00B7CFAC /* CommonScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonScrollBar.swift; sourceTree = "<group>"; };
+		36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCalendarView.swift; sourceTree = "<group>"; };
+		36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolViewController.swift; sourceTree = "<group>"; };
+		36CC023121D7718200B7CFAC /* SearchToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolModel.swift; sourceTree = "<group>"; };
+		36CC023321D7719200B7CFAC /* SearchToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolView.swift; sourceTree = "<group>"; };
 		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
 		36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
 		36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
@@ -205,6 +240,75 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		36CC020921D74BCD00B7CFAC /* CalendarTool */ = {
+			isa = PBXGroup;
+			children = (
+				36CC020A21D74BCD00B7CFAC /* Daysquare.h */,
+				36CC020B21D74BCD00B7CFAC /* DAYCalendarView.h */,
+				36CC020C21D74BCD00B7CFAC /* Internal */,
+				36CC021521D74BCD00B7CFAC /* Lib.h */,
+				36CC021621D74BCD00B7CFAC /* DAYCalendarView.m */,
+			);
+			path = CalendarTool;
+			sourceTree = "<group>";
+		};
+		36CC020C21D74BCD00B7CFAC /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				36CC020D21D74BCD00B7CFAC /* DAYNavigationBar.m */,
+				36CC020E21D74BCD00B7CFAC /* DAYComponentView.m */,
+				36CC020F21D74BCD00B7CFAC /* DAYIndicatorView.h */,
+				36CC021021D74BCD00B7CFAC /* DAYUtils.h */,
+				36CC021121D74BCD00B7CFAC /* DAYComponentView.h */,
+				36CC021221D74BCD00B7CFAC /* DAYNavigationBar.h */,
+				36CC021321D74BCD00B7CFAC /* DAYUtils.m */,
+				36CC021421D74BCD00B7CFAC /* DAYIndicatorView.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		36CC022A21D766BA00B7CFAC /* 日历 */ = {
+			isa = PBXGroup;
+			children = (
+				36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */,
+			);
+			path = "日历";
+			sourceTree = "<group>";
+		};
+		36CC022B21D7715B00B7CFAC /* SearchTool */ = {
+			isa = PBXGroup;
+			children = (
+				36CC022C21D7715B00B7CFAC /* Controller */,
+				36CC022D21D7715B00B7CFAC /* Model */,
+				36CC022E21D7715B00B7CFAC /* View */,
+			);
+			path = SearchTool;
+			sourceTree = "<group>";
+		};
+		36CC022C21D7715B00B7CFAC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36CC022D21D7715B00B7CFAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36CC023121D7718200B7CFAC /* SearchToolModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36CC022E21D7715B00B7CFAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36CC023321D7719200B7CFAC /* SearchToolView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		36F57A4021ABC1BE00A6CC9C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +407,7 @@
 		36F61AB821B101F000990CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36CC022A21D766BA00B7CFAC /* 日历 */,
 				36F61AB921B1021500990CF2 /* NewsDetailWithBannerTypeView.swift */,
 				36F61ABB21B1023000990CF2 /* NewsDetailRankingTypeView.swift */,
 				36F61ABD21B1024300990CF2 /* NewsDetailPhotoTextTypeView.swift */,
@@ -432,6 +537,7 @@
 			children = (
 				D85C163021A8FB3A0033BFCA /* NewsViewController.swift */,
 				36F61AA921B0CCB400990CF2 /* NewsDetailViewController.swift */,
+				36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,6 +637,8 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				36CC022B21D7715B00B7CFAC /* SearchTool */,
+				36CC020921D74BCD00B7CFAC /* CalendarTool */,
 				36F61AAB21B0D24E00990CF2 /* BorderShownCardsView */,
 				36F61A8621AE71C300990CF2 /* DBManager */,
 				D8327EDA21AADDFD00794C6A /* TopScrollingMenu */,
@@ -538,6 +646,8 @@
 				D8729C1A21A91ED00013AC0A /* DebugPrintTool.swift */,
 				D8729C3921AA50750013AC0A /* UserDefaultsTool.swift */,
 				36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */,
+				36CC021E21D7521B00B7CFAC /* TimeTransferTool.swift */,
+				36CC022421D755AC00B7CFAC /* CommonScrollBar.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -766,8 +876,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F61ABC21B1023000990CF2 /* NewsDetailRankingTypeView.swift in Sources */,
+				36CC021921D74BCD00B7CFAC /* DAYComponentView.m in Sources */,
 				36F61AD321B107F400990CF2 /* NewsDetailHotReviewTypeCell.swift in Sources */,
 				36F57A6821AE435800A6CC9C /* TopScrollingMenuTool.swift in Sources */,
+				36CC022521D755AC00B7CFAC /* CommonScrollBar.swift in Sources */,
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
@@ -775,6 +887,7 @@
 				D84D3D8621B4161100217AA7 /* NewsDetailHotReviewModel.swift in Sources */,
 				36F61ACD21B107B100990CF2 /* NewsDetailWithBannerTypeCell.swift in Sources */,
 				36F57A6521AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift in Sources */,
+				36CC021F21D7521B00B7CFAC /* TimeTransferTool.swift in Sources */,
 				D8729C2E21A999F50013AC0A /* String+Extension.swift in Sources */,
 				36F61A8921AE71D300990CF2 /* DBManager.m in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
@@ -783,24 +896,31 @@
 				36F61AB121B0D93C00990CF2 /* BorderShownCardsCell.swift in Sources */,
 				36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */,
 				D8D29C4F21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift in Sources */,
+				36CC023221D7718200B7CFAC /* SearchToolModel.swift in Sources */,
 				36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
 				D8729C1F21A977990013AC0A /* UIImage+Extension.swift in Sources */,
+				36CC022721D75C3B00B7CFAC /* NewsCalendarView.swift in Sources */,
 				36F61AAD21B0D26300990CF2 /* BorderShownCardsView.swift in Sources */,
 				D8D1E5E621B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift in Sources */,
 				D85C163121A8FB3A0033BFCA /* NewsViewController.swift in Sources */,
 				36F61AD721B125ED00990CF2 /* NewsDetailRankingTypeCell.swift in Sources */,
 				36F61ABE21B1024300990CF2 /* NewsDetailPhotoTextTypeView.swift in Sources */,
+				36CC021821D74BCD00B7CFAC /* DAYNavigationBar.m in Sources */,
 				D85C162D21A8FADD0033BFCA /* AppDelegate.swift in Sources */,
 				D8729C3421A9AC3B0013AC0A /* LoginViewController.swift in Sources */,
 				D8729C3621AA46E50013AC0A /* UIImageView+Extension.swift in Sources */,
 				36F61AD921B12C3000990CF2 /* NewsDetailNewsPhotoTextModel.swift in Sources */,
 				D8729C3021A9A3D90013AC0A /* UIViewController+Extension.swift in Sources */,
 				D8729C2A21A98A340013AC0A /* UITableView+Extension.swift in Sources */,
+				36CC021A21D74BCD00B7CFAC /* DAYUtils.m in Sources */,
 				D8729C1B21A91ED00013AC0A /* DebugPrintTool.swift in Sources */,
+				36CC021C21D74BCD00B7CFAC /* DAYCalendarView.m in Sources */,
 				D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */,
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
+				36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
 				36F57A6221AE431500A6CC9C /* TopScrollingMenuSegmentView.swift in Sources */,
+				36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */,
 				36F61AB521B0E43700990CF2 /* NewsBannerModel.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,
 				36F61AAA21B0CCB400990CF2 /* NewsDetailViewController.swift in Sources */,
@@ -815,8 +935,10 @@
 				36F61ABA21B1021500990CF2 /* NewsDetailWithBannerTypeView.swift in Sources */,
 				36F61AC021B1025100990CF2 /* NewsDetailHotReviewTypeView.swift in Sources */,
 				36F61AD121B107E000990CF2 /* NewsDetailPhotoTextTypeCell.swift in Sources */,
+				36CC020821D74A5F00B7CFAC /* NewsCalendarViewController.swift in Sources */,
 				36F61A9221AE8E0500990CF2 /* ITHouseHttpTool.swift in Sources */,
 				D8729C3A21AA50750013AC0A /* UserDefaultsTool.swift in Sources */,
+				36CC023421D7719200B7CFAC /* SearchToolView.swift in Sources */,
 				D85C163321A8FB470033BFCA /* SpicyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +979,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D85C15F421A8F59E0033BFCA /* Base */,
+				36CC022021D7533C00B7CFAC /* zh-Hans */,
+				36CC022221D7534A00B7CFAC /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -865,6 +989,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D85C15F921A8F5A00033BFCA /* Base */,
+				36CC022121D7534300B7CFAC /* zh-Hans */,
+				36CC022321D7534B00B7CFAC /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -876,6 +1002,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -937,6 +1064,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1010,7 +1138,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ITHouse/ITHouseBridgeHeader.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1034,7 +1162,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/ITHouse/ITHouseBridgeHeader.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

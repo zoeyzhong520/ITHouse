@@ -8,6 +8,7 @@
 
 import UIKit
 
+///News
 class NewsViewController: BaseViewController {
     
     ///顶部滚动菜单对象
@@ -71,7 +72,7 @@ class NewsViewController: BaseViewController {
                 menu.viceTitles.append(moreColum.name!)
             }
         }
-        navigationController?.addChild(menu)//加入导航控制器
+        addChild(menu)//加入导航控制器
         view.addSubview(menu.view)
     }
     
@@ -79,12 +80,12 @@ class NewsViewController: BaseViewController {
         
     }
     
-    @objc fileprivate func searchClick() {
-        
+    @objc fileprivate func searchClick() {//点击搜索
+        push(ofClassName: "SearchToolViewController")
     }
     
-    @objc fileprivate func calendarClick() {
-        
+    @objc fileprivate func calendarClick() {//点击日历
+        push(ofClassName: "NewsCalendarViewController")
     }
 }
 
