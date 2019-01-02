@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3646ACA321DC833700C9DAB1 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA121DC833700C9DAB1 /* search.json */; };
+		3646ACA421DC833700C9DAB1 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA221DC833700C9DAB1 /* searchResult.json */; };
+		3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */; };
+		3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACA821DC905E00C9DAB1 /* SearchToolHotCell.swift */; };
+		3646ACAE21DCAEBB00C9DAB1 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */; };
 		36CC020821D74A5F00B7CFAC /* NewsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */; };
 		36CC021821D74BCD00B7CFAC /* DAYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020D21D74BCD00B7CFAC /* DAYNavigationBar.m */; };
 		36CC021921D74BCD00B7CFAC /* DAYComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020E21D74BCD00B7CFAC /* DAYComponentView.m */; };
@@ -19,6 +24,8 @@
 		36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */; };
 		36CC023221D7718200B7CFAC /* SearchToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023121D7718200B7CFAC /* SearchToolModel.swift */; };
 		36CC023421D7719200B7CFAC /* SearchToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023321D7719200B7CFAC /* SearchToolView.swift */; };
+		36EC630C21DC5F7F00771A22 /* ITHouseSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EC630B21DC5F7F00771A22 /* ITHouseSearchBar.swift */; };
+		36EC630E21DC650800771A22 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EC630D21DC650800771A22 /* SearchResultView.swift */; };
 		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
 		36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */; };
 		36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */; };
@@ -105,6 +112,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3646ACA121DC833700C9DAB1 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
+		3646ACA221DC833700C9DAB1 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
+		3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolReadHistoryCell.swift; sourceTree = "<group>"; };
+		3646ACA821DC905E00C9DAB1 /* SearchToolHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolHotCell.swift; sourceTree = "<group>"; };
+		3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCalendarViewController.swift; sourceTree = "<group>"; };
 		36CC020A21D74BCD00B7CFAC /* Daysquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daysquare.h; sourceTree = "<group>"; };
 		36CC020B21D74BCD00B7CFAC /* DAYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYCalendarView.h; sourceTree = "<group>"; };
@@ -128,6 +140,8 @@
 		36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolViewController.swift; sourceTree = "<group>"; };
 		36CC023121D7718200B7CFAC /* SearchToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolModel.swift; sourceTree = "<group>"; };
 		36CC023321D7719200B7CFAC /* SearchToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolView.swift; sourceTree = "<group>"; };
+		36EC630B21DC5F7F00771A22 /* ITHouseSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITHouseSearchBar.swift; sourceTree = "<group>"; };
+		36EC630D21DC650800771A22 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
 		36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
 		36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
@@ -240,6 +254,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3646ACA521DC898A00C9DAB1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */,
+				3646ACA821DC905E00C9DAB1 /* SearchToolHotCell.swift */,
+				3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		36CC020921D74BCD00B7CFAC /* CalendarTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +302,7 @@
 		36CC022B21D7715B00B7CFAC /* SearchTool */ = {
 			isa = PBXGroup;
 			children = (
+				3646ACA521DC898A00C9DAB1 /* Cells */,
 				36CC022C21D7715B00B7CFAC /* Controller */,
 				36CC022D21D7715B00B7CFAC /* Model */,
 				36CC022E21D7715B00B7CFAC /* View */,
@@ -305,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				36CC023321D7719200B7CFAC /* SearchToolView.swift */,
+				36EC630D21DC650800771A22 /* SearchResultView.swift */,
+				36EC630B21DC5F7F00771A22 /* ITHouseSearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +391,8 @@
 		36F61A8E21AE8C7A00990CF2 /* JSONS */ = {
 			isa = PBXGroup;
 			children = (
+				3646ACA121DC833700C9DAB1 /* search.json */,
+				3646ACA221DC833700C9DAB1 /* searchResult.json */,
 				36F61AC421B1044900990CF2 /* news.json */,
 				36F61AC121B1044900990CF2 /* newsHotReview.json */,
 				36F61AC221B1044900990CF2 /* newsPhotoText.json */,
@@ -786,9 +815,11 @@
 			files = (
 				D85C15FA21A8F5A00033BFCA /* LaunchScreen.storyboard in Resources */,
 				D85C15F721A8F5A00033BFCA /* Assets.xcassets in Resources */,
+				3646ACA321DC833700C9DAB1 /* search.json in Resources */,
 				36F61AC521B1044900990CF2 /* newsHotReview.json in Resources */,
 				D85C15F521A8F59E0033BFCA /* Main.storyboard in Resources */,
 				36F61A9021AE8C7B00990CF2 /* columns.json in Resources */,
+				3646ACA421DC833700C9DAB1 /* searchResult.json in Resources */,
 				36F61AB321B0E31200990CF2 /* newsBanner.json in Resources */,
 				36F61AC821B1044900990CF2 /* news.json in Resources */,
 				36F61AC621B1044900990CF2 /* newsPhotoText.json in Resources */,
@@ -889,6 +920,7 @@
 				36F57A6521AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift in Sources */,
 				36CC021F21D7521B00B7CFAC /* TimeTransferTool.swift in Sources */,
 				D8729C2E21A999F50013AC0A /* String+Extension.swift in Sources */,
+				3646ACAE21DCAEBB00C9DAB1 /* SearchResultCell.swift in Sources */,
 				36F61A8921AE71D300990CF2 /* DBManager.m in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
 				36F61AD521B1198600990CF2 /* NewsDetailNewsRankingModel.swift in Sources */,
@@ -903,9 +935,11 @@
 				36F61AAD21B0D26300990CF2 /* BorderShownCardsView.swift in Sources */,
 				D8D1E5E621B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift in Sources */,
 				D85C163121A8FB3A0033BFCA /* NewsViewController.swift in Sources */,
+				36EC630E21DC650800771A22 /* SearchResultView.swift in Sources */,
 				36F61AD721B125ED00990CF2 /* NewsDetailRankingTypeCell.swift in Sources */,
 				36F61ABE21B1024300990CF2 /* NewsDetailPhotoTextTypeView.swift in Sources */,
 				36CC021821D74BCD00B7CFAC /* DAYNavigationBar.m in Sources */,
+				36EC630C21DC5F7F00771A22 /* ITHouseSearchBar.swift in Sources */,
 				D85C162D21A8FADD0033BFCA /* AppDelegate.swift in Sources */,
 				D8729C3421A9AC3B0013AC0A /* LoginViewController.swift in Sources */,
 				D8729C3621AA46E50013AC0A /* UIImageView+Extension.swift in Sources */,
@@ -917,10 +951,12 @@
 				36CC021C21D74BCD00B7CFAC /* DAYCalendarView.m in Sources */,
 				D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */,
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
+				3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */,
 				36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
 				36F57A6221AE431500A6CC9C /* TopScrollingMenuSegmentView.swift in Sources */,
 				36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */,
+				3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */,
 				36F61AB521B0E43700990CF2 /* NewsBannerModel.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,
 				36F61AAA21B0CCB400990CF2 /* NewsDetailViewController.swift in Sources */,

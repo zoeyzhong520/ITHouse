@@ -55,6 +55,16 @@ extension String {
         return "newsHotReview"
     }
     
+    ///搜索基础数据JSON文件名
+    static var searchFileName: String {
+        return "search"
+    }
+    
+    ///搜索结果数据JSON文件名
+    static var searchResultFileName: String {
+        return "searchResult"
+    }
+    
     ///获取文本高度
     func textHeight(withFont font: UIFont, andWidth width: CGFloat) -> CGFloat {
         let rect = (self as NSString).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)

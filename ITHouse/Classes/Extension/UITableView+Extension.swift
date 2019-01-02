@@ -25,7 +25,7 @@ extension UITableView {
     
     func dequeueReusableCell<T: UITableViewCell>() -> T {
         guard let cell = self.dequeueReusableCell(withIdentifier: T.iTHouse_reuseIdentifier) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.iTHouse_nibName)")
+            fatalError("Could not dequeue cell with identifier: \(T.iTHouse_reuseIdentifier)")
         }
         return cell
     }

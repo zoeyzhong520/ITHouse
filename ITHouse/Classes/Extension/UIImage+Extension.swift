@@ -59,4 +59,9 @@ extension UIImage {
     static var rankingImg: UIImage? {
         return UIImage(named: "rankingImg")
     }
+    
+    ///扫一扫图标
+    static var scanImg: UIImage? {
+        return UIImage(named: "scan")
+    }
 }

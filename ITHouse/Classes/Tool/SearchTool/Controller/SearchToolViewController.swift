@@ -11,26 +11,73 @@ import UIKit
 class SearchToolViewController: BaseViewController {
 
     ///搜索框
-    fileprivate lazy var searchBar: UISearchBar = {
-        let bar = UISearchBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: NAVIGATIONBAR_HEIGHT))
+    fileprivate lazy var searchBar: ITHouseSearchBar = {
+        let bar = ITHouseSearchBar(frame: CGRect(x: ITHouseScale(60), y: 0, width: SCREEN_WIDTH-ITHouseScale(60), height: NAVIGATIONBAR_HEIGHT))
         bar.barStyle = .default
         bar.showsCancelButton = true
-        bar.becomeFirstResponder()
+        bar.placeholder = "搜索"
         bar.delegate = self
         return bar
+    }()
+    
+    ///选项卡高度
+    fileprivate let segmentedControlHeight = ITHouseScale(30)
+    ///选项卡宽度
+    fileprivate let segmentedControlWidth = SCREEN_WIDTH-ITHouseScale(140)
+    ///选项卡
+    fileprivate lazy var segmentedControl: UISegmentedControl = {
+        let control = UISegmentedControl(items: ["文章","辣品","圈子"])
+        control.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
+        control.tintColor = UIColor.mainColor
+        control.selectedSegmentIndex = 0
+        control.frame = CGRect(x: (SCREEN_WIDTH-segmentedControlWidth)/2, y: STATUSBAR_HEIGHT+NAVIGATIONBAR_HEIGHT+ITHouseScale(10), width: segmentedControlWidth, height: segmentedControlHeight)
+        return control
+    }()
+    
+    ///toolView
+    fileprivate lazy var toolView: SearchToolView = {
+        let view = SearchToolView(frame: CGRect(x: 0, y: segmentedControl.frame.maxY, width: SCREEN_WIDTH, height: CONTENT_HEIGHT-segmentedControlHeight))
+        return view
+    }()
+    ///searchResultView
+    fileprivate lazy var resultView: SearchResultView = {
+        let view = SearchResultView(frame: CGRect(x: 0, y: segmentedControl.frame.maxY, width: SCREEN_WIDTH, height: CONTENT_HEIGHT-segmentedControlHeight))
+        view.isHidden = true
+        return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setPage()
+        getData()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.addSubview(searchBar)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchBar.removeFromSuperview()
+    }
+    
     fileprivate func setPage() {
-        addBarButtonItem(position: .Left, image: UIImage(), action: #selector(scanAction))
-        navigationItem.titleView = searchBar
+        addBarButtonItem(position: .Left, image: UIImage.scanImg, action: #selector(scanAction))
+        view.addSubview(segmentedControl)
+        view.addSubview(toolView)
+        view.addSubview(resultView)
+    }
+    
+    fileprivate func getData() {
+        ITHouseHttpTool.searchConfigData { [weak self] (model) in
+            self?.toolView.model = model
+        }
     }
     
     @objc fileprivate func scanAction() {
+        
+    }
+    
+    @objc fileprivate func segmentedValueChanged(_ segmented: UISegmentedControl) {
         
     }
 }
@@ -43,7 +90,8 @@ extension SearchToolViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         DLog(searchText)
-        //开始搜索
+        toolView.isHidden = searchText.count > 0 && !resultView.isHidden
+        resultView.isHidden = !toolView.isHidden
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -58,5 +106,11 @@ extension SearchToolViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         //开始搜索
+        toolView.isHidden = true
+        resultView.isHidden = false
+        
+        ITHouseHttpTool.searchResultData { [weak self] (model) in
+            self?.resultView.model = model
+        }
     }
 }

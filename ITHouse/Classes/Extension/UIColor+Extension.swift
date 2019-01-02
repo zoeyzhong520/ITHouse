@@ -24,4 +24,9 @@ extension UIColor {
     static var grayTextColor: UIColor {
         return RGB(170,170,170)
     }
+    
+    ///浅灰色
+    static var lightGrayColor: UIColor {
+        return RGB(244,246,244)
+    }
 }

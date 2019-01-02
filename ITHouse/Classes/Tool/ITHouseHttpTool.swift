@@ -138,4 +138,40 @@ class ITHouseHttpTool: NSObject {
         model.newsHotReviewRowHeight()
         successBlock(model)
     }
+    
+    //MARK: - 搜索API
+    
+    ///搜索基础数据
+    static func searchConfigData(successBlock: (SearchToolModel) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.searchFileName) as? [String: Any]
+        if obj != nil {
+            let model = SearchToolModel.parseDict(dict: obj!)
+            model.calculateHotRowHeight()
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.searchFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.searchFileName)//存入数据库
+        
+        let model = SearchToolModel.parseDict(dict: dict)
+        model.calculateHotRowHeight()
+        successBlock(model)
+    }
+    
+    ///搜索结果数据
+    static func searchResultData(successBlock: (SearchResultModel) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.searchResultFileName) as? [String: Any]
+        if obj != nil {
+            let model = SearchResultModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.searchResultFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.searchResultFileName)//存入数据库
+        
+        let model = SearchResultModel.parseDict(dict: dict)
+        successBlock(model)
+    }
 }
