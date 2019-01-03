@@ -75,4 +75,15 @@ extension UIViewController {
     func showLogin() {
         push(ofClassName: "LoginViewController")
     }
+    
+    ///弹框
+    func showAlert(withMessage message: String?, andAction actionBlock: (() -> Void)?=nil) {
+        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .cancel, handler: { (action) in
+            if actionBlock != nil {
+                actionBlock!()
+            }
+        }))
+        present(alert, animated: true, completion: nil)
+    }
 }

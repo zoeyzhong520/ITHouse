@@ -12,5 +12,6 @@
 #import "FMDB.h"
 #import "DBManager.h"
 #import "DAYCalendarView.h"
+#import "QRCodeViewController.h"
 
 #endif /* ITHouseBridgeHeader_h */

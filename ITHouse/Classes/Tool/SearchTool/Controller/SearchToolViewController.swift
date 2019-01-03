@@ -73,12 +73,22 @@ class SearchToolViewController: BaseViewController {
         }
     }
     
-    @objc fileprivate func scanAction() {
-        
+    @objc fileprivate func scanAction() {//扫一扫
+        let vc = QRCodeViewController()
+        vc.title = "扫扫看"
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc fileprivate func segmentedValueChanged(_ segmented: UISegmentedControl) {
         
+    }
+}
+
+extension SearchToolViewController: QRCodeViewControllerDelegate {
+    
+    func scanMessage(_ message: String) {
+        showAlert(withMessage: message)
     }
 }
 

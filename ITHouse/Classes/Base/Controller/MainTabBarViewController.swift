@@ -33,7 +33,7 @@ class MainTabBarViewController: UITabBarController {
             addChild(navVC)
         }
         
-        selectedIndex = 0;
+        selectedIndex = 0
     }
 }
 

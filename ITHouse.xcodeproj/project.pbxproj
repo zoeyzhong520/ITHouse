@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363F630C21DDB37100C34419 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630B21DDB37100C34419 /* QRCodeViewController.m */; };
+		363F630F21DDB68300C34419 /* QRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630E21DDB68300C34419 /* QRCodeTool.m */; };
 		3646ACA321DC833700C9DAB1 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA121DC833700C9DAB1 /* search.json */; };
 		3646ACA421DC833700C9DAB1 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA221DC833700C9DAB1 /* searchResult.json */; };
 		3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */; };
@@ -20,7 +22,6 @@
 		36CC021C21D74BCD00B7CFAC /* DAYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021621D74BCD00B7CFAC /* DAYCalendarView.m */; };
 		36CC021F21D7521B00B7CFAC /* TimeTransferTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC021E21D7521B00B7CFAC /* TimeTransferTool.swift */; };
 		36CC022521D755AC00B7CFAC /* CommonScrollBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022421D755AC00B7CFAC /* CommonScrollBar.swift */; };
-		36CC022721D75C3B00B7CFAC /* NewsCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */; };
 		36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */; };
 		36CC023221D7718200B7CFAC /* SearchToolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023121D7718200B7CFAC /* SearchToolModel.swift */; };
 		36CC023421D7719200B7CFAC /* SearchToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC023321D7719200B7CFAC /* SearchToolView.swift */; };
@@ -112,6 +113,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		363F630A21DDB37100C34419 /* QRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
+		363F630B21DDB37100C34419 /* QRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
+		363F630D21DDB68300C34419 /* QRCodeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeTool.h; sourceTree = "<group>"; };
+		363F630E21DDB68300C34419 /* QRCodeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeTool.m; sourceTree = "<group>"; };
 		3646ACA121DC833700C9DAB1 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		3646ACA221DC833700C9DAB1 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
 		3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolReadHistoryCell.swift; sourceTree = "<group>"; };
@@ -136,7 +141,6 @@
 		36CC022221D7534A00B7CFAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		36CC022321D7534B00B7CFAC /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		36CC022421D755AC00B7CFAC /* CommonScrollBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonScrollBar.swift; sourceTree = "<group>"; };
-		36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCalendarView.swift; sourceTree = "<group>"; };
 		36CC022F21D7717000B7CFAC /* SearchToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolViewController.swift; sourceTree = "<group>"; };
 		36CC023121D7718200B7CFAC /* SearchToolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolModel.swift; sourceTree = "<group>"; };
 		36CC023321D7719200B7CFAC /* SearchToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolView.swift; sourceTree = "<group>"; };
@@ -254,6 +258,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		363F630721DDB35900C34419 /* QRCodeTool */ = {
+			isa = PBXGroup;
+			children = (
+				363F630821DDB35900C34419 /* Controller */,
+				363F630921DDB35900C34419 /* Tool */,
+			);
+			path = QRCodeTool;
+			sourceTree = "<group>";
+		};
+		363F630821DDB35900C34419 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				363F630A21DDB37100C34419 /* QRCodeViewController.h */,
+				363F630B21DDB37100C34419 /* QRCodeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		363F630921DDB35900C34419 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				363F630D21DDB68300C34419 /* QRCodeTool.h */,
+				363F630E21DDB68300C34419 /* QRCodeTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		3646ACA521DC898A00C9DAB1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,14 +320,6 @@
 				36CC021421D74BCD00B7CFAC /* DAYIndicatorView.m */,
 			);
 			path = Internal;
-			sourceTree = "<group>";
-		};
-		36CC022A21D766BA00B7CFAC /* 日历 */ = {
-			isa = PBXGroup;
-			children = (
-				36CC022621D75C3B00B7CFAC /* NewsCalendarView.swift */,
-			);
-			path = "日历";
 			sourceTree = "<group>";
 		};
 		36CC022B21D7715B00B7CFAC /* SearchTool */ = {
@@ -436,7 +459,6 @@
 		36F61AB821B101F000990CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				36CC022A21D766BA00B7CFAC /* 日历 */,
 				36F61AB921B1021500990CF2 /* NewsDetailWithBannerTypeView.swift */,
 				36F61ABB21B1023000990CF2 /* NewsDetailRankingTypeView.swift */,
 				36F61ABD21B1024300990CF2 /* NewsDetailPhotoTextTypeView.swift */,
@@ -666,6 +688,7 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				363F630721DDB35900C34419 /* QRCodeTool */,
 				36CC022B21D7715B00B7CFAC /* SearchTool */,
 				36CC020921D74BCD00B7CFAC /* CalendarTool */,
 				36F61AAB21B0D24E00990CF2 /* BorderShownCardsView */,
@@ -926,12 +949,12 @@
 				36F61AD521B1198600990CF2 /* NewsDetailNewsRankingModel.swift in Sources */,
 				36F61ACA21B105F200990CF2 /* NewsDetailNewsModel.swift in Sources */,
 				36F61AB121B0D93C00990CF2 /* BorderShownCardsCell.swift in Sources */,
+				363F630C21DDB37100C34419 /* QRCodeViewController.m in Sources */,
 				36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */,
 				D8D29C4F21B2D73A0045C06E /* NewsDetailRankingTypeHeaderView.swift in Sources */,
 				36CC023221D7718200B7CFAC /* SearchToolModel.swift in Sources */,
 				36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */,
 				D8729C1F21A977990013AC0A /* UIImage+Extension.swift in Sources */,
-				36CC022721D75C3B00B7CFAC /* NewsCalendarView.swift in Sources */,
 				36F61AAD21B0D26300990CF2 /* BorderShownCardsView.swift in Sources */,
 				D8D1E5E621B18D2A0073950B /* NewsDetailRankingSpicyTypeCell.swift in Sources */,
 				D85C163121A8FB3A0033BFCA /* NewsViewController.swift in Sources */,
@@ -959,6 +982,7 @@
 				3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */,
 				36F61AB521B0E43700990CF2 /* NewsBannerModel.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,
+				363F630F21DDB68300C34419 /* QRCodeTool.m in Sources */,
 				36F61AAA21B0CCB400990CF2 /* NewsDetailViewController.swift in Sources */,
 				36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */,
 				36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */,
