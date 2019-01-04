@@ -64,4 +64,44 @@ extension UIImage {
     static var scanImg: UIImage? {
         return UIImage(named: "scan")
     }
+    
+    ///评论图标
+    static var commentImg: UIImage? {
+        return UIImage(named: "news")
+    }
+    
+    ///收藏图标
+    static var collectedImg: UIImage? {
+        return UIImage(named: "collected")
+    }
+    
+    ///取消收藏图标
+    static var collectImg: UIImage? {
+        return UIImage(named: "collect")
+    }
+    
+    ///向下图标
+    static var downImg: UIImage? {
+        return UIImage(named: "down")
+    }
+    
+    ///刷新图标
+    static var refreshImg: UIImage? {
+        return UIImage(named: "refresh")
+    }
+    
+    ///分享图标
+    static var shareImg: UIImage? {
+        return UIImage(named: "share")
+    }
+    
+    ///更多图标
+    static var moreImg: UIImage? {
+        return UIImage(named: "more")
+    }
+    
+    ///确认图标
+    static var confirmImg: UIImage? {
+        return UIImage(named: "confirm")
+    }
 }

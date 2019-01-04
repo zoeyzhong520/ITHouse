@@ -12,6 +12,8 @@ class UserDefaultsTool: NSObject {
 
     static var userDefaults = UserDefaults.standard
     
+    //MARK: - token
+    
     ///设置token
     static func setToken(token: String) {
         userDefaults.setValue(token, forKey: String.tokenKey)
@@ -24,5 +26,21 @@ class UserDefaultsTool: NSObject {
             return ""
         }
         return token
+    }
+    
+    //MARK: - name
+    
+    ///设置name
+    static func setName(name: String) {
+        userDefaults.set(name, forKey: String.nameKey)
+        userDefaults.synchronize()
+    }
+    
+    ///获取name
+    static func name() -> String {
+        guard let name = userDefaults.object(forKey: String.nameKey) as? String else {
+            return ""
+        }
+        return name
     }
 }

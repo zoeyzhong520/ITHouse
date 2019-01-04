@@ -2,108 +2,93 @@
 //  NewsDetailViewController.swift
 //  ITHouse
 //
-//  Created by zhifu360 on 2018/11/30.
-//  Copyright © 2018 ZZJ. All rights reserved.
+//  Created by zhifu360 on 2019/1/4.
+//  Copyright © 2019 ZZJ. All rights reserved.
 //
 
 import UIKit
+import WebKit
+import SVProgressHUD
 
+///News-详情
 class NewsDetailViewController: BaseViewController {
+
+    ///newsBottomBarHeight
+    fileprivate let newsBottomBarHeight = ITHouseScale(50)
     
-    ///设置frame
-    fileprivate let t_frame = CGRect(x: 0, y: ITHouseScale(40), width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT - ITHouseScale(40))
-    
-    ///view的type
-    var viewType: NewsDetailViewType?
-    
-    ///WithBannerTypeView
-    fileprivate lazy var withBannerTypeView: NewsDetailWithBannerTypeView = {
-        let view = NewsDetailWithBannerTypeView(frame: t_frame)
-        view.delegate = self
+    ///webView
+    fileprivate lazy var webView: WKWebView = {
+        let view = WKWebView(frame: CGRect(x: 0, y: STATUSBAR_HEIGHT, width: self.view.bounds.size.width, height: self.view.bounds.size.height-STATUSBAR_HEIGHT-newsBottomBarHeight), configuration: WKWebViewConfiguration())
+        view.navigationDelegate = self
         return view
     }()
+    ///链接
+    fileprivate let urlString = "https://www.taobao.com"
     
-    ///rankingTypeView
-    fileprivate lazy var rankingTypeView: NewsDetailRankingTypeView = {
-        let view = NewsDetailRankingTypeView(frame: t_frame)
-        return view
-    }()
-    
-    ///photoTextTypeView
-    fileprivate lazy var photoTextTypeView: NewsDetailPhotoTextTypeView = {
-        let view = NewsDetailPhotoTextTypeView(frame: t_frame)
-        return view
-    }()
-    
-    ///hotReviewTypeView
-    fileprivate lazy var hotReviewTypeView: NewsDetailHotReviewTypeView = {
-        let view = NewsDetailHotReviewTypeView(frame: t_frame)
-        return view
+    ///newsBottomBar
+    fileprivate lazy var newsBottomBar: NewsBottomBar = {
+        let bar = NewsBottomBar(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: newsBottomBarHeight), type: NewsBottomBar.NewsBottomBarType.Default)
+        bar.delegate = self
+        return bar
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+        setPage()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        withBannerTypeView.bannerView.createTimer()
+
+    fileprivate func setPage() {
+        view.addSubview(webView)
+        webView.load(URLRequest(url: URL(string: urlString)!))
+        
+        view.addSubview(newsBottomBar)
+        
+        navigationController?.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        withBannerTypeView.bannerView.releaseTimer()
+        SVProgressHUD.dismiss()
     }
     
-    ///获取数据
-    fileprivate func getData() {
-        
-        switch viewType {
-        case .WithBannerType?:
-            DLog(viewType!.rawValue)
-            view.addSubview(withBannerTypeView)
-            ITHouseHttpTool.newsBannerData { [weak self] (model) in
-                self?.withBannerTypeView.bannerView.images = model.images
-            }
-            ITHouseHttpTool.newsNewsData { [weak self] (model) in
-                self?.withBannerTypeView.model = model
-            }
-        case .RankingType?:
-            DLog(viewType!.rawValue)
-            view.addSubview(rankingTypeView)
-            ITHouseHttpTool.newsRankingData { [weak self] (model) in
-                self?.rankingTypeView.model = model
-            }
-        case .PhotoTextType?:
-            DLog(viewType!.rawValue)
-            view.addSubview(photoTextTypeView)
-            ITHouseHttpTool.newsPhotoTextData { [weak self] (model) in
-                self?.photoTextTypeView.model = model
-            }
-        case .HotReviewType?:
-            DLog(viewType!.rawValue)
-            view.addSubview(hotReviewTypeView)
-            ITHouseHttpTool.newsHotReviewData { [weak self] (model) in
-                self?.hotReviewTypeView.model = model
-            }
-        case .none:
-            DLog("viewType is nil")
+    override func viewWillLayoutSubviews() {
+        newsBottomBar.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(self.newsBottomBarHeight)
         }
     }
 }
 
-extension NewsDetailViewController {
+extension NewsDetailViewController: WKNavigationDelegate {
     
-    enum NewsDetailViewType: Int {
-        case WithBannerType = 0
-        case RankingType
-        case PhotoTextType
-        case HotReviewType
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//        SVProgressHUD.show()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        SVProgressHUD.dismiss()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        SVProgressHUD.dismiss()
+        DLog(error.localizedDescription)
     }
 }
 
-extension NewsDetailViewController: NewsDetailWithBannerTypeViewDelegate {
+extension NewsDetailViewController: UINavigationControllerDelegate {
     
-    func didSelectCell(withModel model: NewsDetailNew?) {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        //设置导航栏隐藏
+        navigationController.setNavigationBarHidden(viewController.isKind(of: self.classForCoder), animated: true)
+    }
+}
+
+extension NewsDetailViewController: NewsBottomBarDelegate {
+    
+    func clickBackBtn() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func didClickBtn(withIndex index: Int) {
         
     }
 }

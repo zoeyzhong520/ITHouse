@@ -8,8 +8,16 @@
 
 import UIKit
 
+@objc protocol NewsDetailPhotoTextTypeViewDelegate: NSObjectProtocol {
+    @objc optional
+    func didSelecPhotoTextCell(withModel model: NewsDetailNewsPhotoText?)
+}
+
+///图文view
 class NewsDetailPhotoTextTypeView: UIView {
 
+    weak var delegate: NewsDetailPhotoTextTypeViewDelegate?
+    
     ///数据模型
     var model: NewsDetailNewsPhotoTextModel? {
         didSet {
@@ -59,6 +67,9 @@ extension NewsDetailPhotoTextTypeView:UITableViewDelegate,UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if delegate != nil {
+            delegate?.didSelecPhotoTextCell!(withModel: self.model?.newsPhotoText?[indexPath.row])
+        }
     }
 }
+

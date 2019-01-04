@@ -11,10 +11,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class QRCodeViewController;
+
 @protocol QRCodeViewControllerDelegate <NSObject>
 
 @optional
-- (void)scanMessage:(NSString *)message;
+- (void)scanMessage:(NSString *)message andQRCodeVC:(QRCodeViewController *)QRCodeVC;
 @optional
 - (CGRect)interestedRect;
 

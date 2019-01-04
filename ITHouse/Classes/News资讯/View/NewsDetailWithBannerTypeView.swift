@@ -13,6 +13,7 @@ import UIKit
     func didSelectCell(withModel model: NewsDetailNew?)
 }
 
+///带有banner的view
 class NewsDetailWithBannerTypeView: UIView {
 
     weak var delegate: NewsDetailWithBannerTypeViewDelegate?

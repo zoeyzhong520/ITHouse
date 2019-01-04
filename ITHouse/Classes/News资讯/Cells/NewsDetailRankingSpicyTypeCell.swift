@@ -10,6 +10,7 @@
 
 import UIKit
 
+///辣榜cell
 class NewsDetailRankingSpicyTypeCell: UITableViewCell {
     
     ///indexPath

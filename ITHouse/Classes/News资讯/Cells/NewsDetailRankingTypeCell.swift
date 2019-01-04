@@ -10,6 +10,7 @@
 
 import UIKit
 
+///排行cell
 class NewsDetailRankingTypeCell: UITableViewCell {
     
     ///indexPath

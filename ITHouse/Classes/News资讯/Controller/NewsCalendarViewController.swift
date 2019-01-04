@@ -100,6 +100,6 @@ extension NewsCalendarViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        push(ofClassName: "NewsDetailViewController")
     }
 }

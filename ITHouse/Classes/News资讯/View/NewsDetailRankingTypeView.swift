@@ -8,8 +8,19 @@
 
 import UIKit
 
+@objc protocol NewsDetailRankingTypeViewDelegate: NSObjectProtocol {
+    @objc optional
+    func didSelectRankingCell(withModel model: NewsDetailNewsRankingList?)
+    
+    @objc optional
+    func didSelectRankingSpicyCell(withModel model: NewsDetailNewsRankingList?)
+}
+
+///排行view
 class NewsDetailRankingTypeView: UIView {
 
+    weak var delegate: NewsDetailRankingTypeViewDelegate?
+    
     ///数据模型
     var model: NewsDetailNewsRankingModel? {
         didSet {
@@ -152,6 +163,13 @@ extension NewsDetailRankingTypeView:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if delegate != nil {
+            if self.model?.newsRanking?[indexPath.section].type == "1" {
+                //辣品
+                delegate?.didSelectRankingSpicyCell!(withModel: self.model?.newsRanking?[indexPath.section].list?[indexPath.row])
+            } else {
+                delegate?.didSelectRankingCell!(withModel: self.model?.newsRanking?[indexPath.section].list?[indexPath.row])
+            }
+        }
     }
 }

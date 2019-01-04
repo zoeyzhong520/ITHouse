@@ -8,6 +8,7 @@
 
 import UIKit
 
+///父类带有banner的cell
 class NewsDetailWithBannerTypeCell: UITableViewCell {
     
     ///数据模型

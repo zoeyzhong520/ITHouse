@@ -8,6 +8,7 @@
 
 import UIKit
 
+///图文cell（三图）
 class NewsDetailPhotoTextTypeCell: UITableViewCell {
 
     ///数据模型

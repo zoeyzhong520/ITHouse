@@ -64,7 +64,7 @@ class TopScrollingMenuViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         assert(dataSource.count > 0, "Must have one childViewController at least")
-        view.frame = CGRect(x: 0, y: STATUSBAR_HEIGHT + NAVIGATIONBAR_HEIGHT, width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT)//需要设置view的frame，不然会造成UI显示的问题
+        view.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: CONTENT_HEIGHT - TAB_HEIGHT)//需要设置view的frame，不然会造成UI显示的问题
         
         let vc = dataSource[currentIndex] as! UIViewController
         pageViewController.setViewControllers([vc], direction: .reverse, animated: true, completion: nil)

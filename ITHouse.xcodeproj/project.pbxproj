@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		363F630C21DDB37100C34419 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630B21DDB37100C34419 /* QRCodeViewController.m */; };
 		363F630F21DDB68300C34419 /* QRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630E21DDB68300C34419 /* QRCodeTool.m */; };
+		363F631721DE1E5C00C34419 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F631621DE1E5C00C34419 /* BaseWebViewController.swift */; };
 		3646ACA321DC833700C9DAB1 /* search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA121DC833700C9DAB1 /* search.json */; };
 		3646ACA421DC833700C9DAB1 /* searchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = 3646ACA221DC833700C9DAB1 /* searchResult.json */; };
 		3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */; };
 		3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACA821DC905E00C9DAB1 /* SearchToolHotCell.swift */; };
 		3646ACAE21DCAEBB00C9DAB1 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */; };
+		3681AA8921DF0069003F9D0B /* PopoverToolListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681AA8821DF0069003F9D0B /* PopoverToolListViewController.swift */; };
+		3681AA8B21DF2724003F9D0B /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681AA8A21DF2724003F9D0B /* NewsDetailViewController.swift */; };
+		3681AA8E21DF3368003F9D0B /* NewsBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681AA8D21DF3368003F9D0B /* NewsBottomBar.swift */; };
+		3681AA9021DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681AA8F21DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift */; };
+		3681AA9321DF5B1A003F9D0B /* ShareTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3681AA9221DF5B1A003F9D0B /* ShareTool.swift */; };
 		36CC020821D74A5F00B7CFAC /* NewsCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */; };
 		36CC021821D74BCD00B7CFAC /* DAYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020D21D74BCD00B7CFAC /* DAYNavigationBar.m */; };
 		36CC021921D74BCD00B7CFAC /* DAYComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CC020E21D74BCD00B7CFAC /* DAYComponentView.m */; };
@@ -40,7 +46,7 @@
 		36F61A9221AE8E0500990CF2 /* ITHouseHttpTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */; };
 		36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9421AE8F8F00990CF2 /* NewsColumnsModel.swift */; };
 		36F61A9821AE8FB800990CF2 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61A9721AE8FB800990CF2 /* BaseModel.swift */; };
-		36F61AAA21B0CCB400990CF2 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61AA921B0CCB400990CF2 /* NewsDetailViewController.swift */; };
+		36F61AAA21B0CCB400990CF2 /* NewsChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61AA921B0CCB400990CF2 /* NewsChildViewController.swift */; };
 		36F61AAD21B0D26300990CF2 /* BorderShownCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61AAC21B0D26300990CF2 /* BorderShownCardsView.swift */; };
 		36F61AB121B0D93C00990CF2 /* BorderShownCardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F61AB021B0D93C00990CF2 /* BorderShownCardsCell.swift */; };
 		36F61AB321B0E31200990CF2 /* newsBanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 36F61AB221B0E31200990CF2 /* newsBanner.json */; };
@@ -117,11 +123,17 @@
 		363F630B21DDB37100C34419 /* QRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
 		363F630D21DDB68300C34419 /* QRCodeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeTool.h; sourceTree = "<group>"; };
 		363F630E21DDB68300C34419 /* QRCodeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeTool.m; sourceTree = "<group>"; };
+		363F631621DE1E5C00C34419 /* BaseWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		3646ACA121DC833700C9DAB1 /* search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search.json; sourceTree = "<group>"; };
 		3646ACA221DC833700C9DAB1 /* searchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = searchResult.json; sourceTree = "<group>"; };
 		3646ACA621DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolReadHistoryCell.swift; sourceTree = "<group>"; };
 		3646ACA821DC905E00C9DAB1 /* SearchToolHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchToolHotCell.swift; sourceTree = "<group>"; };
 		3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		3681AA8821DF0069003F9D0B /* PopoverToolListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverToolListViewController.swift; sourceTree = "<group>"; };
+		3681AA8A21DF2724003F9D0B /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		3681AA8D21DF3368003F9D0B /* NewsBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBottomBar.swift; sourceTree = "<group>"; };
+		3681AA8F21DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBottomBarInputAccessoryView.swift; sourceTree = "<group>"; };
+		3681AA9221DF5B1A003F9D0B /* ShareTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTool.swift; sourceTree = "<group>"; };
 		36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCalendarViewController.swift; sourceTree = "<group>"; };
 		36CC020A21D74BCD00B7CFAC /* Daysquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daysquare.h; sourceTree = "<group>"; };
 		36CC020B21D74BCD00B7CFAC /* DAYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYCalendarView.h; sourceTree = "<group>"; };
@@ -161,7 +173,7 @@
 		36F61A9121AE8E0500990CF2 /* ITHouseHttpTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITHouseHttpTool.swift; sourceTree = "<group>"; };
 		36F61A9421AE8F8F00990CF2 /* NewsColumnsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsColumnsModel.swift; sourceTree = "<group>"; };
 		36F61A9721AE8FB800990CF2 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
-		36F61AA921B0CCB400990CF2 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		36F61AA921B0CCB400990CF2 /* NewsChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsChildViewController.swift; sourceTree = "<group>"; };
 		36F61AAC21B0D26300990CF2 /* BorderShownCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderShownCardsView.swift; sourceTree = "<group>"; };
 		36F61AB021B0D93C00990CF2 /* BorderShownCardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderShownCardsCell.swift; sourceTree = "<group>"; };
 		36F61AB221B0E31200990CF2 /* newsBanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsBanner.json; sourceTree = "<group>"; };
@@ -293,6 +305,39 @@
 				3646ACAD21DCAEBB00C9DAB1 /* SearchResultCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		3681AA8621DF004E003F9D0B /* PopoverTool */ = {
+			isa = PBXGroup;
+			children = (
+				3681AA8721DF004E003F9D0B /* Controller */,
+			);
+			path = PopoverTool;
+			sourceTree = "<group>";
+		};
+		3681AA8721DF004E003F9D0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3681AA8821DF0069003F9D0B /* PopoverToolListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3681AA8C21DF3358003F9D0B /* NewsBottomBar */ = {
+			isa = PBXGroup;
+			children = (
+				3681AA8D21DF3368003F9D0B /* NewsBottomBar.swift */,
+				3681AA8F21DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift */,
+			);
+			path = NewsBottomBar;
+			sourceTree = "<group>";
+		};
+		3681AA9121DF5AFB003F9D0B /* ShareTool */ = {
+			isa = PBXGroup;
+			children = (
+				3681AA9221DF5B1A003F9D0B /* ShareTool.swift */,
+			);
+			path = ShareTool;
 			sourceTree = "<group>";
 		};
 		36CC020921D74BCD00B7CFAC /* CalendarTool */ = {
@@ -587,8 +632,9 @@
 			isa = PBXGroup;
 			children = (
 				D85C163021A8FB3A0033BFCA /* NewsViewController.swift */,
-				36F61AA921B0CCB400990CF2 /* NewsDetailViewController.swift */,
+				36F61AA921B0CCB400990CF2 /* NewsChildViewController.swift */,
 				36CC020721D74A5F00B7CFAC /* NewsCalendarViewController.swift */,
+				3681AA8A21DF2724003F9D0B /* NewsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -681,6 +727,7 @@
 				D85C162E21A8FB230033BFCA /* BaseViewController.swift */,
 				D85C163821A8FB720033BFCA /* BaseNavigationViewController.swift */,
 				D85C163A21A8FB9B0033BFCA /* MainTabBarViewController.swift */,
+				363F631621DE1E5C00C34419 /* BaseWebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -688,6 +735,9 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				3681AA9121DF5AFB003F9D0B /* ShareTool */,
+				3681AA8C21DF3358003F9D0B /* NewsBottomBar */,
+				3681AA8621DF004E003F9D0B /* PopoverTool */,
 				363F630721DDB35900C34419 /* QRCodeTool */,
 				36CC022B21D7715B00B7CFAC /* SearchTool */,
 				36CC020921D74BCD00B7CFAC /* CalendarTool */,
@@ -939,12 +989,14 @@
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
 				D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */,
 				D84D3D8621B4161100217AA7 /* NewsDetailHotReviewModel.swift in Sources */,
+				3681AA8E21DF3368003F9D0B /* NewsBottomBar.swift in Sources */,
 				36F61ACD21B107B100990CF2 /* NewsDetailWithBannerTypeCell.swift in Sources */,
 				36F57A6521AE431500A6CC9C /* TopScrollingMenuSegmentCell.swift in Sources */,
 				36CC021F21D7521B00B7CFAC /* TimeTransferTool.swift in Sources */,
 				D8729C2E21A999F50013AC0A /* String+Extension.swift in Sources */,
 				3646ACAE21DCAEBB00C9DAB1 /* SearchResultCell.swift in Sources */,
 				36F61A8921AE71D300990CF2 /* DBManager.m in Sources */,
+				3681AA9321DF5B1A003F9D0B /* ShareTool.swift in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
 				36F61AD521B1198600990CF2 /* NewsDetailNewsRankingModel.swift in Sources */,
 				36F61ACA21B105F200990CF2 /* NewsDetailNewsModel.swift in Sources */,
@@ -974,6 +1026,7 @@
 				36CC021C21D74BCD00B7CFAC /* DAYCalendarView.m in Sources */,
 				D8327EE221AAF28600794C6A /* UILabel+Extension.swift in Sources */,
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
+				3681AA9021DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift in Sources */,
 				3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */,
 				36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
@@ -981,9 +1034,11 @@
 				36CC023021D7717000B7CFAC /* SearchToolViewController.swift in Sources */,
 				3646ACA721DC89B000C9DAB1 /* SearchToolReadHistoryCell.swift in Sources */,
 				36F61AB521B0E43700990CF2 /* NewsBannerModel.swift in Sources */,
+				3681AA8B21DF2724003F9D0B /* NewsDetailViewController.swift in Sources */,
 				D8729C2821A989980013AC0A /* NibLoadable.swift in Sources */,
 				363F630F21DDB68300C34419 /* QRCodeTool.m in Sources */,
-				36F61AAA21B0CCB400990CF2 /* NewsDetailViewController.swift in Sources */,
+				363F631721DE1E5C00C34419 /* BaseWebViewController.swift in Sources */,
+				36F61AAA21B0CCB400990CF2 /* NewsChildViewController.swift in Sources */,
 				36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */,
 				36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */,
 				36F57A6321AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift in Sources */,
@@ -998,6 +1053,7 @@
 				36CC020821D74A5F00B7CFAC /* NewsCalendarViewController.swift in Sources */,
 				36F61A9221AE8E0500990CF2 /* ITHouseHttpTool.swift in Sources */,
 				D8729C3A21AA50750013AC0A /* UserDefaultsTool.swift in Sources */,
+				3681AA8921DF0069003F9D0B /* PopoverToolListViewController.swift in Sources */,
 				36CC023421D7719200B7CFAC /* SearchToolView.swift in Sources */,
 				D85C163321A8FB470033BFCA /* SpicyViewController.swift in Sources */,
 			);

@@ -8,8 +8,16 @@
 
 import UIKit
 
+@objc protocol NewsDetailHotReviewTypeViewDelegate: NSObjectProtocol {
+    @objc optional
+    func didSelectHotReviewCell(withModel model: NewsDetailHotReview?)
+}
+
+///热评view
 class NewsDetailHotReviewTypeView: UIView {
 
+    weak var delegate: NewsDetailHotReviewTypeViewDelegate?
+    
     ///数据模型
     var model: NewsDetailHotReviewModel? {
         didSet {
@@ -60,6 +68,8 @@ extension NewsDetailHotReviewTypeView:UITableViewDelegate,UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if delegate != nil {
+            delegate?.didSelectHotReviewCell!(withModel: self.model?.newsHotReview?[indexPath.row])
+        }
     }
 }

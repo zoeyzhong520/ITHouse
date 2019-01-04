@@ -8,6 +8,7 @@
 
 import UIKit
 
+///热评的headerView
 class NewsDetailRankingTypeHeaderView: UITableViewHeaderFooterView {
 
     ///数据源（String字符串）

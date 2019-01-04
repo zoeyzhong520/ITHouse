@@ -126,6 +126,7 @@ class LoginViewController: BaseViewController {
     
     @objc fileprivate func login() {
         UserDefaultsTool.setToken(token: accountTF.text! + passwordTF.text!)
+        UserDefaultsTool.setName(name: accountTF.text!)
     }
     
     @objc fileprivate func textEditing() {

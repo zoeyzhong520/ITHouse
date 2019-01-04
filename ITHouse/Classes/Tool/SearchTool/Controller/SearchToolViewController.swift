@@ -30,7 +30,7 @@ class SearchToolViewController: BaseViewController {
         control.addTarget(self, action: #selector(segmentedValueChanged(_:)), for: .valueChanged)
         control.tintColor = UIColor.mainColor
         control.selectedSegmentIndex = 0
-        control.frame = CGRect(x: (SCREEN_WIDTH-segmentedControlWidth)/2, y: STATUSBAR_HEIGHT+NAVIGATIONBAR_HEIGHT+ITHouseScale(10), width: segmentedControlWidth, height: segmentedControlHeight)
+        control.frame = CGRect(x: (SCREEN_WIDTH-segmentedControlWidth)/2, y: ITHouseScale(10), width: segmentedControlWidth, height: segmentedControlHeight)
         return control
     }()
     
@@ -74,10 +74,7 @@ class SearchToolViewController: BaseViewController {
     }
     
     @objc fileprivate func scanAction() {//扫一扫
-        let vc = QRCodeViewController()
-        vc.title = "扫扫看"
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
+        showQRCode(withTitle: "扫扫看", delegate: self)
     }
     
     @objc fileprivate func segmentedValueChanged(_ segmented: UISegmentedControl) {
@@ -87,8 +84,11 @@ class SearchToolViewController: BaseViewController {
 
 extension SearchToolViewController: QRCodeViewControllerDelegate {
     
-    func scanMessage(_ message: String) {
-        showAlert(withMessage: message)
+    func scanMessage(_ message: String, andQRCodeVC QRCodeVC: QRCodeViewController) {
+        showAlert(withMessage: message) { [weak self] in
+            QRCodeVC.navigationController?.popViewController(animated: true)
+            self?.push(ofClassName: "BaseWebViewController", andParamDict: ["urlString": "https://www.baidu.com"])
+        }
     }
 }
 

@@ -12,16 +12,14 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         baseUI()
-        
     }
     
     func baseUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.navTitleFont]
         automaticallyAdjustsScrollViewInsets = false
+        edgesForExtendedLayout = []
     }
-
     
 }

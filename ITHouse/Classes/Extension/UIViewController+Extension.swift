@@ -76,6 +76,15 @@ extension UIViewController {
         push(ofClassName: "LoginViewController")
     }
     
+    ///跳转到扫一扫
+    func showQRCode(withTitle title: String?=nil, delegate: QRCodeViewControllerDelegate?) {
+        let vc = QRCodeViewController()
+        vc.title = title
+        vc.delegate = delegate
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     ///弹框
     func showAlert(withMessage message: String?, andAction actionBlock: (() -> Void)?=nil) {
         let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)

@@ -84,14 +84,14 @@
         return [self.delegate interestedRect];
     }
     
-    CGSize scanSize = CGSizeMake(QRSCREEN_WIDTH/3*4, QRSCREEN_HEIGHT/3*4);
-    CGRect scanRect = CGRectMake((QRSCREEN_WIDTH-scanSize.width)/2, (QRSCREEN_HEIGHT-scanSize.height)/2, scanSize.width, scanSize.height);
+    CGSize scanSize = CGSizeMake(QRSCREEN_WIDTH*3/4, QRSCREEN_HEIGHT*3/4);
+    CGRect scanRect = CGRectMake((QRSCREEN_WIDTH-scanSize.width)/2, (QRSCREEN_HEIGHT-scanSize.height/2)/2, scanSize.width, scanSize.height/2);
     return scanRect;
 }
 
 - (CGRect)scanRectOfInterest {
     CGRect scanRect = [self scanRect];
-    scanRect = CGRectMake(scanRect.size.height/QRSCREEN_HEIGHT, scanRect.size.width/QRSCREEN_WIDTH, scanRect.size.height/QRSCREEN_HEIGHT, scanRect.size.width/QRSCREEN_WIDTH);
+    scanRect = CGRectMake(scanRect.origin.y/QRSCREEN_HEIGHT, scanRect.origin.x/QRSCREEN_WIDTH, scanRect.size.height/QRSCREEN_HEIGHT, scanRect.size.width/QRSCREEN_WIDTH);
     return scanRect;
 }
 
@@ -102,8 +102,8 @@
     NSString *result = [QRCodeToolInstance messageFromQRCodeImage:image];
     //识别信息处理
     NSLog(@"识别结果：%@",result);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scanMessage:)]) {
-        [self.delegate scanMessage:result];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scanMessage:andQRCodeVC:)]) {
+        [self.delegate scanMessage:result andQRCodeVC:self];
     }
 }
 
@@ -116,8 +116,8 @@
     [self.session stopRunning];
     NSString *result = [metadataObjects.firstObject stringValue];
     NSLog(@"扫描结果：%@",result);
-    if (self.delegate && [self.delegate respondsToSelector:@selector(scanMessage:)]) {
-        [self.delegate scanMessage:result];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(scanMessage:andQRCodeVC:)]) {
+        [self.delegate scanMessage:result andQRCodeVC:self];
     }
 }
 
