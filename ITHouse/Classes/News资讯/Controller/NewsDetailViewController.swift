@@ -89,6 +89,9 @@ extension NewsDetailViewController: NewsBottomBarDelegate {
     }
     
     func didClickBtn(withIndex index: Int) {
-        
+        if index == 2 {
+            //分享
+            ShareTool(frame: .zero).show()
+        }
     }
 }
