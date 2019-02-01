@@ -8,34 +8,58 @@
 
 import UIKit
 
-class ShareTool: UIView {
+@objc protocol ShareToolDelegate: NSObjectProtocol {
+    @objc optional
+    func selectItem(withModel model: ShareToolModel?)
+}
 
-    ///collectionView
+class ShareTool: UIView {
     
-    ///cancelBtn 宽度
-    fileprivate let cancelBtnWidth = ITHouseScale(40)
+    weak var delegate: ShareToolDelegate?
+    
+    ///cancelBtn 高度
+    fileprivate let cancelBtnHeight = ITHouseScale(40)
     ///取消按钮
     fileprivate lazy var cancelBtn: UIButton = {
-        let view = UIButton(title: "取消", titleColor: UIColor.blackTextColor, font: UIFont.textFont, target: self, action: #selector(cancelBtnClick))
+        let view = UIButton(title: "取消", titleColor: UIColor.blackTextColor, font: UIFont.titleFont, target: self, action: #selector(cancelBtnClick))
         view.backgroundColor = UIColor.lightGrayColor
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = cancelBtnWidth/2
+        view.layer.cornerRadius = cancelBtnHeight/2
         return view
     }()
     
+    ///flowBtnsViewWidth 宽度
+    fileprivate let flowBtnsViewWidth = ITHouseScale(100*2)
+    
     ///flowBtnsView 链接分享+图片分享
-    fileprivate lazy var flowBtnsView: UIView = {
-        let view = UIView()
-        view.backgroundColor = RandomColor
+    fileprivate lazy var flowBtnsView: FlowButtonView = {
+        let view = FlowButtonView(frame: CGRect(x: 0, y: 0, width: flowBtnsViewWidth, height: cancelBtnHeight), btnNames: ["链接分享","图片分享"])
         view.layer.masksToBounds = true
-        view.layer.cornerRadius = cancelBtnWidth/2
+        view.layer.cornerRadius = cancelBtnHeight/2
+        view.delegate = self
         return view
     }()
     
     ///contentViewHeight 高度
-    fileprivate var contentViewHeight = ITHouseScale(250)
+    fileprivate var contentViewHeight = ITHouseScale(270)
     ///contentView
     fileprivate var contentView: UIView?
+    
+    ///collectionView 第三方菜单
+    fileprivate lazy var thirdPartyCollectionView: ShareToolCollectionView = {
+        let view = ShareToolCollectionView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: ITHouseScale(100)))
+        view.dataArr = [["title": "微信", "img": ""],["title": "微信朋友圈", "img": ""],["title": "微信收藏", "img": ""],["title": "QQ好友", "img": ""],["title": "QQ空间", "img": ""],["title": "TIM", "img": ""],["title": "新浪微博", "img": ""]]
+        view.delegate = self
+        return view
+    }()
+    
+    ///collectionView 系统功能菜单
+    fileprivate lazy var systemCollectionView: ShareToolCollectionView = {
+        let view = ShareToolCollectionView(frame: CGRect(x: 0, y: thirdPartyCollectionView.frame.maxY, width: SCREEN_WIDTH, height: ITHouseScale(100)))
+        view.dataArr = [["title": "系统分享", "img": ""],["title": "复制链接", "img": ""],["title": "短信", "img": ""],["title": "邮件", "img": ""]]
+        view.delegate = self
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,7 +78,7 @@ class ShareTool: UIView {
         if contentView == nil {
             contentView = UIView()
             contentView?.backgroundColor = UIColor.white
-            contentView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnContentView)))
+            contentView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(contentViewTap(_:))))
             addSubview(contentView!)
             contentView?.snp.makeConstraints({ (make) in
                 make.top.equalTo(self.snp.bottom)
@@ -69,16 +93,18 @@ class ShareTool: UIView {
     fileprivate func configContentView() {
         contentView?.addSubview(cancelBtn)
         contentView?.addSubview(flowBtnsView)
+        contentView?.addSubview(thirdPartyCollectionView)
+        contentView?.addSubview(systemCollectionView)
         
         cancelBtn.snp.makeConstraints { (make) in
             make.bottom.equalTo(-ITHouseScale(20))
-            make.left.equalTo(ITHouseScale(30))
-            make.size.equalTo(CGSize(width: ITHouseScale(100), height: self.cancelBtnWidth))
+            make.left.equalTo(ITHouseScale(20))
+            make.size.equalTo(CGSize(width: ITHouseScale(100), height: self.cancelBtnHeight))
         }
         
         flowBtnsView.snp.makeConstraints { (make) in
-            make.right.equalTo(-ITHouseScale(30))
-            make.size.equalTo(CGSize(width: ITHouseScale(100*2), height: self.cancelBtnWidth))
+            make.right.equalTo(-ITHouseScale(20))
+            make.size.equalTo(CGSize(width: ITHouseScale(100*2), height: self.cancelBtnHeight))
             make.centerY.equalTo(self.cancelBtn)
         }
     }
@@ -111,7 +137,28 @@ class ShareTool: UIView {
         hide()
     }
     
-    @objc fileprivate func tapOnContentView() {
-        //不做操作
+    @objc fileprivate func contentViewTap(_ tap: UITapGestureRecognizer) {
+        //do nothing...
+        DLog(tap.view)
+    }
+    
+}
+
+extension ShareTool: FlowButtonViewDelegate {
+    
+    func didClick(withIndex index: Int) {
+        
     }
 }
+
+extension ShareTool: ShareToolCollectionViewDelegate {
+    
+    func didSelectItem(withModel model: ShareToolModel?) {
+        DLog(model?.title)
+        if delegate != nil {
+            delegate?.selectItem!(withModel: model)
+        }
+        hide()
+    }
+}
+

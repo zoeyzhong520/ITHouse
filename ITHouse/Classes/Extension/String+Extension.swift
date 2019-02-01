@@ -60,6 +60,11 @@ extension String {
         return "newsHotReview"
     }
     
+    ///资讯-newsCommentary的JSON文件名
+    static var newsCommentaryFileName: String {
+        return "newsCommentary"
+    }
+    
     ///搜索基础数据JSON文件名
     static var searchFileName: String {
         return "search"

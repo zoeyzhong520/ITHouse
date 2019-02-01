@@ -51,11 +51,15 @@ class NewsChildViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        withBannerTypeView.bannerView.createTimer()
+        if viewType == NewsChildViewController.NewsDetailViewType.WithBannerType {
+            withBannerTypeView.bannerView.createTimer()
+        }
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
-        withBannerTypeView.bannerView.releaseTimer()
+        if viewType == NewsChildViewController.NewsDetailViewType.WithBannerType {
+            withBannerTypeView.bannerView.releaseTimer()
+        }
     }
     
     ///获取数据

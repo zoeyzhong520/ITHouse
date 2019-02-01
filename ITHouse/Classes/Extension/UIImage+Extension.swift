@@ -104,4 +104,14 @@ extension UIImage {
     static var confirmImg: UIImage? {
         return UIImage(named: "confirm")
     }
+    
+    ///发表图标
+    static var publishImg: UIImage? {
+        return UIImage(named: "发表")
+    }
+    
+    ///向下箭头
+    static var downArrowImg: UIImage? {
+        return UIImage(named: "downArrowImg")
+    }
 }

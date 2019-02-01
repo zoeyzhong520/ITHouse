@@ -10,11 +10,11 @@ import UIKit
 import WebKit
 import SVProgressHUD
 
+///newsBottomBarHeight
+public let newsBottomBarHeight = ITHouseScale(50)
+
 ///News-详情
 class NewsDetailViewController: BaseViewController {
-
-    ///newsBottomBarHeight
-    fileprivate let newsBottomBarHeight = ITHouseScale(50)
     
     ///webView
     fileprivate lazy var webView: WKWebView = {
@@ -37,23 +37,26 @@ class NewsDetailViewController: BaseViewController {
         setPage()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        SVProgressHUD.dismiss()
+    }
+    
     fileprivate func setPage() {
         view.addSubview(webView)
         webView.load(URLRequest(url: URL(string: urlString)!))
         
         view.addSubview(newsBottomBar)
-        
-        navigationController?.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        SVProgressHUD.dismiss()
     }
     
     override func viewWillLayoutSubviews() {
         newsBottomBar.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(self.newsBottomBarHeight)
+            make.height.equalTo(newsBottomBarHeight)
         }
     }
 }
@@ -61,7 +64,7 @@ class NewsDetailViewController: BaseViewController {
 extension NewsDetailViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//        SVProgressHUD.show()
+        SVProgressHUD.show()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -74,14 +77,6 @@ extension NewsDetailViewController: WKNavigationDelegate {
     }
 }
 
-extension NewsDetailViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        //设置导航栏隐藏
-        navigationController.setNavigationBarHidden(viewController.isKind(of: self.classForCoder), animated: true)
-    }
-}
-
 extension NewsDetailViewController: NewsBottomBarDelegate {
     
     func clickBackBtn() {
@@ -89,6 +84,11 @@ extension NewsDetailViewController: NewsBottomBarDelegate {
     }
     
     func didClickBtn(withIndex index: Int) {
+        if index == 0 {
+            //查看评论
+            push(ofClassName: "NewsDetailCommentaryViewController")
+        }
+        
         if index == 2 {
             //分享
             ShareTool(frame: .zero).show()

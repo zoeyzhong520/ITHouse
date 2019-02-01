@@ -8,23 +8,31 @@
 
 import UIKit
 
+///圈子
 class CircleViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setNavigation()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    fileprivate func setNavigation() {
+        let searchItem = UIBarButtonItem(image: UIImage.searchImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(search))
+        let publishItem = UIBarButtonItem(image: UIImage.publishImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(publish))
+        navigationItem.rightBarButtonItems = [searchItem,publishItem]
     }
-    */
+    
+    //MARK: - function
+    
+    @objc fileprivate func search() {
+        push(ofClassName: "SearchToolViewController")
+    }
+    
+    @objc fileprivate func publish() {
+        //发表
+        present(ofClassName: "CirclePublishViewController")
+    }
 
 }

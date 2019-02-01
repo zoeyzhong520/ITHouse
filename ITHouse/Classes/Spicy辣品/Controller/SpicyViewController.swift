@@ -14,6 +14,14 @@ class SpicyViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let label = UILabel(title: "敬请期待", titleFont: UIFont.navTitleFont, titleColor: RandomColor, alignment: .center)
+        view.addSubview(label)
+        label.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: SCREEN_WIDTH, height: ITHouseScale(15)));
+        }
+        
     }
     
 

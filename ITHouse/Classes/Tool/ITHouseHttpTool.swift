@@ -139,6 +139,24 @@ class ITHouseHttpTool: NSObject {
         successBlock(model)
     }
     
+    ///资讯-newsCommentary
+    static func newsCommentaryData(successBlock: (NewsDetailCommentaryModel) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.newsCommentaryFileName) as? [String: Any]
+        if obj != nil {
+            let model = NewsDetailCommentaryModel.parseDict(dict: obj!)
+            model.newsCommentaryRowHeight()
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.newsCommentaryFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.newsCommentaryFileName)
+        
+        let model = NewsDetailCommentaryModel.parseDict(dict: dict)
+        model.newsCommentaryRowHeight()
+        successBlock(model)
+    }
+    
     //MARK: - 搜索API
     
     ///搜索基础数据

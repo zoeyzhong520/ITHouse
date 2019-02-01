@@ -73,10 +73,16 @@ class NewsBottomBar: UIView {
         return view
     }()
     
+    ///数字label
+    fileprivate lazy var numberLabel: UILabel = {
+        let view = UILabel(title: "111", titleFont: UIFont.textFont, titleColor: UIColor.mainColor, alignment: .right)
+        return view
+    }()
+    
     init(frame: CGRect, type: NewsBottomBarType) {
         super.init(frame: frame)
         self.type = type
-        inputTFWidth = type == NewsBottomBarType.Default ? ITHouseScale(120) : ITHouseScale(170)
+        inputTFWidth = type == NewsBottomBarType.Default ? ITHouseScale(120) : ITHouseScale(200)
         addViews()
     }
     
@@ -141,6 +147,16 @@ class NewsBottomBar: UIView {
             btn.tag = i
             btn.frame = CGRect(x: CGFloat(i)*btnWidth, y: 0, width: btnWidth, height: btnHeight)
             btnsView.addSubview(btn)
+            
+            if i == 0 && type == NewsBottomBarType.Default {
+                //显示数字上标
+                btn.addSubview(numberLabel)
+                numberLabel.snp.makeConstraints { (make) in//约束
+                    make.top.equalTo(ITHouseScale(5))
+                    make.right.equalTo(-ITHouseScale(5))
+                    make.size.equalTo(CGSize(width: btnWidth, height: ITHouseScale(11)))
+                }
+            }
         }
     }
     

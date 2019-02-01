@@ -37,9 +37,33 @@ extension UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    ///根据类名进行Present并传值
+    func present(ofClassName className: String, andParamDict paramsDict: [String : Any]? = nil) {
+        if className.count == 0 {
+            return
+        }
+        
+        let t_className = String.AppName! + "." + className
+        guard let t_vc = NSClassFromString(t_className) as? UIViewController.Type else {
+            fatalError("创建\(t_className)类出错")
+        }
+        let vc = t_vc.init()
+        
+        if paramsDict != nil {
+            for (key, value) in paramsDict! {
+                vc.setValue(value, forKey: key)
+            }
+        }
+        
+        let nav = BaseNavigationViewController.init(rootViewController: vc)
+        
+        present(nav, animated: true, completion: nil)
+    }
+    
     ///创建图片类型UIBarButtonItem
-    func addBarButtonItem(position: Position, image: UIImage?, action: Selector?) {
+    func addBarButtonItem(position: Position, image: UIImage?, action: Selector?, tintColor: UIColor?=nil) {
         let barButtonItem = UIBarButtonItem(image: image?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: action)
+        barButtonItem.tintColor = tintColor
         if position == .Left {
             navigationItem.leftBarButtonItem = barButtonItem
         } else {
@@ -48,8 +72,9 @@ extension UIViewController {
     }
     
     ///创建标题类型UIBarButtonItem
-    func addBarButtonItem(position: Position, title: String?, action: Selector?) {
+    func addBarButtonItem(position: Position, title: String?, action: Selector?, tintColor: UIColor?=nil) {
         let barButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
+        barButtonItem.tintColor = tintColor
         if position == .Left {
             navigationItem.leftBarButtonItem = barButtonItem
         } else {
@@ -94,5 +119,20 @@ extension UIViewController {
             }
         }))
         present(alert, animated: true, completion: nil)
+    }
+    
+    ///弹出分享框
+    func shareWithActivityItems(activityItems: [Any]) {
+        let activityVC = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        // 根据需要指定不需要分享的平台
+//        activityVC.excludedActivityTypes =
+        activityVC.completionWithItemsHandler = { [weak self] (activityType, completed, returnedItems, activityError) in
+            if completed {//确定分享
+                
+            } else {
+                
+            }
+        }
+        present(activityVC, animated: true, completion: nil)
     }
 }

@@ -17,10 +17,10 @@ class BorderShownCardsView: UIView {
             createTimer()
         }
     }
-    ///滚动间隔（默认2s）
-    var rollingInterval: TimeInterval = 2.0
+    ///滚动间隔（默认5s）
+    var rollingInterval: TimeInterval = 5.0
     ///计时器timer
-    fileprivate var timer: DispatchSourceTimer?
+    fileprivate var timer: Timer?
     ///ItemMargin
     fileprivate let itemMargin = ITHouseScale(7)
     ///HorizontalMargin
@@ -61,6 +61,7 @@ class BorderShownCardsView: UIView {
         panScrollView.isPagingEnabled = true
         panScrollView.alwaysBounceHorizontal = true
         panScrollView.delegate = self
+        panScrollView.contentOffset = CGPoint(x: 0, y: 0)
         return panScrollView
     }()
 
@@ -73,6 +74,7 @@ class BorderShownCardsView: UIView {
     fileprivate func addViews() {
         addSubview(collectionView)
         addSubview(panScrollView)
+        DLog("滚动到第\(currentIndex)张")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,44 +83,55 @@ class BorderShownCardsView: UIView {
     
     ///设定计时器
     func createTimer() {
-        timer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
-        timer!.schedule(deadline: .now(), repeating: rollingInterval)
-        timer!.setEventHandler {
-            DispatchQueue.main.async {
-                //doSometing
-                self.autoScroll()
-            }
+        if timer?.isValid == true {
+            releaseTimer()
         }
-        timer!.resume()//一定要启动计时器
+        
+        timer = Timer(timeInterval: rollingInterval, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .common)
     }
     
     ///释放计时器
     func releaseTimer() {
-        if timer != nil {
-            timer?.cancel()
+        guard let tmpTimer = timer else {
+            fatalError("timer is nil")
         }
+        tmpTimer.invalidate()
+        timer = nil
     }
     
     ///设置滚动
-    fileprivate func autoScroll() {
+    @objc fileprivate func autoScroll() {
         guard let images = images else {
             return
         }
         
-        panScrollView.contentSize = CGSize(width: panScrollView.frame.size.width * CGFloat(images.count), height: 0)
-        
         //滚到最后一页的时候，回到第一页
-        if panScrollView.contentOffset.x >= panScrollView.frame.size.width * CGFloat(images.count - 1) {
+        
+        if panScrollView.contentOffset.x >= panScrollView.frame.size.width * CGFloat(images.count-2) {
             panScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         } else {
             panScrollView.setContentOffset(CGPoint(x: panScrollView.contentOffset.x + panScrollView.frame.size.width, y: 0), animated: true)
         }
+        
+        //获取当前索引
+        currentIndex = Int(panScrollView.contentOffset.x)/Int(panScrollView.frame.size.width)+1
+        if currentIndex == images.count {
+            currentIndex = 0
+        }
+        DLog("滚动到第\(currentIndex)张")
     }
 }
 
 extension BorderShownCardsView:UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        panScrollView.contentSize = CGSize(width: panScrollView.frame.size.width*CGFloat(images?.count ?? 0), height: 0)
+        
         return images?.count ?? 0
     }
     
@@ -136,8 +149,6 @@ extension BorderShownCardsView:UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == panScrollView {
             collectionView.contentOffset = panScrollView.contentOffset
-            currentIndex = Int(panScrollView.contentOffset.x/panScrollView.frame.size.width)
-//            DLog(currentIndex)
         }
     }
 }

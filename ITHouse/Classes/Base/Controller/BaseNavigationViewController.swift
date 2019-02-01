@@ -25,6 +25,7 @@ extension BaseNavigationViewController:UIGestureRecognizerDelegate {
             let backItem = UIBarButtonItem(image: UIImage.backImg?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(backAction))
             viewController.navigationItem.leftBarButtonItem = backItem
         }
+        
         super.pushViewController(viewController, animated: animated)
     }
     
