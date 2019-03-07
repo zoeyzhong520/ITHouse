@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36164C962215570E00F09574 /* circle.json in Resources */ = {isa = PBXBuildFile; fileRef = 36164C952215570E00F09574 /* circle.json */; };
+		36164C992215581A00F09574 /* CircleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36164C982215581A00F09574 /* CircleModel.swift */; };
 		363F630C21DDB37100C34419 /* QRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630B21DDB37100C34419 /* QRCodeViewController.m */; };
 		363F630F21DDB68300C34419 /* QRCodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 363F630E21DDB68300C34419 /* QRCodeTool.m */; };
 		363F631721DE1E5C00C34419 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F631621DE1E5C00C34419 /* BaseWebViewController.swift */; };
@@ -47,8 +49,13 @@
 		36D73E3D21F5B04400387353 /* NewsDetailCommentaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D73E3C21F5B04400387353 /* NewsDetailCommentaryModel.swift */; };
 		36D73E3F21F5B6DF00387353 /* NewsDetailCommentaryTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D73E3E21F5B6DF00387353 /* NewsDetailCommentaryTableHeaderView.swift */; };
 		36D73E4121F5B97E00387353 /* NewsDetailCommentaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D73E4021F5B97E00387353 /* NewsDetailCommentaryCell.swift */; };
+		36EB18B2222392CC00D95DCA /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB18B1222392CC00D95DCA /* CircleView.swift */; };
+		36EB18B42223951900D95DCA /* CircleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB18B32223951900D95DCA /* CircleHeaderView.swift */; };
+		36EB18BA22239A5A00D95DCA /* BaseTitlesViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EB18B922239A5A00D95DCA /* BaseTitlesViewTool.swift */; };
 		36EC630C21DC5F7F00771A22 /* ITHouseSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EC630B21DC5F7F00771A22 /* ITHouseSearchBar.swift */; };
 		36EC630E21DC650800771A22 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EC630D21DC650800771A22 /* SearchResultView.swift */; };
+		36EDEF382230EDA800D49376 /* CircleHeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF372230EDA800D49376 /* CircleHeaderCollectionCell.swift */; };
+		36EDEF3A2230F1D100D49376 /* CircleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF392230F1D100D49376 /* CircleTableViewCell.swift */; };
 		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
 		36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */; };
 		36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */; };
@@ -135,6 +142,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36164C952215570E00F09574 /* circle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = circle.json; sourceTree = "<group>"; };
+		36164C982215581A00F09574 /* CircleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleModel.swift; sourceTree = "<group>"; };
 		363F630A21DDB37100C34419 /* QRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeViewController.h; sourceTree = "<group>"; };
 		363F630B21DDB37100C34419 /* QRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeViewController.m; sourceTree = "<group>"; };
 		363F630D21DDB68300C34419 /* QRCodeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeTool.h; sourceTree = "<group>"; };
@@ -188,8 +197,13 @@
 		36D73E3C21F5B04400387353 /* NewsDetailCommentaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCommentaryModel.swift; sourceTree = "<group>"; };
 		36D73E3E21F5B6DF00387353 /* NewsDetailCommentaryTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCommentaryTableHeaderView.swift; sourceTree = "<group>"; };
 		36D73E4021F5B97E00387353 /* NewsDetailCommentaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCommentaryCell.swift; sourceTree = "<group>"; };
+		36EB18B1222392CC00D95DCA /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		36EB18B32223951900D95DCA /* CircleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleHeaderView.swift; sourceTree = "<group>"; };
+		36EB18B922239A5A00D95DCA /* BaseTitlesViewTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTitlesViewTool.swift; sourceTree = "<group>"; };
 		36EC630B21DC5F7F00771A22 /* ITHouseSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITHouseSearchBar.swift; sourceTree = "<group>"; };
 		36EC630D21DC650800771A22 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		36EDEF372230EDA800D49376 /* CircleHeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleHeaderCollectionCell.swift; sourceTree = "<group>"; };
+		36EDEF392230F1D100D49376 /* CircleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTableViewCell.swift; sourceTree = "<group>"; };
 		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
 		36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
 		36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
@@ -302,6 +316,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		36164C97221557F900F09574 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36164C982215581A00F09574 /* CircleModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		363F630721DDB35900C34419 /* QRCodeTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +366,8 @@
 			children = (
 				365F97A022043FAF00623843 /* CirclePublishTypeView.swift */,
 				365F97A222043FBC00623843 /* CirclePublishTypeAlertView.swift */,
+				36EB18B1222392CC00D95DCA /* CircleView.swift */,
+				36EB18B32223951900D95DCA /* CircleHeaderView.swift */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -473,6 +497,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		36EB18B822239A4F00D95DCA /* BaseTitlesViewTool */ = {
+			isa = PBXGroup;
+			children = (
+				36EB18B922239A5A00D95DCA /* BaseTitlesViewTool.swift */,
+			);
+			path = BaseTitlesViewTool;
+			sourceTree = "<group>";
+		};
+		36EDEF362230ED8500D49376 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				36EDEF372230EDA800D49376 /* CircleHeaderCollectionCell.swift */,
+				36EDEF392230F1D100D49376 /* CircleTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		36F57A4021ABC1BE00A6CC9C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +569,7 @@
 		36F61A8E21AE8C7A00990CF2 /* JSONS */ = {
 			isa = PBXGroup;
 			children = (
+				36164C952215570E00F09574 /* circle.json */,
 				36D73E3A21F5AECF00387353 /* newsCommentary.json */,
 				3646ACA121DC833700C9DAB1 /* search.json */,
 				3646ACA221DC833700C9DAB1 /* searchResult.json */,
@@ -753,8 +795,10 @@
 		D85C162321A8FADD0033BFCA /* Circle圈子 */ = {
 			isa = PBXGroup;
 			children = (
+				36EDEF362230ED8500D49376 /* Cells */,
 				D85C162421A8FADD0033BFCA /* Controller */,
 				365F979F22043EE600623843 /* VIew */,
+				36164C97221557F900F09574 /* Model */,
 			);
 			path = "Circle圈子";
 			sourceTree = "<group>";
@@ -815,6 +859,7 @@
 		D85C162C21A8FADD0033BFCA /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				36EB18B822239A4F00D95DCA /* BaseTitlesViewTool */,
 				3681AA9121DF5AFB003F9D0B /* ShareTool */,
 				3681AA8C21DF3358003F9D0B /* NewsBottomBar */,
 				3681AA8621DF004E003F9D0B /* PopoverTool */,
@@ -977,6 +1022,7 @@
 				36F61AB321B0E31200990CF2 /* newsBanner.json in Resources */,
 				36F61AC821B1044900990CF2 /* news.json in Resources */,
 				36F61AC621B1044900990CF2 /* newsPhotoText.json in Resources */,
+				36164C962215570E00F09574 /* circle.json in Resources */,
 				36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */,
 				36F61AC721B1044900990CF2 /* newsRanking.json in Resources */,
 			);
@@ -1069,6 +1115,7 @@
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
+				36EDEF3A2230F1D100D49376 /* CircleTableViewCell.swift in Sources */,
 				365F97A122043FAF00623843 /* CirclePublishTypeView.swift in Sources */,
 				D8729C3821AA4AF50013AC0A /* UIButton+Extension.swift in Sources */,
 				365F979E22043C5400623843 /* CirclePublishViewController.swift in Sources */,
@@ -1081,6 +1128,8 @@
 				3646ACAE21DCAEBB00C9DAB1 /* SearchResultCell.swift in Sources */,
 				36F61A8921AE71D300990CF2 /* DBManager.m in Sources */,
 				36BEF92421E3443C00827C6D /* ShareToolModel.swift in Sources */,
+				36164C992215581A00F09574 /* CircleModel.swift in Sources */,
+				36EDEF382230EDA800D49376 /* CircleHeaderCollectionCell.swift in Sources */,
 				36C719C121FAE4EF006E279E /* NewsDetailMoreCommentaryTableHeaderView.swift in Sources */,
 				3681AA9321DF5B1A003F9D0B /* ShareTool.swift in Sources */,
 				D85C163B21A8FB9B0033BFCA /* MainTabBarViewController.swift in Sources */,
@@ -1119,8 +1168,11 @@
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
 				3681AA9021DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift in Sources */,
 				3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */,
+				36EB18BA22239A5A00D95DCA /* BaseTitlesViewTool.swift in Sources */,
 				36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
+				36EB18B2222392CC00D95DCA /* CircleView.swift in Sources */,
+				36EB18B42223951900D95DCA /* CircleHeaderView.swift in Sources */,
 				36F57A6221AE431500A6CC9C /* TopScrollingMenuSegmentView.swift in Sources */,
 				36C719BF21FADDE6006E279E /* NewsDetailMoreCommentaryCell.swift in Sources */,
 				36BEF92121E3442400827C6D /* FlowButtonView.swift in Sources */,
@@ -1336,7 +1388,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8W234NQNE5;
+				DEVELOPMENT_TEAM = 7KMK843WA4;
 				INFOPLIST_FILE = ITHouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1362,7 +1414,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8W234NQNE5;
+				DEVELOPMENT_TEAM = 7KMK843WA4;
 				INFOPLIST_FILE = ITHouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (

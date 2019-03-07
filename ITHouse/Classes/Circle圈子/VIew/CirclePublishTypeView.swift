@@ -8,14 +8,23 @@
 
 import UIKit
 
-class CirclePublishTypeView: UIView {
+@objc protocol CirclePublishTypeViewDelegate: NSObjectProtocol {
+    @objc optional
+    func clickButton(titleBtn: UIButton, isSelected: Bool)
+}
 
+class CirclePublishTypeView: UIView {
+    
+    weak var delegate: CirclePublishTypeViewDelegate?
+    
     ///标题按钮
     lazy var titleBtn: UIButton = {
         let btn = UIButton(title: "", titleColor: UIColor.mainColor, font: UIFont.navTitleFont, target: self, action: #selector(btnClick(_:)))
         btn.tintColor = UIColor.mainColor
-        btn.setImage(UIImage.downArrowImg, for: .normal)
-        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -ITHouseScale(20), bottom: 0, right: 0)
+        btn.setImage(UIImage.downArrowImg?.withRenderingMode(.alwaysTemplate), for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: ITHouseScale(4), left: -ITHouseScale(4), bottom: ITHouseScale(4), right: 0)
+        btn.imageView?.tintColor = UIColor.mainColor
+        btn.contentHorizontalAlignment = .left
         return btn
     }()
     
@@ -48,7 +57,7 @@ class CirclePublishTypeView: UIView {
         }
         
         lineView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self.titleBtn)
+            make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
             make.height.equalTo(1)
         }
@@ -67,6 +76,11 @@ class CirclePublishTypeView: UIView {
             UIView.animate(withDuration: 0.25) {
                 button.imageView?.transform = CGAffineTransform.identity
             }
+        }
+        
+        //代理
+        if delegate != nil {
+            delegate?.clickButton!(titleBtn: button, isSelected: button.isSelected)
         }
         
     }

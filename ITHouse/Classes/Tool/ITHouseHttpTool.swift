@@ -192,4 +192,36 @@ class ITHouseHttpTool: NSObject {
         let model = SearchResultModel.parseDict(dict: dict)
         successBlock(model)
     }
+    
+    //MARK: - 圈子API
+    
+    ///圈子数据
+    static func circleData(successBlock: ([String: Any]) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.circleFileName) as? [String: Any]
+        if obj != nil {
+            successBlock(obj!)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.circleFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.circleFileName)
+        
+        successBlock(dict)
+    }
+    
+    ///圈子数据
+    static func circleDataWithModel(successBlock: (CircleModel) -> Void) {
+        let obj = DBManager.shared().item(withCacheKey: String.circleFileName) as? [String: Any]
+        if obj != nil {
+            let model = CircleModel.parseDict(dict: obj!)
+            successBlock(model)
+            return
+        }
+        
+        let dict = ITHouseHttpTool.jsonWithFileName(fileName: String.circleFileName)
+        DBManager.shared().insertItem(dict, cacheKey: String.circleFileName)
+        
+        let model = CircleModel.parseDict(dict: dict)
+        successBlock(model)
+    }
 }

@@ -75,6 +75,11 @@ extension String {
         return "searchResult"
     }
     
+    ///圈子数据JSON文件名
+    static var circleFileName: String {
+        return "circle"
+    }
+    
     ///获取文本高度
     func textHeight(withFont font: UIFont, andWidth width: CGFloat) -> CGFloat {
         let rect = (self as NSString).boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
