@@ -10,21 +10,34 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
 
+    ///ProfileView
+    fileprivate lazy var profileView: ProfileView = {
+        let view = ProfileView(frame: CGRect(x: 0, y: systemVersion >= 11 ? -STATUSBAR_HEIGHT : 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-TAB_HEIGHT+(systemVersion >= 11 ? STATUSBAR_HEIGHT : 0)))
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setPage()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    */
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    //MARK: - function
+    
+    fileprivate func setPage() {
+        view.addSubview(profileView)
+    }
+    
+    
 }

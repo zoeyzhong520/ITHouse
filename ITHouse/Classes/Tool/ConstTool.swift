@@ -84,9 +84,11 @@ let HexColor: (UInt32) -> UIColor = { value in
 ///随机颜色
 let RandomColor = RGB(CGFloat(arc4random()%256),CGFloat(arc4random()%256),CGFloat(arc4random()%256))
 
+///系统版本（Float类型）
+let systemVersion = (UIDevice.current.systemVersion as NSString).floatValue
 
-
-
+///外部版本号
+let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
 
 

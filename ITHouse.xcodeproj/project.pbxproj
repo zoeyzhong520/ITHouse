@@ -56,6 +56,12 @@
 		36EC630E21DC650800771A22 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EC630D21DC650800771A22 /* SearchResultView.swift */; };
 		36EDEF382230EDA800D49376 /* CircleHeaderCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF372230EDA800D49376 /* CircleHeaderCollectionCell.swift */; };
 		36EDEF3A2230F1D100D49376 /* CircleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF392230F1D100D49376 /* CircleTableViewCell.swift */; };
+		36EDEF3D223109BF00D49376 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF3C223109BF00D49376 /* ProfileView.swift */; };
+		36EDEF3F22310B6300D49376 /* ProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF3E22310B6300D49376 /* ProfileTableHeaderView.swift */; };
+		36EDEF412231143D00D49376 /* OtherLoginMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF402231143D00D49376 /* OtherLoginMethodsView.swift */; };
+		36EDEF432231163B00D49376 /* ChildMethodsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF422231163B00D49376 /* ChildMethodsView.swift */; };
+		36EDEF4622311B6500D49376 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF4522311B6500D49376 /* ProfileModel.swift */; };
+		36EDEF4922311D7D00D49376 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDEF4822311D7D00D49376 /* ProfileTableViewCell.swift */; };
 		36F57A4421ABC55700A6CC9C /* downArrowImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 36F57A4321ABC55700A6CC9C /* downArrowImg.png */; };
 		36F57A6021AE431500A6CC9C /* TopScrollingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */; };
 		36F57A6121AE431500A6CC9C /* TopScrollingMenuColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */; };
@@ -204,6 +210,12 @@
 		36EC630D21DC650800771A22 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		36EDEF372230EDA800D49376 /* CircleHeaderCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleHeaderCollectionCell.swift; sourceTree = "<group>"; };
 		36EDEF392230F1D100D49376 /* CircleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTableViewCell.swift; sourceTree = "<group>"; };
+		36EDEF3C223109BF00D49376 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		36EDEF3E22310B6300D49376 /* ProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHeaderView.swift; sourceTree = "<group>"; };
+		36EDEF402231143D00D49376 /* OtherLoginMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherLoginMethodsView.swift; sourceTree = "<group>"; };
+		36EDEF422231163B00D49376 /* ChildMethodsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildMethodsView.swift; sourceTree = "<group>"; };
+		36EDEF4522311B6500D49376 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		36EDEF4822311D7D00D49376 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		36F57A4321ABC55700A6CC9C /* downArrowImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downArrowImg.png; sourceTree = "<group>"; };
 		36F57A5821AE431500A6CC9C /* TopScrollingMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuViewController.swift; sourceTree = "<group>"; };
 		36F57A5A21AE431500A6CC9C /* TopScrollingMenuColumnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopScrollingMenuColumnView.swift; sourceTree = "<group>"; };
@@ -514,6 +526,33 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		36EDEF3B223109B600D49376 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36EDEF3C223109BF00D49376 /* ProfileView.swift */,
+				36EDEF3E22310B6300D49376 /* ProfileTableHeaderView.swift */,
+				36EDEF402231143D00D49376 /* OtherLoginMethodsView.swift */,
+				36EDEF422231163B00D49376 /* ChildMethodsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36EDEF4422311B5000D49376 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36EDEF4522311B6500D49376 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36EDEF4722311D7100D49376 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				36EDEF4822311D7D00D49376 /* ProfileTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		36F57A4021ABC1BE00A6CC9C /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -815,6 +854,9 @@
 		D85C162521A8FADD0033BFCA /* Profile我 */ = {
 			isa = PBXGroup;
 			children = (
+				36EDEF4722311D7100D49376 /* Cell */,
+				36EDEF4422311B5000D49376 /* Model */,
+				36EDEF3B223109B600D49376 /* View */,
 				D85C162621A8FADD0033BFCA /* Controller */,
 			);
 			path = "Profile我";
@@ -1109,11 +1151,13 @@
 				36F61ABC21B1023000990CF2 /* NewsDetailRankingTypeView.swift in Sources */,
 				36CC021921D74BCD00B7CFAC /* DAYComponentView.m in Sources */,
 				36F61AD321B107F400990CF2 /* NewsDetailHotReviewTypeCell.swift in Sources */,
+				36EDEF4622311B6500D49376 /* ProfileModel.swift in Sources */,
 				36F57A6821AE435800A6CC9C /* TopScrollingMenuTool.swift in Sources */,
 				36D73E3921F5ACD700387353 /* NewsDetailCommentaryView.swift in Sources */,
 				36CC022521D755AC00B7CFAC /* CommonScrollBar.swift in Sources */,
 				D8729C2C21A98CEF0013AC0A /* UICollectionView+Extension.swift in Sources */,
 				D85C163D21A8FBFE0033BFCA /* ConstTool.swift in Sources */,
+				36EDEF4922311D7D00D49376 /* ProfileTableViewCell.swift in Sources */,
 				D85C163721A8FB5C0033BFCA /* ProfileViewController.swift in Sources */,
 				36EDEF3A2230F1D100D49376 /* CircleTableViewCell.swift in Sources */,
 				365F97A122043FAF00623843 /* CirclePublishTypeView.swift in Sources */,
@@ -1168,8 +1212,10 @@
 				D8729C2321A97ACD0013AC0A /* UIColor+Extension.swift in Sources */,
 				3681AA9021DF499F003F9D0B /* NewsBottomBarInputAccessoryView.swift in Sources */,
 				3646ACA921DC905E00C9DAB1 /* SearchToolHotCell.swift in Sources */,
+				36EDEF432231163B00D49376 /* ChildMethodsView.swift in Sources */,
 				36EB18BA22239A5A00D95DCA /* BaseTitlesViewTool.swift in Sources */,
 				36CC021B21D74BCD00B7CFAC /* DAYIndicatorView.m in Sources */,
+				36EDEF3D223109BF00D49376 /* ProfileView.swift in Sources */,
 				D85C163521A8FB500033BFCA /* CircleViewController.swift in Sources */,
 				36EB18B2222392CC00D95DCA /* CircleView.swift in Sources */,
 				36EB18B42223951900D95DCA /* CircleHeaderView.swift in Sources */,
@@ -1189,11 +1235,13 @@
 				36F61A9521AE8F8F00990CF2 /* NewsColumnsModel.swift in Sources */,
 				36F57A6321AE431500A6CC9C /* TopScrollingMenuColumnHeader.swift in Sources */,
 				D8729C2621A986980013AC0A /* Reusable.swift in Sources */,
+				36EDEF3F22310B6300D49376 /* ProfileTableHeaderView.swift in Sources */,
 				D85C162F21A8FB230033BFCA /* BaseViewController.swift in Sources */,
 				36F57A6421AE431500A6CC9C /* TopScrollingMenuColumnCell.swift in Sources */,
 				D8729C2121A978A80013AC0A /* UIFont+Extension.swift in Sources */,
 				D85C163921A8FB720033BFCA /* BaseNavigationViewController.swift in Sources */,
 				36F61ABA21B1021500990CF2 /* NewsDetailWithBannerTypeView.swift in Sources */,
+				36EDEF412231143D00D49376 /* OtherLoginMethodsView.swift in Sources */,
 				365F97A322043FBC00623843 /* CirclePublishTypeAlertView.swift in Sources */,
 				36BEF92221E3442400827C6D /* ShareToolCollectionView.swift in Sources */,
 				36F61AC021B1025100990CF2 /* NewsDetailHotReviewTypeView.swift in Sources */,
